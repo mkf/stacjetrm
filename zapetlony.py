@@ -14,6 +14,7 @@ print odnalezione
 print stacja
 
 
+
 '''
 sztuki = re.sub(r'\D',"",re.sub(r'h7', "", re.search( r'<h7>.*szt.*</h7>', file.read(), re.S)))
 znalezione = re.search( r'w na stacji.*szt', file.read(), re.S)

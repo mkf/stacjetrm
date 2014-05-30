@@ -1,4 +1,5 @@
 #!/bin/sh
+costam=345
 i=0
 while :
 do
