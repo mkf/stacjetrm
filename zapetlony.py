@@ -8,7 +8,7 @@ file = open(plik, 'r')
 odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 odnalezione = odnaleziono.group()
 stacjowystring = re.sub(r'\D',"",stacyja)
-stacja = int(stacja)
+stacja = int(stacjowystring)
 
 print odnalezione
 print stacja
