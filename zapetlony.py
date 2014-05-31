@@ -2,8 +2,8 @@ import re
 import sys
 plik = sys.argv[1]
 stacyja = sys.argv[2]
-tryb = sys.argv[3]
-dzien = sys.argv[4]
+tryb = sys.argv[4]
+dzien = sys.argv[3]
 slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
 # ^ to tutaj to slowniczek koncowek, 
 # dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, 

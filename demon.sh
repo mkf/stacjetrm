@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 #cd /*/stacjetrm
 #cd /*/*/stacjetrm
 #cd /*/*/*/stacjetrm
 #cd /*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
+if 
+alias unixtime='date "+%s"'
 costam=345
 i=0
 while :
@@ -14,9 +16,9 @@ do
 	rm -v 0*TOR.js*
 	for j in 01 02 03 04 05 06 07 08 09 10 11 12
 	do
-		dzien='date "+%s"'
+		dzien=$(unixtime)
 		wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
-		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $1 $dzien
+		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $1
 	done
 	echo "Zatoczenie $i completed"
 done
