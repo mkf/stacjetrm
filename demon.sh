@@ -75,6 +75,8 @@ do
 	for j in 01 02 03 04 05 06 07 08 09 10 11 12
 	do
 		unixtime=$(date "+%s")
+		localdate=$(TZ='Europe/Warsaw' date "+%F")
+		localtime=$(TZ='Europe/Warsaw' date "+%T")
 		dzien=$unixtime
 		if [ "$debug" = "true" ]
 		then
