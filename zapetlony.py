@@ -33,54 +33,7 @@ stacjinazwa = re.sub(r'.jsp',"",plik)
 #orzecznik = 
 #rzeczownik = 
 print "Czas: ", dzien, " --  na stacji ", stacjinazwa, " jest ", rowery, " rowerow."
-
-
-'''
-print ""
-print"----"
-print ""
-print stacja
-print""
-print renaleziono
-print type(renaleziono)
-print 'ponad jest typ renaleziono'
-print renalezione
-print type(renalezione)
-print 'ponad jest typ renalezione'
-print odnalezione
-print type(odnalezione)
-print 'ponad jest typ odnalezione'
-print wynalezione
-print type(wynalezione)
-print 'ponad jest typ wynalezione'
-print ""
-print reodnalezione
-print type(reodnalezione)
-print 'ponad jest typ reodnalezione'
-
-print ""
-print"----"
-'''
-
-'''
-sztuki = re.sub(r'\D',"",re.sub(r'h7', "", re.search( r'<h7>.*szt.*</h7>', file.read(), re.S)))
-znalezione = re.search( r'w na stacji.*szt', file.read(), re.S)
-znaleziono = znalezione.group()
-stacja = re.sub(r'\D',"",stacyja)
-st = int(stacja)
-znalezionoo = re.search(str(st), znaleziono)
-znalezne = znalezionoo.group
-znaleznee = znalezne.group
-print znalezne
-bezHsiedem = re.sub(r'h7', "", znalezne)
-samesztuki = re.sub(r'\D', "", bezHsiedem)
-#sztuki = re.sub(r'8138746386958797069451995188515142300400600766956124242424242412430551487974106202476424247642424764247642424122', "", samesztuki)
-#sztukia = re.sub(r'12341242242424324242442424524', "", sztuki)
-szt = int(sztukia)
-print 'Na stacji ', stacyja, ' jest ', szt, ' rowerow miejskich.'
-
-print(file.read())
-'''
+#print 'Na stacji ', stacyja, ' jest ', szt, ' rowerow miejskich.'
 
 
 #tu bedzie jeszcze ladny append do jednego csvka
