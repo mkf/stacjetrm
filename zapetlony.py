@@ -2,6 +2,7 @@ import re
 import sys
 plik = sys.argv[1]
 stacyja = sys.argv[2]
+slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
 file = open(plik, 'r')
 
 
@@ -9,10 +10,12 @@ odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 odnalezione = odnaleziono.group()
 stacjowystring = re.sub(r'\D',"",stacyja)
 stacja = int(stacjowystring)
+renaleziono = re.search(r'
 
+'''
 print odnalezione
 print stacja
-
+'''
 
 
 '''
