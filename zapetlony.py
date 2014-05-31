@@ -15,9 +15,9 @@ odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 odnalezione = odnaleziono.group()
 stacjowystring = re.sub(r'\D',"",stacyja)
 stacja = int(stacjowystring)
-renaleziono = re.search((slowniczekkoncowek[plik]) + szt), odnalezione, re.S)
+renaleziono = re.search(((slowniczekkoncowek[plik]) + szt), odnalezione, re.S)
 renalezione = renaleziono.group
-
+#reodnalezione = renalezione.group
 
 print renalezione
 print stacja
