@@ -33,16 +33,19 @@ if [ "$2" = "f" ]
 then
 	debugu=f
 elif [ "$2" = "y" ]
+then
 	debugu=y
 elif [ "$2" = "n" ]
+then
 	debugu=n
 elif [ -z "$2" ]
+then
 	debugu=n
 else
 	echo 'Niepoprawny parametr trybu debugu: ' $2 >&2
         cat README*
         exit
-
+fi
 if [ "$debugu" = "y" ]
 then
 	debug=true
@@ -75,15 +78,19 @@ do
 		dzien=$unixtime
 		if [ "$debug" = "true" ]
 		then
-			if [ "$fdebug
-			wget -v --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+			if [ "$fdebug" = "true" ]
+			then
+				wget --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+			else
+				wget -q --no-check certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+			fi
 		else
 			wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp
 		fi
 		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy $debugu
 	done
 	if [ "$debug" = "true" ]
-	then 
+	then
 		echo "Zatoczenie $i completed"
 	fi
 done
