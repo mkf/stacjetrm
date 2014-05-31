@@ -6,6 +6,9 @@ Skrypcik do liczby rowerów na stacjach trm24.pl
 Składnia:
 ./demon.sh [tryb pracy] [tryb zapisu] [plik zapisu]
 
+nie należy pisać kolejnego prarmetru bez napisania pierwszego! 
+jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
+
 tryby pracy:
     f
         [domyślnie] w celu interfejsu pełnego, ale dla oczu ludzkich
