@@ -10,6 +10,7 @@ nie należy pisać kolejnego prarmetru bez napisania pierwszego!
 jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
 
 tryby pracy:
+    
     l
         [domyślnie] w celu interfejsu pełnego, ale dla oczu ludzkich
     u
