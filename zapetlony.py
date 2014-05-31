@@ -2,7 +2,8 @@ import re
 import sys
 plik = sys.argv[1]
 stacyja = sys.argv[2]
-trybpracy = sys.argv[6]
+pracy = sys.argv[6]
+debugu = sys.argv[7]
 unix = sys.argv[3]
 dzien = sys.argv[4]
 czas = sys.argv[5]
@@ -46,15 +47,15 @@ elif rowery >= 2:
 else:
 	orzim = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
 #La "if" super estos uzota pri la interfaco por homojn: modo 'f' kaj 'u'
-if trybpracy == "u":
+if pracy == "u":
 	print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
-elif trybpracy == "l":
+elif pracy == "l":
         print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
-elif trybpracy == "p":
+elif pracy == "p":
 	print dzien, czas, stacjinazwa, rowery
-elif trybpracy == "c":
+elif pracy == "c":
 	print unix, stacja, rowery
-elif trybpracy == "m":
+elif pracy == "m":
 	print unix, stacjinazwa, rowery
 else:
 	print "Elektu labormodo u, l, p, c aux m se vi volas ke tiun programon funkcas."

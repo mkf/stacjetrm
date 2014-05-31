@@ -80,7 +80,7 @@ do
 		else
 			wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp
 		fi
-		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy
+		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy $debugu
 	done
 	if [ "$debug" = "true" ]
 	then 
