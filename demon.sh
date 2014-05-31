@@ -20,7 +20,14 @@ then
 elif [$1=m]
 then
         param1=m
-elif [$1=
+elif [-z $1]
+then
+	param1=defparam1
+else
+	echo 'Niepoprawny parametr: "$1"'
+	cat README*
+	exit
+fi
 
 alias unixtime='date "+%s"'
 costam=345
