@@ -5,31 +5,41 @@
 #cd /*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
-defparam1="u"
+defpracy="u"
 if [ "$1" = "u" ]
 then
-	param1=u
+	pracy=u
 elif [ "$1" = "f" ]
 then
-	param1=f
+	pracy=f
 elif [ "$1" = "p" ]
 then
-        param1=p
+        pracy=p
 elif [ "$1" = "c" ]
 then
-        param1=c
+        pracy=c
 elif [ "$1" = "m" ]
 then
-        param1=m
+        pracy=m
 elif [ -z "$1" ]
 then
-	param1=defparam1
+	pracy=defpracy
 else
 	echo 'Niepoprawny parametr: ' $1 >&2
 	cat README*
 	exit
 fi
-
+if [ "$debugu" = "y" ]
+then
+	debug=true
+elif [ "$debugu" = "f" ]
+then
+	debug=true
+	fdebug=true
+else
+	debug=false
+	fulldebug=false
+fi
 unixtime=$(date "+%s")
 localdate=$(TZ='Europe/Warsaw' date "+%F")
 localtime=$(TZ='Europe/Warsaw' date "+%T")
@@ -38,7 +48,7 @@ i=0
 while :
 do
 	i=$[i + 1]
-	if [ "$param1" = "f" ]
+	if [ "$debug" = "true" ]
 	then
 		echo "Zatoczenie petli nr $i"
 		rm -v 0*TOR.js*
@@ -49,10 +59,19 @@ do
 	do
 		unixtime=$(date "+%s")
 		dzien=$unixtime
-		wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
-		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $param1
+		if [ "$debug" = "true" ]
+		then
+			if [ "$fdebug
+			wget -v --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+		else
+			wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp
+		fi
+		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy
 	done
-	echo "Zatoczenie $i completed"
+	if [ "$debug" = "true" ]
+	then 
+		echo "Zatoczenie $i completed"
+	fi
 done
 echo "Zakonczenie programu przez dziwny traf"
 exit

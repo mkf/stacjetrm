@@ -4,7 +4,7 @@ stacjetrm
 Skrypcik do liczby rowerów na stacjach trm24.pl
 
 Składnia:
-./demon.sh [tryb pracy] [tryb zapisu] [plik zapisu]
+./demon.sh [tryb pracy] [tryb debugu] [tryb zapisu] [plik zapisu]
 
 nie należy pisać kolejnego prarmetru bez napisania pierwszego! 
 jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
@@ -20,6 +20,15 @@ tryby pracy:
         w celu zapisu maksymalnie zminimalizowanego, tj. "[czasUNIX],[jednolubdwucyfrowynrstacji],[liczbarowerów]
     m
         w celu zapisu minimalnego, jeszcze nie wiem jakiego dokładnie
+
+tryby debugu:
+    
+    f
+        w celu full debuga
+    y
+        w celu debuga delikatnego
+    n
+        bez debuga
 
 tryby zapisu:
 
