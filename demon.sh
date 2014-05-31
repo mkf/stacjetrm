@@ -5,7 +5,23 @@
 #cd /*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
-if 
+if [$1=u]
+then
+	param1=u
+elif [$1=f]
+then
+	param1=f
+elif [$1=p]
+then
+        param1=p
+elif [$1=c]
+then
+        param1=c
+elif [$1=m]
+then
+        param1=m
+elif [$1=
+
 alias unixtime='date "+%s"'
 costam=345
 i=0
@@ -18,7 +34,7 @@ do
 	do
 		dzien=$(unixtime)
 		wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
-		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $1
+		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $param1
 	done
 	echo "Zatoczenie $i completed"
 done
