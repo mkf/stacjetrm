@@ -2,8 +2,10 @@ import re
 import sys
 plik = sys.argv[1]
 stacyja = sys.argv[2]
-tryb = sys.argv[4]
-dzien = sys.argv[3]
+trybpracy = sys.argv[6]
+unix = sys.argv[3]
+dzien = sys.argv[4]
+czas = sys.argv[5]
 slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
 # ^ to tutaj to slowniczek koncowek, dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, ktora jest jedyna liczba pomiedzy owa koncowka a "szt.".
 # i tak nie uzylem slowniczka, ale przynajmniej przypomnialem sobie dictionaries w pythonie
@@ -30,18 +32,35 @@ rowery = int(rowerki)
 stacjinazwa = re.sub(r'.jsp',"",plik)
 if rowery == 0:
 	orzim = "estas neniu bicikloj"
-elif rowery = -1:
-	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(rowery) + " biciklo – kaj tio estas negativa kvanto"
-elif rowery >= 0:
-	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(rowery) + " bicikloj – kaj tio estas negativa kvanto"
+elif rowery == -1:
+	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto"
+elif rowery <= 0:
+	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(rowery) + " bicikloj - kaj tio estas negativa kvanto"
 elif rowery == 1:
-	orzim = "estas 1 biciklo"
+	orzim = "estas 1  biciklo"
 elif rowery >= 2:
-	orzim = ("estas " + str(rowery) + " bicikloj")
-else
+	if rowery <= 9:
+		orzim = ("estas " + str(rowery) + "  bicikloj")
+	if rowery >= 10:
+		orzim = ("estas " + str(rowery) + " bicikloj")
+else:
 	orzim = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
-#if param1 == u
-#print "Czas: ", dzien, " --  na stacji ", stacjinazwa, " jest ", rowery, " rowerow"
+#La "if" super estos uzota pri la interfaco por homojn: modo 'f' kaj 'u'
+if trybpracy == "u":
+	print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
+elif trybpracy == "f":
+        print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
+elif trybpracy == "p":
+	print dzien, czas, stacjinazwa, rowery
+elif trybpracy == "c":
+	print unix, stacja, rowery
+elif trybpracy == "m":
+	print unix, stacjinazwa, rowery
+else:
+	print "Elektu labormodo u, f, p, c aux m se vi volas ke tiun programon funkcas."
+#if param1 == "p":
+#	print "
+#print "Czas: ", unix, " --  na stacji ", stacjinazwa, " jest ", rowery, " rowerow"
 #print 'Na stacji ', stacyja, ' jest ', szt, ' rowerow miejskich.'
 
 
