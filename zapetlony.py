@@ -6,6 +6,7 @@ slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp':
 # ^ to tutaj to slowniczek koncowek, 
 # dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, 
 # ktora jest jedyna liczba pomiedzy owa koncowka a "szt.".
+szt = '.*szt'
 
 file = open(plik, 'r')
 
@@ -14,7 +15,7 @@ odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 odnalezione = odnaleziono.group()
 stacjowystring = re.sub(r'\D',"",stacyja)
 stacja = int(stacjowystring)
-renaleziono = re.search(r''slowniczekkoncowek[plik]'.*szt', odnalezione, re.S)
+renaleziono = re.search((slowniczekkoncowek[plik]) + szt), odnalezione, re.S)
 renalezione = renaleziono.group
 
 

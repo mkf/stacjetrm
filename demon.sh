@@ -1,4 +1,10 @@
 #!/bin/sh
+cd /*/stacjetrm
+cd /*/*/stacjetrm
+cd /*/*/*/stacjetrm
+cd /*/*/*/*/stacjetrm
+cd /*/*/*/*/*/stacjetrm
+cd /*/*/*/*/*/*/stacjetrm
 costam=345
 i=0
 while :
