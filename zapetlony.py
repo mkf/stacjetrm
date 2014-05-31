@@ -3,6 +3,10 @@ import sys
 plik = sys.argv[1]
 stacyja = sys.argv[2]
 slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
+# ^ to tutaj to slowniczek koncowek, 
+# dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, 
+# ktora jest jedyna liczba pomiedzy ową końcówką a "szt.".
+
 file = open(plik, 'r')
 
 
@@ -10,12 +14,13 @@ odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 odnalezione = odnaleziono.group()
 stacjowystring = re.sub(r'\D',"",stacyja)
 stacja = int(stacjowystring)
-renaleziono = re.search(r'
+renaleziono = re.search(r''slowniczekkoncowek[plik]'.*szt', odnalezione, re.S)
+renalezione = renaleziono.group
 
-'''
-print odnalezione
+
+print renalezione
 print stacja
-'''
+
 
 
 '''
@@ -40,3 +45,4 @@ print(file.read())
 
 
 #tu bedzie jeszcze ladny append do jednego csvka
+#EDIT: lub innej, sensowniejszej bazy danych
