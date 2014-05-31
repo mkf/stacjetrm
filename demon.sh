@@ -9,7 +9,7 @@ defpracy="u"
 if [ "$1" = "u" ]
 then
 	pracy=u
-elif [ "$1" = "f" ]
+elif [ "$1" = "l" ]
 then
 	pracy=f
 elif [ "$1" = "p" ]
@@ -25,10 +25,24 @@ elif [ -z "$1" ]
 then
 	pracy=defpracy
 else
-	echo 'Niepoprawny parametr: ' $1 >&2
+	echo 'Niepoprawny parametr trybu pracy: ' $1 >&2
 	cat README*
 	exit
 fi
+if [ "$2" = "f" ]
+then
+	debugu=f
+elif [ "$2" = "y" ]
+	debugu=y
+elif [ "$2" = "n" ]
+	debugu=n
+elif [ -z "$2" ]
+	debugu=n
+else
+	echo 'Niepoprawny parametr trybu debugu: ' $2 >&2
+        cat README*
+        exit
+
 if [ "$debugu" = "y" ]
 then
 	debug=true

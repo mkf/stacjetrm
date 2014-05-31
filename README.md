@@ -10,7 +10,7 @@ nie należy pisać kolejnego prarmetru bez napisania pierwszego!
 jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
 
 tryby pracy:
-    f
+    l
         [domyślnie] w celu interfejsu pełnego, ale dla oczu ludzkich
     u
         w celu interfejsu bez debuga, dla oczu ludzkich

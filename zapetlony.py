@@ -48,7 +48,7 @@ else:
 #La "if" super estos uzota pri la interfaco por homojn: modo 'f' kaj 'u'
 if trybpracy == "u":
 	print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
-elif trybpracy == "f":
+elif trybpracy == "l":
         print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
 elif trybpracy == "p":
 	print dzien, czas, stacjinazwa, rowery
@@ -57,12 +57,15 @@ elif trybpracy == "c":
 elif trybpracy == "m":
 	print unix, stacjinazwa, rowery
 else:
-	print "Elektu labormodo u, f, p, c aux m se vi volas ke tiun programon funkcas."
+	print "Elektu labormodo u, l, p, c aux m se vi volas ke tiun programon funkcas."
 #if param1 == "p":
 #	print "
 #print "Czas: ", unix, " --  na stacji ", stacjinazwa, " jest ", rowery, " rowerow"
 #print 'Na stacji ', stacyja, ' jest ', szt, ' rowerow miejskich.'
 
 
-#tu bedzie jeszcze ladny append do jednego csvka
+#tu bedzie jeszcze append do csvka
 #EDIT: lub innej, sensowniejszej bazy danych
+
+#tie estos ankaux append al la csv-o
+#aux al alian, pli sencan datumbazon
