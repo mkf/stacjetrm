@@ -29,8 +29,8 @@ print type(renalezione)
 print 'ponad jest typ renalezione'
 print type(odnalezione)
 print 'ponad jest typ odnalezione'
-print type(wynaleziono)
-print 'ponad jest typ wynaleziono'
+print type(wynalezione)
+print 'ponad jest typ wynalezione'
 
 print stacja
 
