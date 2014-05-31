@@ -9,7 +9,7 @@ dzien = sys.argv[4]
 czas = sys.argv[5]
 slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
 # ^ to tutaj to slowniczek koncowek, dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, ktora jest jedyna liczba pomiedzy owa koncowka a "szt.".
-# i tak nie uzylem slowniczka, ale przynajmniej przypomnialem sobie dictionaries w pythonie
+#  i tak nie uzylem slowniczka, ale przynajmniej przypomnialem sobie dictionaries w pythonie
 szt = '.*szt'
 
 file = open(plik, 'r')
