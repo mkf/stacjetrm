@@ -12,14 +12,26 @@ file = open(plik, 'r')
 
 
 odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
-odnalezione = odnaleziono.group()
+
+wynalezione = odnaleziono.group()
+odnalezione = str(wynalezione)
 stacjowystring = re.sub(r'\D',"",stacyja)
 stacja = int(stacjowystring)
 renaleziono = re.search(((slowniczekkoncowek[plik]) + szt), odnalezione, re.S)
 renalezione = renaleziono.group
 #reodnalezione = renalezione.group
 
+print stacja
 print renalezione
+print type(renaleziono)
+print 'ponad jest typ renaleziono'
+print type(renalezione)
+print 'ponad jest typ renalezione'
+print type(odnalezione)
+print 'ponad jest typ odnalezione'
+print type(wynaleziono)
+print 'ponad jest typ wynaleziono'
+
 print stacja
 
 
