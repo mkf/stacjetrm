@@ -5,31 +5,31 @@
 #cd /*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
-if [$1=u]
+if [ "$1" = "u" ]
 then
 	param1=u
-elif [$1=f]
+elif [ "$1" = "f" ]
 then
 	param1=f
-elif [$1=p]
+elif [ "$1" = "p" ]
 then
         param1=p
-elif [$1=c]
+elif [ "$1" = "c" ]
 then
         param1=c
-elif [$1=m]
+elif [ "$1" = "m" ]
 then
         param1=m
-elif [-z $1]
+elif [ -z "$1" ]
 then
 	param1=defparam1
 else
-	echo 'Niepoprawny parametr: "$1"'
+	echo 'Niepoprawny parametr: ' $1 >&2
 	cat README*
 	exit
 fi
 
-alias unixtime='date "+%s"'
+unixtime=$(date "+%s")
 costam=345
 i=0
 while :
@@ -39,7 +39,8 @@ do
 	rm -v 0*TOR.js*
 	for j in 01 02 03 04 05 06 07 08 09 10 11 12
 	do
-		dzien=$(unixtime)
+		unixtime=$(date "+%s")
+		dzien=$unixtime
 		wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
 		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $param1
 	done
