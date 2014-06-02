@@ -47,9 +47,9 @@ elif rowery >= 2:
 else:
 	orzim = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
 #La "if" super estos uzota pri la interfaco por homojn: modo 'f' kaj 'u'
-if pracy == "u":
+if pracy == 'u':
 	print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
-elif pracy == "l":
+elif pracy == 'l':
         print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
 elif pracy == "p":
 	print dzien, czas, stacjinazwa, rowery
@@ -59,6 +59,7 @@ elif pracy == "m":
 	print unix, stacjinazwa, rowery
 else:
 	print "Elektu labormodo u, l, p, c aux m se vi volas ke tiun programon funkcas."
+	print "Plej eble ke la labormodo ", pracy, " estas malbona."
 #if param1 == "p":
 #	print "
 #print "Czas: ", unix, " --  na stacji ", stacjinazwa, " jest ", rowery, " rowerow"

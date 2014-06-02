@@ -11,7 +11,7 @@ then
 	pracy=u
 elif [ "$1" = "l" ]
 then
-	pracy=f
+	pracy=l
 elif [ "$1" = "p" ]
 then
         pracy=p
