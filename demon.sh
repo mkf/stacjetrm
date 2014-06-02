@@ -7,6 +7,7 @@
 #cd /*/*/*/*/*/*/stacjetrm
 defpracy="u"
 defdebugu="n"
+defsm="n"
 if [ "$1" = "u" ]
 then
 	pracy=u
@@ -64,6 +65,9 @@ else
 	debug=false
 	fulldebug=false
 fi
+if [ "$sm" = "c"
+then
+# tutaj!!!
 unixtime=$(date "+%s")
 localdate=$(TZ='Europe/Warsaw' date "+%F")
 localtime=$(TZ='Europe/Warsaw' date "+%T")
@@ -96,7 +100,7 @@ do
 		else
 			wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp
 		fi
-		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy $debugu
+		python zapetlony.py 0${j}TOR.jsp 0${j}TOR $dzien $localdate $localtime $pracy $debugu $sd $sf
 	done
 	if [ "$debug" = "true" ]
 	then
