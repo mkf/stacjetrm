@@ -21,7 +21,8 @@ tryby pracy:
         w celu zapisu maksymalnie zminimalizowanego, tj. "[czasUNIX],[jednolubdwucyfrowynrstacji],[liczbarowerów]
     m
         w celu zapisu minimalnego, jeszcze nie wiem jakiego dokładnie
-
+    d
+        USTAWIENIE DOMYSLNE
 tryby debugu:
     
     f
@@ -30,7 +31,8 @@ tryby debugu:
         w celu debuga delikatnego
     n
         bez debuga
-
+    d
+        USTAWIENIE DOMYSLNE
 tryby zapisu:
 
     jeszcze nieustalone

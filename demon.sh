@@ -6,6 +6,7 @@
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
 defpracy="u"
+defdebugu="n"
 if [ "$1" = "u" ]
 then
 	pracy=u
@@ -24,6 +25,9 @@ then
 elif [ -z "$1" ]
 then
 	pracy=defpracy
+elif [ "$1" = "d" ]
+then
+	pracy=defpracy
 else
 	echo 'Niepoprawny parametr trybu pracy: ' $1 >&2
 	cat README*
@@ -40,7 +44,10 @@ then
 	debugu=n
 elif [ -z "$2" ]
 then
-	debugu=n
+	debugu=defdebugu
+elif [ "$2" = "d" ]
+then
+	debugu=defdebugu
 else
 	echo 'Niepoprawny parametr trybu debugu: ' $2 >&2
         cat README*
