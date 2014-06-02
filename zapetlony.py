@@ -1,12 +1,14 @@
 import re
 import sys
 plik = sys.argv[1]
-stacyja = sys.argv[2]
-pracy = sys.argv[6]
-debugu = sys.argv[7]
-unix = sys.argv[3]
-dzien = sys.argv[4]
-czas = sys.argv[5]
+stacyja = sys.argv[2]	#nazwa stacji
+pracy = sys.argv[6]	#tryb pracy
+debugu = sys.argv[7]	#tryb debugu
+unix = sys.argv[3]	#unixtime
+dzien = sys.argv[4]	#dzien lokalny
+czas = sys.argv[5]	#czas lokalny
+#sf = 			#save file
+#sm = 			#save mode
 slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp': 'packiego', '004TOR.jsp': 'torna', '005TOR.jsp': 'ejskie', '006TOR.jsp': 'sytecka', '007TOR.jsp': 'esco', '008TOR.jsp': 'arket', '009TOR.jsp': 'arket', '010TOR.jsp': 'wny', '011TOR.jsp': 'olicji', '012TOR.jsp': 'aciej'}
 # ^ to tutaj to slowniczek koncowek, dzieki ktoremu bedzie mozna wyodrebnic sama liczbe rowerow, ktora jest jedyna liczba pomiedzy owa koncowka a "szt.".
 #  i tak nie uzylem slowniczka, ale przynajmniej przypomnialem sobie dictionaries w pythonie
