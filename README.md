@@ -21,6 +21,8 @@ tryby pracy:
         w celu zapisu maksymalnie zminimalizowanego, tj. "[czasUNIX],[jednolubdwucyfrowynrstacji],[liczbarowerów]
     m
         w celu zapisu minimalnego, jeszcze nie wiem jakiego dokładnie
+    n
+        w celu braku wypisywania danych do terminala, niepolecane, jeszcze nie istnieje
     d
         USTAWIENIE DOMYSLNE
 tryby debugu:
@@ -35,8 +37,14 @@ tryby debugu:
         USTAWIENIE DOMYSLNE
 tryby zapisu:
 
-    jeszcze nieustalone
+    c
+        w celu zapisu do pliku csv, jeszcze nie istnieje
+    n
+        w celu braku zapisu, tylko standard output, jeszcze nie istnieje
+    s
+        w celu zapisu do bazy MySQL(?) jeszcze nie istnieje
+    
 
 plik zapisu:
     
-    jeszcze nawet zapisu nie zrobiłem
+    ten parametr równiez jeszcze nie istnieje
