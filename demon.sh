@@ -30,7 +30,7 @@ elif [ "$1" = "d" ]
 then
 	pracy=defpracy
 else
-	echo 'Niepoprawny parametr trybu pracy: ' $1 >&2
+	echo 'Malkorekta parametron de la labormodon: ' $1 >&2
 	cat README*
 	exit
 fi
@@ -50,7 +50,7 @@ elif [ "$2" = "d" ]
 then
 	debugu=defdebugu
 else
-	echo 'Niepoprawny parametr trybu debugu: ' $2 >&2
+	echo 'Malkorekta parametron de la senfusximodo: ' $2 >&2
         cat README*
         exit
 fi
@@ -65,9 +65,34 @@ else
 	debug=false
 	fulldebug=false
 fi
-if [ "$sm" = "c"
+if [ "$3" = "c" ]
 then
-# tutaj!!!
+        sm=c
+elif [ "$3" = "n" ]
+then
+        sm=n
+elif [ "$3" = "s" ]
+then
+        sm=s
+elif [ -z "$3" ]
+then
+	sm=defsm
+else
+	echo 'Malkorekta parametron de la skribamodo: ' $3 >&2
+fi
+if [ "$sm" = "c" ]
+then
+	sd=csv
+	echo "La ebleco de la skribadon al la dosieron ne ekzistas ankoraux."
+elif [ "$sm" = "n" ]
+then
+	sd=none
+elif [ "$sm" = "s" ]
+then
+	sd=sql
+	echo "La ebleco de la skribadon al la SQL-datumbazo ne ekzistas ankoraux."
+fi
+#if [ "$4"
 unixtime=$(date "+%s")
 localdate=$(TZ='Europe/Warsaw' date "+%F")
 localtime=$(TZ='Europe/Warsaw' date "+%T")
@@ -78,7 +103,7 @@ do
 	i=$[i + 1]
 	if [ "$debug" = "true" ]
 	then
-		echo "Zatoczenie petli nr $i"
+		echo "La ${i}a lancxo de la lopon"
 		rm -v 0*TOR.js*
 	else
 		rm 0*TOR.js*
@@ -93,9 +118,9 @@ do
 		then
 			if [ "$fdebug" = "true" ]
 			then
-				wget --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+				wget --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "La staton de la biciklastacio 0${j}TOR elsxutita sukcese"
 			else
-				wget -q --no-check certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "Pobieranie stacji 0${j}TOR sukcesem zakonczone"
+				wget -q --no-check certificate trm24.pl/panel-trm/0${j}TOR.jsp && echo "La staton de la biciklastacio 0${j}TOR elsxutita sukcese"
 			fi
 		else
 			wget -q --no-check-certificate trm24.pl/panel-trm/0${j}TOR.jsp
@@ -104,7 +129,7 @@ do
 	done
 	if [ "$debug" = "true" ]
 	then
-		echo "Zatoczenie $i completed"
+		echo "La ${i}a lancxo de la lopon finis"
 	fi
 done
 echo "Zakonczenie programu przez dziwny traf"
