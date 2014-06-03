@@ -9,5 +9,7 @@
 	- angielska
 	- niemiecka (być może, tu potrzebowałbym już pomocy)
 - stworzenie możliwości łatwego tłumaczenia programu poprzez stworzenie plików językowych
+- przepisanie całości na python w celu ukompatybilnienia tego z innymi systemami
+	- następnie zrobienie wersji dla Pythona 2 i 3
 - jakieś sugestie?
 	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
