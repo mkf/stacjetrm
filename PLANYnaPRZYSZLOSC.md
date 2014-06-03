@@ -1,0 +1,13 @@
+- uklasowienie wszystkiego
+- dodanie zapisu do:
+	- csv
+	- sql
+	- innych baz danych
+- stworzenie dwóch/trzech/czterech wersji językowych programu:
+	- esperancka
+	- polska
+	- angielska
+	- niemiecka (być może, tu potrzebowałbym już pomocy)
+- stworzenie możliwości łatwego tłumaczenia programu poprzez stworzenie plików językowych
+- jakieś sugestie?
+	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
