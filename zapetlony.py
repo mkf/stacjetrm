@@ -15,7 +15,7 @@ slowniczekkoncowek = {'001TOR.jsp': 'jski', '002TOR.jsp': 'rzyny', '003TOR.jsp':
 szt = '.*szt'
 
 file = open(plik, 'r')
-
+#save = open(sf, 'a')
 
 odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
 
