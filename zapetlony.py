@@ -73,3 +73,5 @@ else:
 
 #tie estos ankaux append al la csv-o
 #aux al alian, pli sencan datumbazon
+
+file.close()
