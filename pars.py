@@ -1,4 +1,4 @@
-class klasa1:
+class pars:
     'To jest klasa1'
     
     def __init__(self, skund, stacyjka):
@@ -15,5 +15,6 @@ class klasa1:
         reodnalezione = re.sub(r'built-in method group of ',"",renalezione)
         rowerki = re.sub(r'\D',"",reodnalezione)
         rowery = int(rowerki)
-        stacjinazwa = stacyja
+        stacjinazwa = stacyjka
+        
 
