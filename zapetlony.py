@@ -2,6 +2,7 @@ import re
 import sys
 #import pars
 from pars import *
+from orzeczim import *
 plik = sys.argv[1]
 stacyja = sys.argv[2]	#nazwa stacji
 pracy = sys.argv[6]	#tryb pracy
@@ -21,24 +22,31 @@ file = open(plik, 'r')
 
 par = pars(file.read(), stacyja)
 rowery = par.rowery
-#stacyja = par.stacyjka
 stacjinazwa = stacyja
-if rowery == 0:
-	orzim = "estas neniu bicikloj"
-elif rowery == -1:
-	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto"
-elif rowery <= 0:
-	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(rowery) + " bicikloj - kaj tio estas negativa kvanto"
-elif rowery == 1:
-	orzim = "estas 1  biciklo"
-elif rowery >= 2:
-	if rowery <= 9:
-		orzim = ("estas " + str(rowery) + "  bicikloj")
-	if rowery >= 10:
-		orzim = ("estas " + str(rowery) + " bicikloj")
-else:
-	orzim = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
-#La "if" super estos uzota pri la interfaco por homojn: modo 'f' kaj 'u'
+orze = oreczim(rowery, stacjinazwa, pracy, dzien, czas)
+if pracy == 'u':
+        orze.orz()
+        orze.pisul()
+elif pracy == 'l':
+        orze.orz()                                                  
+        orze.pisul()
+
+#if rowery == 0:
+#	orzim = "estas neniu bicikloj"
+#elif rowery == -1:
+#	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto"
+#elif rowery <= 0:
+#	orzim = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(rowery) + " bicikloj - kaj tio estas negativa kvanto"
+#elif rowery == 1:
+#	orzim = "estas 1  biciklo"
+#elif rowery >= 2:
+#	if rowery <= 9:
+#		orzim = ("estas " + str(rowery) + "  bicikloj")
+#	if rowery >= 10:
+#		orzim = ("estas " + str(rowery) + " bicikloj")
+#else:
+#	orzim = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
+#La "if" super estos uzota pri la interfaco por homojn: modo 'l' kaj 'u'
 if pracy == 'u':
 	print dzien, czas, "Al la biciklastacio", stacjinazwa, orzim
 elif pracy == 'l':
