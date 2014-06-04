@@ -12,9 +12,9 @@ jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
 tryby pracy:
     
     l
-        [domyślnie] w celu interfejsu pełnego, ale dla oczu ludzkich
+        [domyślnie] w celu interfejsu pełnego z przedzieleniem na pętli, dla oczu ludzkich
     u
-        w celu interfejsu bez debuga, dla oczu ludzkich
+        w celu interfejsu pełnego ciągłego, dla oczu ludzkich
     p
         w celu interfejsu dla programu, sensownego do zapisu z command line'a 
     c
