@@ -31,8 +31,10 @@ elif pracy == 'c':
 	orze.pisc()
 elif pracy == 'm':
 	orze.pism()
+elif pracy == 'a':
+	orze.pisa()
 else:
-	print "Elektu labormodo u, l, p, c aux m se vi volas ke tiun programon funkcas."
+	print "Elektu labormodo a, l, u, p, c aux m se vi volas ke tiun programon funkcas."
         print "Plej eble ke la labormodo ", pracy, " estas malbona."
 
 #tu bedzie jeszcze append do csvka

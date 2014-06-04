@@ -1,5 +1,5 @@
 class orzeczim:
-	"To jest klasa orzeczenia imiennego, w trybach u i l"
+	"To jest klasa orzeczenia imiennegoi w ogole outputu standardowego"
 	
 	def __init__(self,row,stac,unx,dz,cz):
 		self.row = row

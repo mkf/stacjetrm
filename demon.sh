@@ -5,7 +5,7 @@
 #cd /*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/stacjetrm
 #cd /*/*/*/*/*/*/stacjetrm
-defpracy="u"
+defpracy="a"
 defdebugu="n"
 defsm="n"
 if [ "$1" = "u" ]
@@ -23,6 +23,9 @@ then
 elif [ "$1" = "m" ]
 then
         pracy=m
+elif [ "$1" = "a" ]
+then
+        pracy=a
 elif [ -z "$1" ]
 then
 	pracy=defpracy
@@ -109,6 +112,9 @@ do
 		rm 0*TOR.js*
 	fi
 	if [ "$pracy" = "l" ]
+	then
+		echo "–—===================—–"
+	elif [ "$pracy" = "a" ]
 	then
 		echo "–—===================—–"
 	fi
