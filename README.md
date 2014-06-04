@@ -11,8 +11,10 @@ jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
 
 tryby pracy:
     
+    a             [DOMYŚLNE]
+        w celu interfejsu pełnego z przedzieleniem na pętli i adresami, dla oczu ludzkich
     l
-        [domyślnie] w celu interfejsu pełnego z przedzieleniem na pętli, dla oczu ludzkich
+        w celu interfejsu pełnego z przedzieleniem na pętli, dla oczu ludzkich
     u
         w celu interfejsu pełnego ciągłego, dla oczu ludzkich
     p
