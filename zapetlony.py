@@ -20,7 +20,7 @@ file = open(plik, 'r')
 #save = open(sf, 'a')
 
 par = pars(file.read(), stacyja)
-rowery = par.rowery()
+rowery = par.rowery
 #stacyja = par.stacyjka
 stacjinazwa = stacyja
 if rowery == 0:
