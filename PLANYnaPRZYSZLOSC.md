@@ -11,5 +11,6 @@
 - stworzenie możliwości łatwego tłumaczenia programu poprzez stworzenie plików językowych
 - przepisanie całości na python w celu ukompatybilnienia tego z innymi systemami
 	- następnie zrobienie wersji dla Pythona 2 i 3
+- dodanie opcji debugu, która na podstawie bashowego datew trybie nanosekund mierzyłaby ile minęło od rozpoczęcia pętli do pewnego momentu programu lub do końca pętli, lub zliczałaby ilość i liczyła średnią i sumę, i liczyła ile między liczeniami, znaczy ile było nanosekund niepoliczonych
 - jakieś sugestie?
 	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
