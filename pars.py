@@ -1,7 +1,9 @@
 class pars:
     'To jest klasa1'
-    
+    import re
+
     def __init__(self, skund, stacyjka):
+        import re
         self.skund = skund
         self.stacyjka = stacyjka
         odnaleziono = re.search(r'w na stacji.*szt', skund, re.S)
@@ -14,7 +16,11 @@ class pars:
         renalezione = renaleziono.group()
         reodnalezione = re.sub(r'built-in method group of ',"",renalezione)
         rowerki = re.sub(r'\D',"",reodnalezione)
-        rowery = int(rowerki)
+        rowerky = int(rowerki)
         stacjinazwa = stacyjka
+   
+    def rowery(self):
+	
+        rowery = rowerky
         
 

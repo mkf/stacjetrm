@@ -1,6 +1,7 @@
 import re
 import sys
-import pars
+#import pars
+from pars import *
 plik = sys.argv[1]
 stacyja = sys.argv[2]	#nazwa stacji
 pracy = sys.argv[6]	#tryb pracy
@@ -19,23 +20,8 @@ file = open(plik, 'r')
 #save = open(sf, 'a')
 
 par = pars(file.read(), stacyja)
-#efekt = par.get()
-odnaleziono = re.search(r'w na stacji.*szt', file.read(), re.S)
-
-wynalezione = odnaleziono.group()
-odnalezione = str(wynalezione)
-stacjowystring = re.sub(r'\D',"",stacyja)
-stacja = int(stacjowystring)
-#comaszukac = slowniczekkoncowek[plik] + szt
-comaszukac = 'th.*szt'
-renaleziono = re.search(comaszukac, odnalezione, re.S)
-renalezione = renaleziono.group()
-#reodnalezione = renalezione.group
-reodnalezione = re.sub(r'built-in method group of ',"",renalezione)
-#wlasciwie, to ten powyzszy re.sub jest zbedny, ale nic nie robi jesli tego built[...] nie ma, wiec niech juz bedzie ;;;; i finally:
-rowerki = re.sub(r'\D',"",reodnalezione)
-rowery = int(rowerki)
-#stacjinazwa = re.sub(r'.jsp',"",plik)
+rowery = par.rowery()
+#stacyja = par.stacyjka
 stacjinazwa = stacyja
 if rowery == 0:
 	orzim = "estas neniu bicikloj"
