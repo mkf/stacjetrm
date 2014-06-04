@@ -34,6 +34,8 @@ elif pracy == 'm':
 elif pracy == 'a':
 	orze.orz()
 	orze.pisa()
+elif pracy == 't':
+	orze.pist()
 else:
 	print "Elektu labormodo a, l, u, p, c aux m se vi volas ke tiun programon funkcas."
         print "Plej eble ke la labormodo ", pracy, " estas malbona."

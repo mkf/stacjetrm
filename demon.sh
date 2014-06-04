@@ -26,6 +26,9 @@ then
 elif [ "$1" = "a" ]
 then
         pracy=a
+elif [ "$1" = "t" ]
+then
+        pracy=t
 elif [ -z "$1" ]
 then
 	pracy=defpracy
@@ -117,6 +120,9 @@ do
 	elif [ "$pracy" = "a" ]
 	then
 		echo "–—===================—–"
+	elif [ "$pracy" = "t" ]
+	then
+		echo ""
 	fi
 	for j in 01 02 03 04 05 06 07 08 09 10 11 12
 	do
