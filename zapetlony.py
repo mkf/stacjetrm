@@ -18,7 +18,7 @@ file = open(plik, 'r')
 par = pars(file.read(), stacyja)
 rowery = par.rowery
 stacjinazwa = stacyja
-orze = oreczim(rowery, stacjinazwa, unix, dzien, czas)
+orze = orzeczim(rowery, stacjinazwa, unix, dzien, czas)
 if pracy == 'u':
 	orze.orz()
 	orze.pisul()

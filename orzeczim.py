@@ -9,6 +9,7 @@ class orzeczim:
 		self.cz = cz
 
 	def orz(self):
+		row = self.row
 		if row == 0:
 			self.wyd = "estas neniu bicikloj"
 		elif row == -1:
