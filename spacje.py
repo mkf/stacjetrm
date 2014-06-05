@@ -1,5 +1,5 @@
 class spacje:
-	"To jest klasa wypisująca odpowiednią ilość spacji do jednej zmiennej"
+	"To jest klasa wypisująca odpowiednia ilosc spacji do jednej zmiennej"
 
 	def __init__(self,sc)
 		self.sc = sc
