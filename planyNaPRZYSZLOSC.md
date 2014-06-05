@@ -1,16 +1,28 @@
 - uklasowienie wszystkiego
+
 - dodanie zapisu do:
 	- csv
 	- sql
 	- innych baz danych
+
 - stworzenie dwóch/trzech/czterech wersji językowych programu:
 	- esperancka
 	- polska
 	- angielska
 	- niemiecka (być może, tu potrzebowałbym już pomocy)
+
 - stworzenie możliwości łatwego tłumaczenia programu poprzez stworzenie plików językowych
+
 - przepisanie całości na python w celu ukompatybilnienia tego z innymi systemami
 	- następnie zrobienie wersji dla Pythona 2 i 3
-- dodanie opcji debugu, która na podstawie bashowego datew trybie nanosekund mierzyłaby ile minęło od rozpoczęcia pętli do pewnego momentu programu lub do końca pętli, lub zliczałaby ilość i liczyła średnią i sumę, i liczyła ile między liczeniami, znaczy ile było nanosekund niepoliczonych
+
+- dodanie opcji debugu, która na podstawie bashowego datew trybie nanosekund 
+mierzyłaby ile minęło od rozpoczęcia pętli do pewnego momentu programu lub do końca pętli, 
+lub zliczałaby ilość i liczyła średnią i sumę, 
+i liczyła ile między liczeniami, znaczy ile było nanosekund niepoliczonych
+
+- jako iż Xeno tworzy swoje API, z którego będzie można tym programem odczytywać, toteż będzie parametr czy chce się
+odczytywać z jego API czy bezpośrednio ze źródła (odczytywanie ze źródła to ryzyko bana u tych oficjalnych)
+
 - jakieś sugestie?
 	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
