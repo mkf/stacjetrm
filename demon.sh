@@ -8,13 +8,19 @@
 defpracy="a"
 defdebugu="n"
 defsm="n"
-deft = 60
-if [ "$1" = "d"]
+deft=60
+if [ "$1" = "d" ]
 then
 	t = deft
-elif [ "$1" -ge 0 ]
+elif [ -n "$1" ]
 then
-	t = $1
+	if [ "$1" -ge 0 ]
+	then
+		t=$1
+	else
+		echo "Malbonan atendotempon: " $1 >&2
+	        exit
+	fi
 else
 	echo "Malbonan atendotempon: " $1 >&2
 	exit
@@ -156,7 +162,7 @@ do
 	done
 	if [ "$debug" = "true" ]
 	then
-		echo "Kaj nun ni atendas", $t , "sekundojn"
+		echo "Kaj nun ni atendas" $t "sekundojn"
 		sleep $t
 	fi
 	if [ "$debug" = "true" ]
