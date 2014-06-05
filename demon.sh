@@ -156,6 +156,11 @@ do
 	done
 	if [ "$debug" = "true" ]
 	then
+		echo "Kaj nun ni atendas", $t , "sekundojn"
+		sleep $t
+	fi
+	if [ "$debug" = "true" ]
+	then
 		echo "La ${i}a lancxo de la lopon finis"
 	fi
 done
