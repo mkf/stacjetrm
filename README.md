@@ -4,10 +4,19 @@ stacjetrm
 Skrypcik do liczby rowerów na stacjach trm24.pl
 
 Składnia:
-./demon.sh [tryb pracy] [tryb debugu] [tryb zapisu] [plik zapisu]
+./demon.sh [czas czekania] [tryb pracy] [tryb debugu] [tryb zapisu] [plik zapisu]
 
 nie należy pisać kolejnego prarmetru bez napisania pierwszego! 
 jeżeli chcemy wybrać domyślny parametr, wiedzmy jaki on jest!
+
+czas czekania:
+    w sekundach
+        może być 0, może być liczba sensowna, może być niewiadomo ile 
+        (jedyne ograniczenie to ograniczenie komendy 'sleep' ;p), w  
+        celu praktycznie jednorazowego uruchomienia
+    d
+      lub pusto
+        w celu domyślnego ustawienia, którym domyślnie jest 60 sekund
 
 tryby pracy:
     
