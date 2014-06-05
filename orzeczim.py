@@ -71,9 +71,10 @@ class orzeczim:
 		dl = len(ad[st])
 		ds = 24 - dl
 		s = " "
-		for sp in range (0, ds):
-			s = s + " "
+		sp = s * ds
+#		for sp in range (0, ds):
+#			s = s + " "
 		if row <= 9:
-			print "|",dz, cz,"|",st,"|",row," | ",ad[st],s,"|"
+			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp,"|"
 		elif row >= 10:
-			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],"|"
+			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp,"|"
