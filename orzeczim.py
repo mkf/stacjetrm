@@ -63,6 +63,7 @@ class orzeczim:
 		ad = self.ad
 		print dz, cz, "Al la biciklastacion", st, wyd, " - ", ad[st]
 	def pist(self):
+		from spacje import *
 		cz = self.cz
                 dz = self.dz
                 st = self.stac
@@ -70,11 +71,12 @@ class orzeczim:
                 ad = self.ad
 		dl = len(ad[st])
 		ds = 24 - dl
-		s = " "
-		sp = s * ds
+		sp = spacje(ds)
+#		s = " "
+#		sp = s * ds
 #		for sp in range (0, ds):
 #			s = s + " "
 		if row <= 9:
-			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp,"|"
+			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp.spaces(),"|"
 		elif row >= 10:
-			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp,"|"
+			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp.spaces(),"|"
