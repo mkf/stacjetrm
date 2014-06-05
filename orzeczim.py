@@ -1,6 +1,6 @@
 class orzeczim:
 	"To jest klasa orzeczenia imiennegoi w ogole outputu standardowego"
-	
+
 	def __init__(self,row,stac,unx,dz,cz):
 		self.row = row
 		self.stac = stac
@@ -63,20 +63,24 @@ class orzeczim:
 		ad = self.ad
 		print dz, cz, "Al la biciklastacion", st, wyd, " - ", ad[st]
 	def pist(self):
-		from spacje import *
 		cz = self.cz
                 dz = self.dz
                 st = self.stac
                 row = self.row
                 ad = self.ad
 		dl = len(ad[st])
-		ds = 24 - dl
-		sp = spacje(ds)
+		ds = 43 - dl
+#		print ds
+#		sp = spacje(ds)
+                spac = " "
+                for i in range(ds):
+                        spac = spac + ' '
 #		s = " "
 #		sp = s * ds
+		sp = spac
 #		for sp in range (0, ds):
 #			s = s + " "
 		if row <= 9:
-			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp.spaces(),"|"
+			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp,"|"
 		elif row >= 10:
-			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp.spaces(),"|"
+			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp,"|"
