@@ -8,55 +8,66 @@
 defpracy="a"
 defdebugu="n"
 defsm="n"
-if [ "$1" = "u" ]
+deft = 60
+if [ "$1" = "d"]
+then
+	t = deft
+elif [ "$1" -ge 0 ]
+then
+	t = $1
+else
+	echo "Malbonan atendotempon: " $1 >&2
+	exit
+fi
+if [ "$2" = "u" ]
 then
 	pracy=u
-elif [ "$1" = "l" ]
+elif [ "$2" = "l" ]
 then
 	pracy=l
-elif [ "$1" = "p" ]
+elif [ "$2" = "p" ]
 then
         pracy=p
-elif [ "$1" = "c" ]
+elif [ "$2" = "c" ]
 then
         pracy=c
-elif [ "$1" = "m" ]
+elif [ "$2" = "m" ]
 then
         pracy=m
-elif [ "$1" = "a" ]
+elif [ "$2" = "a" ]
 then
         pracy=a
-elif [ "$1" = "t" ]
+elif [ "$2" = "t" ]
 then
         pracy=t
-elif [ -z "$1" ]
+elif [ -z "$2" ]
 then
 	pracy=defpracy
-elif [ "$1" = "d" ]
+elif [ "$2" = "d" ]
 then
 	pracy=defpracy
 else
-	echo 'Malkorekta parametron de la labormodon: ' $1 >&2
+	echo 'Malkorekta parametron de la labormodon: ' $2 >&2
 	cat README*
 	exit
 fi
-if [ "$2" = "f" ]
+if [ "$3" = "f" ]
 then
 	debugu=f
-elif [ "$2" = "y" ]
+elif [ "$3" = "y" ]
 then
 	debugu=y
-elif [ "$2" = "n" ]
+elif [ "$3" = "n" ]
 then
 	debugu=n
-elif [ -z "$2" ]
+elif [ -z "$3" ]
 then
 	debugu=defdebugu
-elif [ "$2" = "d" ]
+elif [ "$3" = "d" ]
 then
 	debugu=defdebugu
 else
-	echo 'Malkorekta parametron de la senfusximodo: ' $2 >&2
+	echo 'Malkorekta parametron de la senfusximodo: ' $3 >&2
         cat README*
         exit
 fi
@@ -71,20 +82,20 @@ else
 	debug=false
 	fulldebug=false
 fi
-if [ "$3" = "c" ]
+if [ "$4" = "c" ]
 then
         sm=c
-elif [ "$3" = "n" ]
+elif [ "$4" = "n" ]
 then
         sm=n
-elif [ "$3" = "s" ]
+elif [ "$4" = "s" ]
 then
         sm=s
-elif [ -z "$3" ]
+elif [ -z "$4" ]
 then
 	sm=defsm
 else
-	echo 'Malkorekta parametron de la skribamodo: ' $3 >&2
+	echo 'Malkorekta parametron de la skribamodo: ' $4 >&2
 fi
 if [ "$sm" = "c" ]
 then
@@ -98,7 +109,7 @@ then
 	sd=sql
 	echo "La ebleco de la skribadon al la SQL-datumbazo ne ekzistas ankoraux."
 fi
-#if [ "$4"
+#if [ "$5"
 unixtime=$(date "+%s")
 localdate=$(TZ='Europe/Warsaw' date "+%F")
 localtime=$(TZ='Europe/Warsaw' date "+%T")
