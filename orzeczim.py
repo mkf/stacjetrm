@@ -72,15 +72,15 @@ class orzeczim:
 		ds = 43 - dl
 #		print ds
 #		sp = spacje(ds)
-                spac = " "
+                spac = "."
                 for i in range(ds):
-                        spac = spac + ' '
+                        spac = spac + '.'
 #		s = " "
 #		sp = s * ds
 		sp = spac
 #		for sp in range (0, ds):
 #			s = s + " "
 		if row <= 9:
-			print "|",dz, cz,"|",st,"|",row," | ",ad[st],sp,"|"
+			print "|",dz,"..",cz,"|",st,"|",row,"..|.",ad[st],sp,"|"
 		elif row >= 10:
-			print "|",dz, cz,"|",st,"|",row,"| ",ad[st],sp,"|"
+			print "|",dz,"..",cz,"|",st,"|",row,".|.",ad[st],sp,"|"
