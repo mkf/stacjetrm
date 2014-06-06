@@ -16,7 +16,7 @@ file = open(plik, 'r')
 #save = open(sf, 'a')
 
 par = pars(file.read(), stacyja)
-rowery = par.rowery
+rowery = par.rowerry()
 stacjinazwa = stacyja
 orze = orzeczim(rowery, stacjinazwa, unix, dzien, czas)
 if pracy == 'u':

@@ -25,5 +25,6 @@ class pars:
 #    def rowery(self):
 #	
 #        rowery = rowerky
-        
+    def rowerry(self):
+	return self.rowery     
 
