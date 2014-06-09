@@ -24,5 +24,9 @@ i liczyła ile między liczeniami, znaczy ile było nanosekund niepoliczonych
 - jako iż Xeno tworzy swoje API, z którego będzie można tym programem odczytywać, toteż będzie parametr czy chce się
 odczytywać z jego API czy bezpośrednio ze źródła (odczytywanie ze źródła to ryzyko bana u tych oficjalnych)
 
+- sortowanie wg odległości i wypisywanie jej
+	- prostolinijnej
+	- Google Navigation
+
 - jakieś sugestie?
 	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
