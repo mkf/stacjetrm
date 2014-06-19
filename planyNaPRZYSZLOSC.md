@@ -4,6 +4,7 @@
 	- csv
 	- sql
 	- innych baz danych
+	- Google Drive Docs Fusion Tables
 
 - stworzenie dwóch/trzech/czterech wersji językowych programu:
 	- esperancka
