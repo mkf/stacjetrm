@@ -29,5 +29,15 @@ odczytywać z jego API czy bezpośrednio ze źródła (odczytywanie ze źródła
 	- prostolinijnej
 	- Google Navigation
 
+- nawigacja do, między i od stacji, możliwe że i tu początkowo będzie po prostu liczenie prostolinijne, 
+wylistowanie wszystkich opcji (może później jakieś opcje filtrowania),
+porównanie z trasą pełnopieszą, coś na kształt Google Transit tyle że rowerem i z nawigacją między przystankami,
+może nawet istnieją już jakieś gotowe silniki do tego. W pythonie będzie się odpalało, i prog będzie się pytał
+o szczegóły wpierw przez raw.input co odpowiedź pisząc kolejne pytanie, na koniec konfirm i wylistuje listę możliwości
+z której będzie można wybrać poszczególne opcje. Początkowo wszystko będzie w terminalu, potem pewnie 
+jakiś widget a'la terminal na WWW.
+
 - jakieś sugestie?
-	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub's Issues.
+	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub Issues.
+	Ale sprzedaję już mojego kompa z i3 (nie używam go, bo jestem w trakcie przygotowywania go do sprzedaży), kupię 
+	coś lepszego i przejdę na GitHub Issues 
