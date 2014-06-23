@@ -37,6 +37,8 @@ o szczegóły wpierw przez raw.input co odpowiedź pisząc kolejne pytanie, na k
 z której będzie można wybrać poszczególne opcje. Początkowo wszystko będzie w terminalu, potem pewnie 
 jakiś widget a'la terminal na WWW.
 
+- przejście za pomocą telefon na GitHub Issues a potem robienie na kompie z GitHub Issues
+
 - jakieś sugestie?
 	Gdyby nie ograniczenia Safari[WebKit Nightly] na PowerMac'u G5, używałbym GitHub Issues.
 	Ale sprzedaję już mojego kompa z i3 (nie używam go, bo jestem w trakcie przygotowywania go do sprzedaży), kupię 
