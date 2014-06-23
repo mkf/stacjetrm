@@ -1,6 +1,6 @@
 class listuj
 	"To jest klasa listujaca"
-	import pokaz
+	from pokaz import *
 	
 	def __init__(self,pracy,debugu):
 		
