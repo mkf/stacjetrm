@@ -34,6 +34,8 @@ czas czekania:
       lub brak parametru czasu czekania
         w celu domyślnego ustawienia, którym domyślnie jest 60 sekund
 
+ustawienie tymczasowego zapisu
+
 stacje do sprawdzania:
     sw
         wszystkie stacje po kolei
