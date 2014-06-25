@@ -39,3 +39,24 @@ argdebugu.add_argument("-bd", "--debugdef", action="store_true")
 argzapisu.add_argument("-wc", "--writetocsv", type=str, help="Zapis do csv, wpisz nazwę pliku")
 argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapisuj")
 parmetry = argh.parse_args()
+if parmetry.langenglish:
+	lang = "a"
+	from english import *
+	lan = english()
+elif parmetry.langesperanto:
+	lang = "e"
+	from esperanto import *
+	lan = esperanto()
+elif parmetry.langpolski:
+	lang = "p"
+	from polski import *
+	lan = polski()
+elif parmetry.langdeutsch:
+	lang = "d"
+	from deutsch import *
+	lan = deutsch()
+else:
+	lang = "e"
+	from esperanto import *
+	lan = esperanto()
+#if
