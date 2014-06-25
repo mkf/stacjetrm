@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class orzeczim:
 	"To jest klasa orzeczenia imiennegoi w ogole outputu standardowego"
 

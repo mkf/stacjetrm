@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class zapis:
 	"To jest klasa sluzaca do zapisu m.in. do csv, ale chyba do baz danych tez"
 	

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class pars:
     'To jest klasa1'
     import re

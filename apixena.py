@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class apixena:
 	"To jest klasa analogiczna do pars.py, jednak bioraca dane z API Xena"
 	

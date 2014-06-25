@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class pokaz:
 	"Klasa pokazujaca pojedynczo"
 	from orzeczim import *

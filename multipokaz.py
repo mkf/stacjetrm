@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class multipokaz:
 	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej"
 	

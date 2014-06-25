@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class zapisujkolejno:
 	"To jest klasa zapisujaca wszystkie stacje po kolei"
 	from zapis import *
