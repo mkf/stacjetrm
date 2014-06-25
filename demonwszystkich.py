@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 import re
-defpracy = "a"
-defdebugu = "n"
-defsm = "n"
-deft = 60
-deflang = "e"
+from paramdemonwszystkich import *
 argu = sys.argv
+prmdw = paramdemonwszystkich(argu)
+lng = paramdemonwszystkich.lng()
 
