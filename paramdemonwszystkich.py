@@ -119,6 +119,8 @@ class paramdemonwszystkich:
 			yield chr(c)
 	def lng(self):
 		return self.lang
+	def lngcom(self):
+		return self.lan
 	def zlyjazyk(self):
 		from esperanto import *
 		espera = esperanto()
