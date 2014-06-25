@@ -34,6 +34,15 @@ czas czekania:
       lub brak parametru czasu czekania
         w celu domyślnego ustawienia, którym domyślnie jest 60 sekund
 
+stacje do sprawdzania:
+    sw
+        wszystkie stacje po kolei
+     lub
+    s[a-l], tj. [ sa, sb, sc, sd, se, sf, sg, sh, si, sj, sk, sl ]
+	wybór stacji do sprawdzania, można wybrać 12 stacji, kolejność alfabetyczna liter, każda litera od a do l może, 
+       ale nie musi, mieć wybraną stację (musi być przynajmniej jedna litera ze stacją). Działają tylko litery od a do l
+       i tylko pisane małą literą. 
+
 tryby pracy:
     
     pa             [DOMYŚLNE]
