@@ -47,7 +47,7 @@ stacje do sprawdzania:
 
 tryby pracy:
     
-    pa             [DOMYŚLNE]
+    pf             [DOMYŚLNE]
         w celu interfejsu pełnego z przedzieleniem na pętli i adresami, dla oczu ludzkich
     pl
         w celu interfejsu pełnego z przedzieleniem na pętli, dla oczu ludzkich
@@ -55,7 +55,7 @@ tryby pracy:
         w celu interfejsu pełnego ciągłego, dla oczu ludzkich
     pa
 	w celu interfejsu z adresami
-    pr (chwilowo jeszcze t)
+    pt 
         w celu interfejsu tabeli z adresami
     pk (chwilowo jeszcze p)
         w celu interfejsu dla programu, sensownego do zapisu z command line'a 
