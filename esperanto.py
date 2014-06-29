@@ -7,11 +7,11 @@ class esperanto:
 		self.badwaittime = badwaittime
 		badstacparam = "Malbonan staciparametron"
 		self.badstacparam = badstacparam
-		badpracy = "Malbonan labormodon"
-		self.badpracy = badpracy
-		baddebugu = u"Malbonan senfuŝmodo"
-		self.baddebugu = baddebugu
-		badsm = "Malkorektan skribamodon"
-		self.badsm = badsm
-	def badlang(self):
-		return("Malbonan lingvon")
+#		badpracy = "Malbonan labormodon"
+#		self.badpracy = badpracy
+#		baddebugu = u"Malbonan senfuŝmodo"
+#		self.baddebugu = baddebugu
+#		badsm = "Malkorektan skribamodon"
+#		self.badsm = badsm
+#	def badlang(self):
+#		return("Malbonan lingvon")
