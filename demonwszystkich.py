@@ -14,6 +14,7 @@ defdebugu = "n"
 defwritemode = "n"
 deftime = 60
 deflang = "e"
+defget = "k"
 argh = argparse.ArgumentParser()
 arglang = argh.add_mutually_exclusive_group()
 argtime = argh.add_mutually_exclusive_group()
@@ -33,6 +34,7 @@ argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystki
 argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 argstac.add_argument("-s", "--station", type=int, action="append", help="Wybierz stację, można użyć wielokrotnie")
 argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
+argpracy.add_argument("-pr", "--pracyrazem", action="store_true", help="Interfejs pełny tabelowy, wszystkie stacje w jednej linii")
 argpracy.add_argument("-pl", "--pracylong", action="store_true", help="Interfejs pełny z przedzieleniem na pętli")
 argpracy.add_argument("-pu", "--pracyuser", action="store_true", help="Interfejs pełny ciągły")
 argpracy.add_argument("-pa", "--pracyadres", action="store_true", help="Interfejs pełny z adresami")
@@ -51,6 +53,7 @@ argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapi
 arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
 arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
 arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help=Pobieraj kolejno z odstępem czasowym")
+arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
 if parmetry.langenglish:
 	lang = "a"
@@ -99,6 +102,8 @@ if parmetry.pracyfull:
 	pracy = "f"
 elif parmetry.pracylong:
 	pracy = "l"
+elif parmetry.pracyrazem:
+	pracy = "r"
 elif parmetry.pracyuser:
 	pracy = "u"
 elif parmetry.pracyadres:
@@ -133,17 +138,20 @@ import datetime
 import time
 
 if parmetry.getjednoczesnie:
-	
+	pob = "j"
 elif parmetry.getkolejno:
-	
+	pob = "k"
 elif int(parmetry.getkolejnowait) => 0:
 	if int(parmetry.getkolejnowait) == 0:
-		
+		pob = "k"
 	elif int(parmetry.getkolejnowait) > 0:
-		
+		pob = "w"
+		pobw = int(parmetry.getkolejnowait)
 	else:
 		print "Źle"
 		quit()
+elif parmetry.getdef:
+	pob = defget
 else:
-	print "Źle"
-	quit()
+	pob = defget
+
