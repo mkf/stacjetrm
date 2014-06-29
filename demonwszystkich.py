@@ -79,7 +79,7 @@ elif parmetry.allstations:
 	sta = allsta
 #	print "defpar"
 #	print sta
-elif parmetry.station =! None:
+elif len(parmetry.station) > 0:
 	sta = parmetry.station
 	print sta
 else:
