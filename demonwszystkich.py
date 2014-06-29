@@ -2,6 +2,7 @@
 import sys
 import re
 import argparse
+from generatornazwyplikuzdata import *
 #from paramdemonwszystkich import *
 #argu = sys.argv
 #prmdw = paramdemonwszystkich(argu)
