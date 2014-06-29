@@ -81,10 +81,10 @@ elif parmetry.allstations:
 #	print sta
 elif parmetry.station =! None:
 	sta = parmetry.station
-#	print sta
+	print sta
 else:
 	sta = defsta
-
+print argpracy
 
 #	print "def"
 #	print sta
