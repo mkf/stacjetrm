@@ -21,6 +21,7 @@ argstac = argh.add_mutually_exclusive_group()
 argpracy = argh.add_mutually_exclusive_group()
 argdebugu = argh.add_mutually_exclusive_group()
 argzapisu = argh.add_mutually_exclusive_group()
+arggetu = argh.add_mutually_exclusive_group()
 #argh.add_argument("-l", "--lang", type=str, help="Jednoznakowy kod języka: \nOne-character language code: \nUnulitera lingvkodo: \n - a - English \n - e - Esperanto \n - p - Polski \n - d - Deutsch \n ")
 arglang.add_argument("-la", "--langenglish", action="store_true", help="LANG: English")
 arglang.add_argument("-le", "--langesperanto", action="store_true", help="LANG: Esperanto")
@@ -47,6 +48,9 @@ argdebugu.add_argument("-bn", "--debugno", action="store_true")
 argdebugu.add_argument("-bd", "--debugdef", action="store_true")
 argzapisu.add_argument("-wc", "--writetocsv", type=str, help="Zapis do csv, wpisz nazwę pliku")
 argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapisuj")
+arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
+arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
+arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help=Pobieraj kolejno z odstępem czasowym")
 parmetry = argh.parse_args()
 if parmetry.langenglish:
 	lang = "a"
@@ -128,4 +132,18 @@ else:
 import datetime
 import time
 
-
+if parmetry.getjednoczesnie:
+	
+elif parmetry.getkolejno:
+	
+elif int(parmetry.getkolejnowait) => 0:
+	if int(parmetry.getkolejnowait) == 0:
+		
+	elif int(parmetry.getkolejnowait) > 0:
+		
+	else:
+		print "Źle"
+		quit()
+else:
+	print "Źle"
+	quit()
