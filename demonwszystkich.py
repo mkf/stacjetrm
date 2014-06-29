@@ -125,4 +125,7 @@ elif parmetry.debugdef:
 else:
 	debugu = defdebugu
 
+import datetime
+import time
+
 
