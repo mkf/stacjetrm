@@ -81,12 +81,47 @@ elif parmetry.allstations:
 #	print sta
 elif len(parmetry.station) > 0:
 	sta = parmetry.station
-	print sta
+#	print sta
 else:
 	sta = defsta
-print argpracy
+#print argpracy
 
 #	print "def"
 #	print sta
 #print type(parmetry.station)
 #print parmetry.station
+if parmetry.pracyfull:
+	pracy = "f"
+elif parmetry.pracylong:
+	pracy = "l"
+elif parmetry.pracyuser:
+	pracy = "u"
+elif parmetry.pracyadres:
+	pracy = "a"
+elif parmetry.pracytabela:
+	pracy = "t"
+elif parmetry.pracykomp:
+	pracy = "k"
+elif parmetry.pracycompressed:
+	pracy = "c"
+elif parmetry.pracyminim:
+	pracy = "m"
+elif parmetry.pracynone:
+	pracy = "n"
+elif parmetry.pracydef:
+	pracy = defpracy
+else:
+	pracy = defpracy
+
+if parmetry.debugfull:
+	debugu = "f"
+elif parmetry.debugyes:
+	debugu = "y"
+elif parmetry.debugno:
+	debugu = "n"
+elif parmetry.debugdef:
+	debugu = defdebugu
+else:
+	debugu = defdebugu
+
+
