@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 class getkol:
 	"To jest klasa pobierania kolejno bez odstępu czasowego"
-	import datetime
+	from download import *
+#	import datetime
 	import time
-	
+	from pars import *
+		
 	def __init__(self,stacje):
 		
 	def pobierz(self):
