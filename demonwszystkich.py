@@ -6,6 +6,8 @@ import argparse
 #argu = sys.argv
 #prmdw = paramdemonwszystkich(argu)
 #lng = paramdemonwszystkich.lng()
+allsta = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+defsta = allsta
 defpracy = "f"
 defdebugu = "n"
 defwritemode = "n"
@@ -26,6 +28,7 @@ arglang.add_argument("-ld", "--langdeutsch", action="store_true", help="LANG: De
 argtime.add_argument("-t", "--time", type=int, help="Opóźnienie między zbieraniem danych/Atendtempo/Delay between instances")
 argtime.add_argument("-td", "--deftime", action="store_true", help="-t z domyślną wartością/-t with default value")
 argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
+argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 argstac.add_argument("-s", "--station", type=int, action="append", help="Wybierz stację, można użyć wielokrotnie")
 argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
 argpracy.add_argument("-pl", "--pracylong", action="store_true", help="Interfejs pełny z przedzieleniem na pętli")
@@ -70,16 +73,20 @@ elif parmetry.deftime:
 	time = deftime
 else:
 	time = deftime
-if parmetry.allstations:
-	sta = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-	print "defpar"
-	print sta
-elif type(parmetry.station) == "tuple" or type(parmetry.station) == "list":
+if parmetry.defstations:
+	sta = defsta
+elif parmetry.allstations:
+	sta = allsta
+#	print "defpar"
+#	print sta
+elif parmetry.station =! None:
 	sta = parmetry.station
-	print sta
+#	print sta
 else:
-	sta = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-	print "def"
-	print sta
-print type(parmetry.station)
-print parmetry.station
+	sta = defsta
+
+
+#	print "def"
+#	print sta
+#print type(parmetry.station)
+#print parmetry.station
