@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class pars:
-    'To jest klasa1'
+    'To jest klasa odczytywania plików pobranych ze Źródła'
     import re
 #    rowerky = 0
 #    rowery = 0
