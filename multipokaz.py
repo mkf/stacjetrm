@@ -3,7 +3,10 @@ class multipokaz:
 	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej"
 	import datetime
 	from time import gmtime, strftime
-	
+	from datetime import time, date, datetime
+#	czasu = datetime.datetime()
+#	self.czasu = czasu
+	#czasu = datetime.datetime()
 	#def __init__(self,rowerdict,pracy,debugu,unix,dz,cz):
 	def __init__(self,pracy,debugu,stacje):
 		self.stacje = stacje
@@ -37,6 +40,8 @@ class multipokaz:
 #		if stacdict.keys() == stacje
 #			self.pstacprint(stacdict,unixtime)
 #		else:
+		import datetime
+		from time import strftime
 		stacje = self.stacje
 		ifcheck1 = []
 		ifcheck2 = []
@@ -44,16 +49,23 @@ class multipokaz:
 			ifcheck1.append(int(ifs))
 		for ifs2 in stacje:
 			ifcheck2.append(int(ifs2))
+		ifcheck2.sort()
 		if ifcheck1 == ifcheck2:
 			self.pstacprint(stacdict,unixtime)
 		else:
-			print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. --multipokaz"
-			quit()
+			if True:
+				print ifcheck1
+				print ifcheck2
+				print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. --multipokaz"
+				quit()
+		
 		#datetime.format
-		czasu = datetime.datetime()
-		datum = czasu.fromtimestamp(unixtime)
-		data = strftime("%Y-%m-%d %H:%M:%S", datua)
-		print "| %s |%s"(str(data),rowerostring)
+		#czasu = datetime.datetime()
+		datum = datetime.datetime.fromtimestamp(unixtime)
+#		print datum #debug
+#		data = strftime("%Y-%m-%d %H:%M:%S", datum)
+		datem = datum.strftime("%Y-%m-%d %H:%M:%S")
+		print "| %s |%s"(str(datem),rowerostring)
 	def pstacprint(self,stacdict,unixtime):
 		tsh = " "
 		for s in stacdict.keys():
