@@ -23,22 +23,27 @@ class multipokaz:
 				#print "Error: station %s"(str(sh))
 				#quit()
 				st = "All| "
-				ht = "Sum__"
+				ht = "_Sum_"
+				qt = "_____"
 			elif int(sh) == 100:
 				st = "Spc| "
-				ht = "Sum__"
+				ht = "_Sum_"
+				qt = "_____"
 			elif int(sh) < 10:
 				st = str(sh) + "  | "
 				ht = "_____"
+				qt = ht
 			elif int(sh) < 13:
 				st = str(sh) + " | "
 				ht = "_____"
+				qt = ht
 			else:
 				print "Error: station %s"(str(sh))
 				quit()
 			stacjetab = stacjetab + st
-			headdown = headdown + ht
+			headdown = headdown + ht + "_"
 #		print stacjetab
+		
 		print headdown
 		print '| Czas:      Stacje-> |',(str(stacjetab)) # <- to jeszcze wróci, ale dla debugu testujemy na linię wyżej
 	def stacprint(self,stacdict,unixtime):
@@ -70,9 +75,10 @@ class multipokaz:
 #		print datum #debug
 #		data = strftime("%Y-%m-%d %H:%M:%S", datum)
 		datem = datum.strftime("%Y-%m-%d %H:%M:%S")
-		rowerostring = str(pstacprint(stacdict,unixtime)
+		rowerostring = str(self.pstacprint(stacdict,unixtime))
 		#dato = str(datem)
 		printstac = '| ' + str(datem) + ' |' + rowerostring
+		#printstac = 
 		#print ("| %s |%s" % (str(datem),rowerostring))
 		#print "| ", datem, " |", rowerostring #(str(datem),rowerostring)
 		print printstac
