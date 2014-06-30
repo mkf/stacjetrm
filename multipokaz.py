@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 class multipokaz:
 	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej"
@@ -16,6 +15,7 @@ class multipokaz:
 		
 	def header(self):
 		headdown = "_______________________"
+		qeaddown = headdown
 		stacjetab = " "
 		stacje = self.stacje
 		for sh in stacje:
@@ -42,8 +42,9 @@ class multipokaz:
 				quit()
 			stacjetab = stacjetab + st
 			headdown = headdown + ht + "_"
+			qeaddown = qeaddown + qt + "_"
 #		print stacjetab
-		
+		print qeaddown
 		print headdown
 		print '| Czas:      Stacje-> |',(str(stacjetab)) # <- to jeszcze wróci, ale dla debugu testujemy na linię wyżej
 	def stacprint(self,stacdict,unixtime):
