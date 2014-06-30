@@ -16,77 +16,93 @@ class multipokaz:
 	def header(self):
 		headdown = "_______________________"
 		qeaddown = headdown
-		stacjetab = " "
+		keaddown = u"———————————————————————"
+		stacjetab = ""
 		stacje = self.stacje
 		for sh in stacje:
 			if int(sh) == 0:
 				#print "Error: station %s"(str(sh))
 				#quit()
-				st = "All| "
-				ht = "_Sum_"
+				st = "All | "
+				ht = '|Sum|'
 				qt = "_____"
+				kt = u"—————"
 			elif int(sh) == 100:
-				st = "Spc| "
-				ht = "_Sum_"
+				st = "Spc | "
+				ht = '|Sum|'
 				qt = "_____"
+				kt = u"—————"
 			elif int(sh) < 10:
 				st = str(sh) + "  | "
-				ht = "_____"
+				ht = "____"
 				qt = ht
+				kt = u"————"
 			elif int(sh) < 13:
 				st = str(sh) + " | "
-				ht = "_____"
+				ht = "____"
 				qt = ht
+				kt = u"————"
 			else:
 				print "Error: station %s"(str(sh))
 				quit()
 			stacjetab = stacjetab + st
 			headdown = headdown + ht + "_"
 			qeaddown = qeaddown + qt + "_"
+			keaddown = keaddown + kt + u"—"
 #		print stacjetab
 		print qeaddown
 		print headdown
-		print '| Czas:      Stacje-> |',(str(stacjetab)) # <- to jeszcze wróci, ale dla debugu testujemy na linię wyżej
+		print '| Czas:      Stacje—> |',(str(stacjetab)) # <— to jeszcze wróci, ale dla debugu testujemy na linię wyżej
+		print keaddown
 	def stacprint(self,stacdict,unixtime):
 #		if stacdict.keys() == stacje
 #			self.pstacprint(stacdict,unixtime)
 #		else:
 		import datetime
+		import operator
 		from time import strftime
 		stacje = self.stacje
 		ifcheck1 = []
-		ifcheck2 = []
+		iffcheck2 = []
 		for ifs in stacdict.keys():
 			ifcheck1.append(int(ifs))
 		for ifs2 in stacje:
-			ifcheck2.append(int(ifs2))
-		ifcheck2.sort()
+			iffcheck2.append(int(ifs2))
+		iffcheck2.sort(operator.lt)
+		ifocheck2 = set(iffcheck2)
+		ifcheck2 = list(ifocheck2)
 		if ifcheck1 == ifcheck2:
-			self.pstacprint(stacdict,unixtime)
+			self.pstacprint(stacdict,stacje,unixtime)
 		else:
 			if True:
 				print ifcheck1
 				print ifcheck2
-				print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. --multipokaz"
+				print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. ——multipokaz"
 				quit()
 		
 		#datetime.format
 		#czasu = datetime.datetime()
 		datum = datetime.datetime.fromtimestamp(unixtime)
 #		print datum #debug
-#		data = strftime("%Y-%m-%d %H:%M:%S", datum)
-		datem = datum.strftime("%Y-%m-%d %H:%M:%S")
-		rowerostring = str(self.pstacprint(stacdict,unixtime))
+#		data = strftime("%Y—%m—%d %H:%M:%S", datum)
+		datem = datum.strftime("%Y—%m—%d %H:%M:%S")
+		rowerostring = str(self.pstacprint(stacdict,stacje,unixtime))
 		#dato = str(datem)
 		printstac = '| ' + str(datem) + ' |' + rowerostring
 		#printstac = 
 		#print ("| %s |%s" % (str(datem),rowerostring))
 		#print "| ", datem, " |", rowerostring #(str(datem),rowerostring)
 		print printstac
-	def pstacprint(self,stacdict,unixtime):
+	def pstacprint(self,stacdict,stacje,unixtime):
 		tsh = " "
-		for s in stacdict.keys():
-			ts = stacdict[s]
+		for s in stacje:
+			try:
+				ts = stacdict[s]
+			except:
+				try:
+					ts = stacdict[str(s)]
+				except:
+					ts = stacdict[int(s)]
 			its = int(ts)
 			tts = self.ppstacprint(its,s)
 			tsh = tsh + tts
@@ -119,12 +135,12 @@ class multipokaz:
 		elif its < 10:
 			if int(s) == 0 or int(s) == 100:
 				if its == 0:
-					tss = str(its) + "---| "
+					tss = str(its) + "———| "
 				else:
 					tss = str(its) + "   | "
 			else:
 				if its == 0:
-					tss = str(its) + "--| "
+					tss = str(its) + "——| "
 				else:
 					tss = str(its) + "  | "
 		elif its < 20:
