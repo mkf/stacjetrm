@@ -7,12 +7,13 @@ class multipokaz:
 	#def __init__(self,rowerdict,pracy,debugu,unix,dz,cz):
 	def __init__(self,pracy,debugu,stacje):
 		self.stacje = stacje
-		self.debugu - debugu
+		self.debugu = debugu
 		self.pracy = pracy
 		
 	def header(self):
 		headdown = "_______________________"
 		stacjetab = " "
+		stacje = self.stacje
 		for sh in stacje:
 			if int(sh) == 0:
 				#print "Error: station %s"(str(sh))
@@ -32,20 +33,20 @@ class multipokaz:
 			headdown = headdown + ht
 		print "| Czas:      Stacje-> |%s"(stacjetab)
 	def stacprint(self,stacdict,unixtime):
-		if stacdict.keys() == stacje
+#		if stacdict.keys() == stacje
+#			self.pstacprint(stacdict,unixtime)
+#		else:
+		ifcheck1 = []
+		ifcheck2 = []
+		for ifs in stacdict.keys():
+			ifcheck1.append(int(ifs))
+		for ifs2 in stacje:
+			ifcheck2.append(int(ifs2))
+		if ifcheck1 == ifcheck2:
 			self.pstacprint(stacdict,unixtime)
 		else:
-			ifcheck1 = []
-			ifcheck2 = []
-			for ifs in stacdict.keys():
-				ifcheck1.append(int(ifs))
-			for ifs2 in stacje:
-				ifcheck2.append(int(ifs2))
-			if ifcheck1 == ifcheck2:
-				self.pstacprint(stacdict,unixtime)
-			else:
-				print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. --multipokaz"
-				quit()
+			print "Error: ifcheck1 doesn't equal ifcheck2. Exiting. --multipokaz"
+			quit()
 		#datetime.format
 		czasu = datetime.datetime()
 		datum = czasu.fromtimestamp(unixtime)
