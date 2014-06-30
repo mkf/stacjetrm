@@ -21,8 +21,11 @@ class multipokaz:
 			if int(sh) == 0:
 				#print "Error: station %s"(str(sh))
 				#quit()
-				st = "Sum| "
-				ht = "_____"
+				st = "All| "
+				ht = "Sum__"
+			elif int(sh) == 100:
+				st = "Spc| "
+				ht = "Sum__"
 			elif int(sh) < 10:
 				st = str(sh) + "  | "
 				ht = "_____"
@@ -35,6 +38,7 @@ class multipokaz:
 			stacjetab = stacjetab + st
 			headdown = headdown + ht
 #		print stacjetab
+		print headdown
 		print '| Czas:      Stacje-> |',(str(stacjetab)) # <- to jeszcze wróci, ale dla debugu testujemy na linię wyżej
 	def stacprint(self,stacdict,unixtime):
 #		if stacdict.keys() == stacje
@@ -81,7 +85,7 @@ class multipokaz:
 				its = its - 1000
 			tss = self.ppstacprint(its,s)
 		elif its < 1000:
-			if int(s) == 0:
+			if int(s) == 0 or int(s) == 100:
 				tss = str(its) + " | "
 			else:
 				tss = str(its) + "? "
@@ -91,23 +95,31 @@ class multipokaz:
 			its = its * -1
 		if its < 0:
 			if int(s) == 0:
-				print "Error: bikes count %s on station SUM"(str(its))
+				print "Error: bikes count %s on station SumAll"(str(its))
+			elif int(s) == 100:
+				print "Error: bikes count %s on station SumSpc"(str(its))
 			else:
 				print "Error: bikes count %s on station %s"(str(its),str(s))
 			quit()
 		elif its < 10:
-			if int(s) == 0:
-				tss = str(its) + "   | "
+			if int(s) == 0 or int(s) == 100:
+				if its == 0:
+					tss = str(its) + "---| "
+				else:
+					tss = str(its) + "   | "
 			else:
-				tss = str(its) + "  | "
+				if its == 0:
+					tss = str(its) + "--| "
+				else:
+					tss = str(its) + "  | "
 		elif its < 20:
-			if int(s) == 0:
+			if int(s) == 0 or int(s) == 100:
 				tss = str(its) + "  | "
 			else:
 				tss = str(its) + " | "
 		elif its > 19:
 			if its < 100:
-				if int(s) == 0:
+				if int(s) == 0 or int(s) == 100:
 					tss = str(its) + "  | "
 				else:
 					tss = str(its) + "?| "
