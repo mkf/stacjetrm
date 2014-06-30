@@ -31,11 +31,13 @@ class multipokaz:
 				quit()
 			stacjetab = stacjetab + st
 			headdown = headdown + ht
-		print "| Czas:      Stacje-> |%s"(stacjetab)
+#		print stacjetab
+		print '| Czas:      Stacje-> |',(str(stacjetab)) # <- to jeszcze wróci, ale dla debugu testujemy na linię wyżej
 	def stacprint(self,stacdict,unixtime):
 #		if stacdict.keys() == stacje
 #			self.pstacprint(stacdict,unixtime)
 #		else:
+		stacje = self.stacje
 		ifcheck1 = []
 		ifcheck2 = []
 		for ifs in stacdict.keys():
