@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 class multipokaz:
 	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej"
@@ -69,13 +70,20 @@ class multipokaz:
 #		print datum #debug
 #		data = strftime("%Y-%m-%d %H:%M:%S", datum)
 		datem = datum.strftime("%Y-%m-%d %H:%M:%S")
-		print "| %s |%s"(str(datem),rowerostring)
+		rowerostring = str(pstacprint(stacdict,unixtime)
+		#dato = str(datem)
+		printstac = '| ' + str(datem) + ' |' + rowerostring
+		#print ("| %s |%s" % (str(datem),rowerostring))
+		#print "| ", datem, " |", rowerostring #(str(datem),rowerostring)
+		print printstac
 	def pstacprint(self,stacdict,unixtime):
 		tsh = " "
 		for s in stacdict.keys():
 			ts = stacdict[s]
 			its = int(ts)
 			tts = self.ppstacprint(its,s)
+			tsh = tsh + tts
+		return tsh
 	def morethansto(self,its,s):
 		#while its > 100:
 		#	its = its - 100
@@ -125,5 +133,5 @@ class multipokaz:
 					tss = str(its) + "?| "
 			elif its > 100:
 				tss = self.morethansto(its,s)
-		return tss
+		return str(tss)
 		
