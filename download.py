@@ -34,6 +34,7 @@ class download:
 		#wejs = urllib2.urlopen(url)
 		#we = wejs.read()
 		self.url = url
+		self.st = int(stacja)
 		self.stacn = stacn
 	def down(self):
 		import urllib2
@@ -47,6 +48,10 @@ class download:
 		from pars import *
 		par = pars(self.we,self.stacn)
 		rowery = par.rowerry()
+		self.rouwer = rowery
 		return rowery
 	def cza(self):
 		return self.czas			
+	def raz(self):
+		a = (self.rouwer, self.czas, self.st, self.stacn)
+		return a
