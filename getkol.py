@@ -26,6 +26,7 @@ class getkol:
 			else:
 				stacdict[int(s)] = int(a[0])
 				slownikczasow[int(s)] = int(a[1])
+				self.praca(int(s),int(a[0])
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
