@@ -6,19 +6,44 @@ class getkol:
 	import datetime
 #	from download import *
 		
-	def __init__(self,stacje):
+	def __init__(self,stacje,pracy):
 		sa = 0
+		ssa = 0
 		sw = 0
+		ssw = 0
 		stacdict = {}
+		slownikczasow = {}
 		for s in stacje:
+			sa = 0
+			sw = 0
 			a = self.si(s)
 			if a[0] == 'a':
 				sa = 1
+				ssa = 1
 			elif a[0] == 'w':
 				sw = 1
+				ssw = 1
 			else:
-				
-				
+				stacdict[int(s)] = int(a[0])
+				slownikczasow[int(s)] = int(a[1])
+		if ssa == 1:
+			stacdictal = {}
+			allesstac = 0
+			for j in range(1,13):
+				try:
+					allone = stacdict[j]
+				except:
+					allone = self.si(j)
+				stacdictal[j] = int(allone)
+				allesstac = allesstac + allone
+		if ssw == 1:
+			allerstac = 0
+			for u in stacdict.keys():
+				allerstac = allerstac + int(stacdict[u])
+		if ssa == 1:
+			stacdict[0] = allesstac
+		if ssw == 1:
+			stacdict[0] = allerstac
 	def si(self,s):
 		sa = 0
 		sw = 0
