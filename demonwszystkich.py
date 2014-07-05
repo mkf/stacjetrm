@@ -30,6 +30,7 @@ arglang.add_argument("-lp", "--langpolski", action="store_true", help="LANG: Pol
 arglang.add_argument("-ld", "--langdeutsch", action="store_true", help="LANG: Deutsch")
 argtime.add_argument("-t", "--time", type=int, help="Opóźnienie między zbieraniem danych/Atendtempo/Delay between instances")
 argtime.add_argument("-td", "--deftime", action="store_true", help="-t z domyślną wartością/-t with default value")
+argtime.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
 argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 argstac.add_argument("-s", "--station", type=int, action="append", help="Wybierz stację, można użyć wielokrotnie")
@@ -75,12 +76,15 @@ else:
 	lang = "e"
 	from esperanto import *
 	lan = esperanto()
-if type(parmetry.time) == "int":
-	time = parmetry.time
-elif parmetry.deftime:
-	time = deftime
+if parmetry.singlecheck:
+	time = "singlecheck"
 else:
-	time = deftime
+	if type(parmetry.time) == "int":
+		time = parmetry.time
+	elif parmetry.deftime:
+		time = deftime
+	else:
+		time = deftime
 if parmetry.defstations:
 	sta = defsta
 elif parmetry.allstations:
@@ -154,4 +158,5 @@ elif parmetry.getdef:
 	pob = defget
 else:
 	pob = defget
+
 
