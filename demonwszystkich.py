@@ -53,7 +53,7 @@ argzapisu.add_argument("-wc", "--writetocsv", type=str, help="Zapis do csv, wpis
 argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapisuj")
 arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
 arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
-arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help=Pobieraj kolejno z odstępem czasowym")
+arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejno z odstępem czasowym")
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
 if parmetry.langenglish:
