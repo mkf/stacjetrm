@@ -145,7 +145,7 @@ if parmetry.getjednoczesnie:
 	pob = "j"
 elif parmetry.getkolejno:
 	pob = "k"
-elif int(parmetry.getkolejnowait) => 0:
+elif int(parmetry.getkolejnowait) >= 0:
 	if int(parmetry.getkolejnowait) == 0:
 		pob = "k"
 	elif int(parmetry.getkolejnowait) > 0:
