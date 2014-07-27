@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class esperanto:
-	u"Tio estas la lingvesperanto"
+	u"Tio estas la pakagxo de la esperanta lingvo."
 	
 	def __init__(self):
 		badwaittime = "Malbonan atendotempon"

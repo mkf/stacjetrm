@@ -26,7 +26,7 @@ class getkol:
 			else:
 				stacdict[int(s)] = int(a[0])
 				slownikczasow[int(s)] = int(a[1])
-				self.praca(int(s),int(a[0])
+				self.praca(int(s),int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
@@ -45,6 +45,8 @@ class getkol:
 			stacdict[0] = allesstac
 		if ssw == 1:
 			stacdict[0] = allerstac
+		self.stacdict = stacdict
+		self.slwcza = slownikczasow
 	def si(self,s):
 		sa = 0
 		sw = 0
@@ -67,6 +69,17 @@ class getkol:
 		else:
 			print "Malkorekta biciklstacio: %s" % str(s)
 			quit()
+	def praca(self,st,row,utim,pr):
+		from pokaz import *
+		if pr == 'n':
+			pracowanie='nie'
+		#elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
+		else:
+			pokaz(row,st,utim,pr)
+	def slowstac(self):
+		return self.stacdict
+	def slowczas(self):
+		return self.slwcza
 #	def pobierz(self):
 #		
 #	def
