@@ -13,6 +13,7 @@ class getkol:
 		ssw = 0
 		stacdict = {}
 		slownikczasow = {}
+		self.head()
 		for s in stacje:
 			sa = 0
 			sw = 0
@@ -69,6 +70,7 @@ class getkol:
 		else:
 			print "Malkorekta biciklstacio: %s" % str(s)
 			quit()
+#<<<<<<< HEAD
 	def praca(self,st,row,utim,pr):
 		from pokaz import *
 		if pr == 'n':
@@ -80,6 +82,12 @@ class getkol:
 		return self.stacdict
 	def slowczas(self):
 		return self.slwcza
+#=======
+	def praca(self,st,ro):
+		
+	def head(self):
+		
+#>>>>>>> 378b3f29c82128813aba4e13589a7e26281fbb16
 #	def pobierz(self):
 #		
 #	def
