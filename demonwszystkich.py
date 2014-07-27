@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 import sys
+# Do README: Tryby pobierania jednoczesnego umożliwiają szybsze, acz jednoczesne i bardziej podatne na bana pobieranie, zaś pobieranie kolejno daje czas każdego z pomiarów oraz mniejsze ryzyko bana
+#później trza będzie zrobić też opcję pobierania 'jak kolejno, acz jednoczesnie', która będzie pobierała jednocześnie acz wyświelała w interfejsie kolejno, przy czym każde pobranie będzie miało swój timestamp
+#mimo wielowątkowości, oczywistym jest, że część wątków wykona swoje zadanie szybciej od innych. W związku z tym ich wyni powinien iść dalej od razu, i nie czekać na resztę
+#to trzeba będzie przepisać do Github Issues i potytułować po jednym
+#mniej istotną jest możliwość odpalenia trybu kolejno w stylu jak jednocześnie
+#później zrobi się konwerter danych zebranych kolejno do danych zebranych jednocześnie
+#również jest jeszcze kwestia zapisu do wielu celów, do wielu plików/baz danych jednocześnie, przy dwóch różnych trybach
+#możliwe musi być jednoczesne zapisywanie zupełnie odmiennymi we wszystkim trybami do wielu różnych plików i baz danych jednocześnie
+#przepisać powyższe do GitHub Issues
 import re
 import argparse
 from generatornazwyplikuzdata import *
@@ -34,22 +43,30 @@ argtime.add_argument("-ts", "--singlecheck", action="store_true", help="Jednoraz
 argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 argstac.add_argument("-s", "--station", type=int, action="append", help="Wybierz stację, można użyć wielokrotnie")
-argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
+#argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
+argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w wybranym języku adresami")
+argpracy.add_argument("-pfl", "--pracyfulladrlanglocal", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami")
 argpracy.add_argument("-pr", "--pracyrazem", action="store_true", help="Interfejs pełny tabelowy, wszystkie stacje w jednej linii")
 argpracy.add_argument("-pl", "--pracylong", action="store_true", help="Interfejs pełny z przedzieleniem na pętli")
 argpracy.add_argument("-pu", "--pracyuser", action="store_true", help="Interfejs pełny ciągły")
-argpracy.add_argument("-pa", "--pracyadres", action="store_true", help="Interfejs pełny z adresami")
-argpracy.add_argument("-pt", "--pracytabela", action="store_true", help="Interfejs tabeli z adresami")
+#argpracy.add_argument("-pa", "--pracyadres", action="store_true", help="Interfejs pełny z adresami")
+argpracy.add_argument("-pac", "--pracyadresadrlangchosen", action="store_true", help="Interfejs pełny z w wybranym języku adresami")
+argpracy.add_argument("-pal", "--pracyadresadrlanglocal", action="store_true", help="Interfejs pełny z w lokalnym(polskim) języku adresami")
+#argpracy.add_argument("-pt", "--pracytabela", action="store_true", help="Interfejs tabeli z adresami")
+argpracy.add_argument("-ptc", "--pracytabelaadrlangchosen", action="store_true", help="Interfejs tabeli z w wybranym języku adresami")
+argpracy.add_argument("-ptl", "--pracytabelaadrlanglocal", action="store_true", help="Interfejs tabeli z w lokalnym(polskim) języku adresami")
 argpracy.add_argument("-pk", "--pracykomp", action="store_true", help="Interfejs programowy")
 argpracy.add_argument("-pc", "--pracycompressed", action="store_true", help="Interfejs programowy czasUNIX,jedno- lub dwu cyfrowy numer stacji, liczba rowerów")
 argpracy.add_argument("-pm", "--pracyminim", action="store_true", help="Interfejs programowy minimalistyczny")
+argpracy.add_argument("-prk", "--pracyrazkomp", action="store_true", help="Interfejs programowy, wszystkie stacje naraz")
 argpracy.add_argument("-pn", "--pracynone", action="store_true", help="Interfejs bez danych na stdout")
 argpracy.add_argument("-pd", "--pracydef", action="store_true", help="Opcja domyślna trybu pracy")
 argdebugu.add_argument("-bf", "--debugfull", action="store_true")
 argdebugu.add_argument("-by", "--debugyes", action="store_true")
 argdebugu.add_argument("-bn", "--debugno", action="store_true")
 argdebugu.add_argument("-bd", "--debugdef", action="store_true")
-argzapisu.add_argument("-wc", "--writetocsv", type=str, help="Zapis do csv, wpisz nazwę pliku")
+argzapisu.add_argument("-wck", "--writetocsvkol", type=str, help="Zapis do csv (stacje kolejno, po jednej na linię), wpisz nazwę pliku")
+argzapisu.add_argument("-wcr", "--writetocsvraz", type=str, help="Zapis do csv (wszystkie stacje naraz, w jednej linii), wpisz nazwę pliku")
 argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapisuj")
 arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
 arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
@@ -57,23 +74,23 @@ arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejn
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
 if parmetry.langenglish:
-	lang = "a"
+	lang = "en"
 	from english import *
 	lan = english()
 elif parmetry.langesperanto:
-	lang = "e"
+	lang = "eo"
 	from esperanto import *
 	lan = esperanto()
 elif parmetry.langpolski:
-	lang = "p"
+	lang = "pl"
 	from polski import *
 	lan = polski()
 elif parmetry.langdeutsch:
-	lang = "d"
+	lang = "de"
 	from deutsch import *
 	lan = deutsch()
 else:
-	lang = "e"
+	lang = "eo"
 	from esperanto import *
 	lan = esperanto()
 if parmetry.singlecheck:
@@ -102,31 +119,78 @@ else:
 #	print sta
 #print type(parmetry.station)
 #print parmetry.station
-if parmetry.pracyfull:
+if parmetry.pracyfulladrlangchosen:
 	pracy = "f"
+	adrlangczy = "c"
+	kolczyraz = "k"
+elif parmetry.pracyfulladrlanglocal:
+	pracy = "f"
+	adrlangczy = "l"
+	kolczyraz = "k"
 elif parmetry.pracylong:
 	pracy = "l"
+	kolczyraz = "k"
 elif parmetry.pracyrazem:
 	pracy = "r"
+	kolczyraz = "r"
+elif parmetry.pracyrazkomp:
+	pracy = "rk"
+	kolczyraz = "r"
 elif parmetry.pracyuser:
 	pracy = "u"
-elif parmetry.pracyadres:
+	kolczyraz = "k"
+elif parmetry.pracyadresadrlangchosen:
 	pracy = "a"
-elif parmetry.pracytabela:
+	kolczyraz = "k"
+	adrlangczy = "c"
+elif parmetry.pracyadresadrlanglocal:
+	pracy = "a"
+	kolczyraz = "k"
+	adrlangczy = "l"
+elif parmetry.pracytabelaadrlangchosen:
 	pracy = "t"
+	kolczyraz = "k"
+	adrlangczy = "c"
+elif parmetry.pracytabelaadrlanglocal:
+	pracy = "t"
+	kolczyraz = "k"
+	adrlangczy = "l"
 elif parmetry.pracykomp:
 	pracy = "k"
+	kolczyraz = "k"
 elif parmetry.pracycompressed:
 	pracy = "c"
+	kolczyraz = "k"
 elif parmetry.pracyminim:
 	pracy = "m"
+	kolczyraz = "k"
 elif parmetry.pracynone:
 	pracy = "n"
+	kolczyraz = "k"
 elif parmetry.pracydef:
 	pracy = defpracy
+	adrlangczy = defadrlangczy
+	if pracy == "f" or pracy == "l" or pracy == "u" or pracy == "a" or pracy == "t" or pracy == "k" or pracy == "c" or pracy == "m":
+		kolczyraz = "k"
+	elif pracy == "r" or pracy == "rk":
+		kolczyraz = "r"
+	elif pracy = "n":
+		kolczyraz = "n"
+	else:
+		print "Źlee"
+		quit()
 else:
 	pracy = defpracy
-
+	adrlangczy = defadrlangczy
+	if pracy == "f" or pracy == "l" or pracy == "u" or pracy == "a" or pracy == "t" or pracy == "k" or pracy == "c" or pracy == "m":
+		kolczyraz = "k"
+	elif pracy == "r" or pracy == "rk":
+		kolczyraz = "r"
+	elif pracy = "n":
+		kolczyraz = "n"
+	else:
+		print "Źlee"
+		quit()
 if parmetry.debugfull:
 	debugu = "f"
 elif parmetry.debugyes:
@@ -158,5 +222,7 @@ elif parmetry.getdef:
 	pob = defget
 else:
 	pob = defget
-
+	
+if kolczyraz = "n":
+	if 
 

@@ -6,14 +6,13 @@ class getkol:
 	import datetime
 #	from download import *
 		
-	def __init__(self,stacje,pracy):
+	def __init__(self,stacje,pracy,lang):
 		sa = 0
 		ssa = 0
 		sw = 0
 		ssw = 0
 		stacdict = {}
 		slownikczasow = {}
-		self.head()
 		for s in stacje:
 			sa = 0
 			sw = 0
@@ -27,7 +26,7 @@ class getkol:
 			else:
 				stacdict[int(s)] = int(a[0])
 				slownikczasow[int(s)] = int(a[1])
-				self.praca(int(s),int(a[0]),int(a[1]),pracy)
+				self.praca(int(s),int(a[0]),int(a[1]),pracy,lang)
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
@@ -35,7 +34,7 @@ class getkol:
 				try:
 					allone = stacdict[j]
 				except:
-					allone = self.si(j)
+					allone = self.si(j,lang)
 				stacdictal[j] = int(allone)
 				allesstac = allesstac + allone
 		if ssw == 1:
@@ -48,7 +47,7 @@ class getkol:
 			stacdict[0] = allerstac
 		self.stacdict = stacdict
 		self.slwcza = slownikczasow
-	def si(self,s):
+	def si(self,s,lang):
 		sa = 0
 		sw = 0
 		if int(s) == 0:
@@ -61,33 +60,45 @@ class getkol:
 			return a
 		elif int(s) < 0:
 			o = int(s) * (-1)
-			a = self.si(o)
+			a = self.si(o,lang)
 			return a
 		elif int(s) < 13:
 			download(int(s))
 			a = download.raz()
 			return a
 		else:
-			print "Malkorekta biciklstacio: %s" % str(s)
+			if lang == "eo":
+				from esperanto import *
+				jezyu = esperanto()
+				jezyczek = jezyu.slowniczek()
+			elif lang == "pl":
+				from polski import *
+				jezyu = polski()
+				jezyczek = jezyu.slowniczek()
+			elif lang == "en":
+				from english import *
+				jezyu = english()
+				jezyczek = jezyu.slowniczek()
+			elif lang == "de":
+				from deutsch import *
+				jezyu = deutsch()
+				jezyczek = jezyu.slowniczek()
+			else:
+				print "An error occured: no such language as %s" % lang
+				quit()
+			print "%s: %s" % jezyczek[badstacparam],str(s)
 			quit()
-#<<<<<<< HEAD
-	def praca(self,st,row,utim,pr):
+	def praca(self,st,row,utim,pr,lang):
 		from pokaz import *
 		if pr == 'n':
 			pracowanie='nie'
 		#elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
 		else:
-			pokaz(row,st,utim,pr)
+			pokaz(row,st,utim,pr,lang)
 	def slowstac(self):
 		return self.stacdict
 	def slowczas(self):
 		return self.slwcza
-#=======
-	def praca(self,st,ro):
-		
-	def head(self):
-		
-#>>>>>>> 378b3f29c82128813aba4e13589a7e26281fbb16
 #	def pobierz(self):
 #		
 #	def
