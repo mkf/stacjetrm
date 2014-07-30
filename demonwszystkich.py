@@ -24,6 +24,7 @@ defwritemode = "n"
 deftime = 60
 deflang = "e"
 defget = "k"
+defadrlangczy = "l"
 argh = argparse.ArgumentParser()
 arglang = argh.add_mutually_exclusive_group()
 argtime = argh.add_mutually_exclusive_group()
@@ -108,11 +109,17 @@ elif parmetry.allstations:
 	sta = allsta
 #	print "defpar"
 #	print sta
-elif len(parmetry.station) > 0:
-	sta = parmetry.station
+#elif len(parmetry.station) > 0:
+#	sta = parmetry.station
 #	print sta
 else:
-	sta = defsta
+	try:
+		if len(parmetry.station) > 0:
+			sta = parmetry.station
+		else:
+			sta = defsta
+	except:
+		sta = defsta
 #print argpracy
 
 #	print "def"
@@ -174,7 +181,7 @@ elif parmetry.pracydef:
 		kolczyraz = "k"
 	elif pracy == "r" or pracy == "rk":
 		kolczyraz = "r"
-	elif pracy = "n":
+	elif pracy == "n":
 		kolczyraz = "n"
 	else:
 		print "Źlee"
@@ -209,20 +216,22 @@ if parmetry.getjednoczesnie:
 	pob = "j"
 elif parmetry.getkolejno:
 	pob = "k"
-elif int(parmetry.getkolejnowait) >= 0:
-	if int(parmetry.getkolejnowait) == 0:
-		pob = "k"
-	elif int(parmetry.getkolejnowait) > 0:
-		pob = "w"
-		pobw = int(parmetry.getkolejnowait)
-	else:
-		print "Źle"
-		quit()
-elif parmetry.getdef:
-	pob = defget
 else:
-	pob = defget
+	try:
+		if int(parmetry.getkolejnowait) >= 0:
+			if int(parmetry.getkolejnowait) == 0:
+				pob = "k"
+			elif int(parmetry.getkolejnowait) > 0:
+				pob = "w"
+				pobw = int(parmetry.getkolejnowait)
+			else:
+				print "Źle"
+				quit()
+		elif parmetry.getdef:
+			pob = defget
+	except:
+		pob = defget
 	
-if kolczyraz = "n":
-	if 
-
+if kolczyraz == "n":
+	#if zapis kolejny czy jednoczesny
+	jezelikolczyraz = 1
