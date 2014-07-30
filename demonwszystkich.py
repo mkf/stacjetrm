@@ -186,7 +186,7 @@ else:
 		kolczyraz = "k"
 	elif pracy == "r" or pracy == "rk":
 		kolczyraz = "r"
-	elif pracy = "n":
+	elif pracy == "n":
 		kolczyraz = "n"
 	else:
 		print "Źlee"
