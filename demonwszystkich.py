@@ -25,6 +25,7 @@ deftime = 60
 deflang = "e"
 defget = "k"
 defadrlangczy = "l"
+defadrchar = 'l'
 argh = argparse.ArgumentParser()
 arglang = argh.add_mutually_exclusive_group()
 argtime = argh.add_mutually_exclusive_group()
@@ -46,16 +47,19 @@ argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyśln
 argstac.add_argument("-s", "--station", type=int, action="append", help="Wybierz stację, można użyć wielokrotnie")
 #argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
 argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w wybranym języku adresami")
-argpracy.add_argument("-pfl", "--pracyfulladrlanglocal", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami")
+argpracy.add_argument("-pfll", "--pracyfulladrlanglocalpolishalphabet", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami w alfabecie polskim")
+argpracy.add_argument("-pfle", "--pracyfulladrlanglocalenglishalphabet", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami w alfabecie angielskim")
 argpracy.add_argument("-pr", "--pracyrazem", action="store_true", help="Interfejs pełny tabelowy, wszystkie stacje w jednej linii")
 argpracy.add_argument("-pl", "--pracylong", action="store_true", help="Interfejs pełny z przedzieleniem na pętli")
 argpracy.add_argument("-pu", "--pracyuser", action="store_true", help="Interfejs pełny ciągły")
 #argpracy.add_argument("-pa", "--pracyadres", action="store_true", help="Interfejs pełny z adresami")
 argpracy.add_argument("-pac", "--pracyadresadrlangchosen", action="store_true", help="Interfejs pełny z w wybranym języku adresami")
-argpracy.add_argument("-pal", "--pracyadresadrlanglocal", action="store_true", help="Interfejs pełny z w lokalnym(polskim) języku adresami")
+argpracy.add_argument("-pall", "--pracyadresadrlanglocalpolishalphabet", action="store_true", help="Interfejs pełny z w lokalnym(polskim) języku adresami w alfabecie polskim")
+argpracy.add_argument("-pale", "--pracyadresadrlanglocalenglishalphabet", action="store_true", help="Interfejs pełny z w lokalnym(polskim) języku adresami w alfabecie angielskim")
 #argpracy.add_argument("-pt", "--pracytabela", action="store_true", help="Interfejs tabeli z adresami")
 argpracy.add_argument("-ptc", "--pracytabelaadrlangchosen", action="store_true", help="Interfejs tabeli z w wybranym języku adresami")
-argpracy.add_argument("-ptl", "--pracytabelaadrlanglocal", action="store_true", help="Interfejs tabeli z w lokalnym(polskim) języku adresami")
+argpracy.add_argument("-ptll", "--pracytabelaadrlanglocalpolishalphabet", action="store_true", help="Interfejs tabeli z w lokalnym(polskim) języku adresami w alfabecie polskim")
+argpracy.add_argument("-ptle", "--pracytabelaadrlanglocalenglishalphabet", action="store_true", help="Interfejs tabeli z w lokalnym(polskim) języku adresami w alfabecie angielskim")
 argpracy.add_argument("-pk", "--pracykomp", action="store_true", help="Interfejs programowy")
 argpracy.add_argument("-pc", "--pracycompressed", action="store_true", help="Interfejs programowy czasUNIX,jedno- lub dwu cyfrowy numer stacji, liczba rowerów")
 argpracy.add_argument("-pm", "--pracyminim", action="store_true", help="Interfejs programowy minimalistyczny")
@@ -66,8 +70,8 @@ argdebugu.add_argument("-bf", "--debugfull", action="store_true")
 argdebugu.add_argument("-by", "--debugyes", action="store_true")
 argdebugu.add_argument("-bn", "--debugno", action="store_true")
 argdebugu.add_argument("-bd", "--debugdef", action="store_true")
-argzapisu.add_argument("-wck", "--writetocsvkol", type=str, help="Zapis do csv (stacje kolejno, po jednej na linię), wpisz nazwę pliku")
-argzapisu.add_argument("-wcr", "--writetocsvraz", type=str, help="Zapis do csv (wszystkie stacje naraz, w jednej linii), wpisz nazwę pliku")
+argzapisu.add_argument("-wck", "--writetocsvkol", type=str, help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz nazwę pliku")
+argzapisu.add_argument("-wcr", "--writetocsvraz", type=str, help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz nazwę pliku")
 argzapisu.add_argument("-wn", "--writenone", action="store_true", help="Nie zapisuj")
 arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
 arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
@@ -107,11 +111,6 @@ if parmetry.defstations:
 	sta = defsta
 elif parmetry.allstations:
 	sta = allsta
-#	print "defpar"
-#	print sta
-#elif len(parmetry.station) > 0:
-#	sta = parmetry.station
-#	print sta
 else:
 	try:
 		if len(parmetry.station) > 0:
@@ -130,10 +129,16 @@ if parmetry.pracyfulladrlangchosen:
 	pracy = "f"
 	adrlangczy = "c"
 	kolczyraz = "k"
-elif parmetry.pracyfulladrlanglocal:
+elif parmetry.pracyfulladrlanglocalenglishalphabet:
 	pracy = "f"
 	adrlangczy = "l"
 	kolczyraz = "k"
+	adrchar = 'e'
+elif parmetry.pracyfulladrlanglocalpolishalphabet:
+	pracy = "f"
+	adrlangczy = "l"
+	kolczyraz = "k"
+	adrchar = 'l'
 elif parmetry.pracylong:
 	pracy = "l"
 	kolczyraz = "k"
@@ -150,18 +155,30 @@ elif parmetry.pracyadresadrlangchosen:
 	pracy = "a"
 	kolczyraz = "k"
 	adrlangczy = "c"
-elif parmetry.pracyadresadrlanglocal:
+elif parmetry.pracyadresadrlanglocalenglishalphabet:
 	pracy = "a"
 	kolczyraz = "k"
 	adrlangczy = "l"
+	adrchar = 'e'
+elif parmetry.pracyadresadrlanglocalpolishalphabet:
+	pracy = "a"
+	kolczyraz = "k"
+	adrlangczy = "l"
+	adrchar = 'l'
 elif parmetry.pracytabelaadrlangchosen:
 	pracy = "t"
 	kolczyraz = "k"
 	adrlangczy = "c"
-elif parmetry.pracytabelaadrlanglocal:
+elif parmetry.pracytabelaadrlanglocalenglishalphabet:
 	pracy = "t"
 	kolczyraz = "k"
 	adrlangczy = "l"
+	adrchar = 'e'
+elif parmetry.pracytabelaadrlanglocalpolishalphabet:
+	pracy = "t"
+	kolczyraz = "k"
+	adrlangczy = "l"
+	adrchar = 'l'
 elif parmetry.pracykomp:
 	pracy = "k"
 	kolczyraz = "k"
@@ -177,6 +194,7 @@ elif parmetry.pracynone:
 elif parmetry.pracydef:
 	pracy = defpracy
 	adrlangczy = defadrlangczy
+	adrchar = defadrchar
 	if pracy == "f" or pracy == "l" or pracy == "u" or pracy == "a" or pracy == "t" or pracy == "k" or pracy == "c" or pracy == "m":
 		kolczyraz = "k"
 	elif pracy == "r" or pracy == "rk":
@@ -189,6 +207,7 @@ elif parmetry.pracydef:
 else:
 	pracy = defpracy
 	adrlangczy = defadrlangczy
+	adrchar = defadrchar
 	if pracy == "f" or pracy == "l" or pracy == "u" or pracy == "a" or pracy == "t" or pracy == "k" or pracy == "c" or pracy == "m":
 		kolczyraz = "k"
 	elif pracy == "r" or pracy == "rk":
@@ -212,6 +231,23 @@ else:
 import datetime
 import time
 
+if kolczyraz == 'k':
+	smartget = 'k'
+elif kolczyraz == 'r':
+	smartget = 'j'
+elif kolczyraz == 'n':
+	smartget = defget
+#               ^— to może budzić kontrowersje. Otóż zamiast tego powinno być jeszcze
+#    (sub)if-owanie na temat odpowiednika kolczyrazu, tyle że do spraw nie wyświetlania, a zapisu
+# sęk w tym, że będzie to miało sens dopiero, gdy powstanie zapis
+else:
+	print 'kolczyraz nie jest ani k, ani r, ani n, więc czym jest?!'
+	try:
+		print 'Otóż jest on stringiem "%s"' % str(kolczyraz)
+	except:
+		print 'Otóź nie jest on nawet stringiem. Jego wartość to:'
+		print kolczyraz
+
 if parmetry.getjednoczesnie:
 	pob = "j"
 elif parmetry.getkolejno:
@@ -230,8 +266,4 @@ else:
 		elif parmetry.getdef:
 			pob = defget
 	except:
-		pob = defget
-	
-if kolczyraz == "n":
-	#if zapis kolejny czy jednoczesny
-	jezelikolczyraz = 1
+		pob = smartget
