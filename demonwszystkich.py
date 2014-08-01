@@ -28,6 +28,7 @@ defadrlangczy = "l"
 defadrchar = 'l'
 argh = argparse.ArgumentParser()
 arglang = argh.add_mutually_exclusive_group()
+argchar = argh.add_mutually_exclusive_group()
 argtime = argh.add_mutually_exclusive_group()
 argstac = argh.add_mutually_exclusive_group()
 argpracy = argh.add_mutually_exclusive_group()
@@ -35,6 +36,8 @@ argdebugu = argh.add_mutually_exclusive_group()
 argzapisu = argh.add_mutually_exclusive_group()
 arggetu = argh.add_mutually_exclusive_group()
 #argh.add_argument("-l", "--lang", type=str, help="Jednoznakowy kod języka: \nOne-character language code: \nUnulitera lingvkodo: \n - a - English \n - e - Esperanto \n - p - Polski \n - d - Deutsch \n ")
+argchar.add_argument("-cs", "--charsafe", action="store_true", help='No "unsafe" national characters in language and adresses')
+argchar.add_argument("-cn", "--charwithnational", action="store_true", help='Enable "unsafe" national characters in language and adresses')
 arglang.add_argument("-la", "--langenglish", action="store_true", help="LANG: English")
 arglang.add_argument("-le", "--langesperanto", action="store_true", help="LANG: Esperanto")
 arglang.add_argument("-lp", "--langpolski", action="store_true", help="LANG: Polski")
@@ -78,26 +81,59 @@ arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj 
 arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejno z odstępem czasowym")
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
+if parmetry.charsafe:
+	lanchar = 'n'
+elif parmetry.charwithnational:
+	lanchar = 'y'
+else:
+	lanchar = "a"
 if parmetry.langenglish:
 	lang = "en"
+	if lanchar == 'a':
+		lanchar = 'n'
 	from english import *
 	lan = english()
 elif parmetry.langesperanto:
 	lang = "eo"
-	from esperanto import *
-	lan = esperanto()
+	if lanchar == 'a':
+		lanchar = 'y'
+	if lanchar == 'y':
+		from esperanto import eo_natio
+		lan = eo_natio()
+	if lanchar == 'n':
+		from esperanto import eo_safe
+		lan = eo_safe()
 elif parmetry.langpolski:
 	lang = "pl"
-	from polski import *
-	lan = polski()
+	if lanchar == 'a':
+		lanchar = 'y'
+	if lanchar == 'y':
+		from polski import pl_natio
+		lan = pl_natio()
+	if lanchar == 'n':
+		from polski import pl_safe
+		lan = pl_safe()
 elif parmetry.langdeutsch:
 	lang = "de"
-	from deutsch import *
-	lan = deutsch()
+	if lanchar == 'a':
+		lanchar = 'y'
+	if lanchar == 'y':
+		from deutsch import de_natio
+		lan = de_natio()
+	if lanchar == 'n':
+		from deutsch import de_safe
+		lan = de_safe()
 else:
 	lang = "eo"
-	from esperanto import *
-	lan = esperanto()
+	if lanchar == 'a':
+		lanchar = 'n'
+	if lanchar == 'y':
+		from esperanto import eo_natio
+		lan = eo_natio()
+	if lanchar == 'n':
+		from esperanto import eo_safe
+		lan = eo_safe()
+
 if parmetry.singlecheck:
 	time = "singlecheck"
 else:
@@ -129,16 +165,16 @@ if parmetry.pracyfulladrlangchosen:
 	pracy = "f"
 	adrlangczy = "c"
 	kolczyraz = "k"
-elif parmetry.pracyfulladrlanglocalenglishalphabet:
+elif parmetry.pracyfulladrlanglocal:
 	pracy = "f"
 	adrlangczy = "l"
 	kolczyraz = "k"
-	adrchar = 'e'
-elif parmetry.pracyfulladrlanglocalpolishalphabet:
-	pracy = "f"
-	adrlangczy = "l"
-	kolczyraz = "k"
-	adrchar = 'l'
+# 	adrchar = 'e'
+# elif parmetry.pracyfulladrlanglocalpolishalphabet:
+# 	pracy = "f"
+# 	adrlangczy = "l"
+# 	kolczyraz = "k"
+# 	adrchar = 'l'
 elif parmetry.pracylong:
 	pracy = "l"
 	kolczyraz = "k"
@@ -155,30 +191,30 @@ elif parmetry.pracyadresadrlangchosen:
 	pracy = "a"
 	kolczyraz = "k"
 	adrlangczy = "c"
-elif parmetry.pracyadresadrlanglocalenglishalphabet:
+elif parmetry.pracyadresadrlanglocal:
 	pracy = "a"
 	kolczyraz = "k"
 	adrlangczy = "l"
-	adrchar = 'e'
-elif parmetry.pracyadresadrlanglocalpolishalphabet:
-	pracy = "a"
-	kolczyraz = "k"
-	adrlangczy = "l"
-	adrchar = 'l'
+# 	adrchar = 'e'
+# elif parmetry.pracyadresadrlanglocalpolishalphabet:
+# 	pracy = "a"
+# 	kolczyraz = "k"
+# 	adrlangczy = "l"
+# 	adrchar = 'l'
 elif parmetry.pracytabelaadrlangchosen:
 	pracy = "t"
 	kolczyraz = "k"
 	adrlangczy = "c"
-elif parmetry.pracytabelaadrlanglocalenglishalphabet:
+elif parmetry.pracytabelaadrlanglocal:
 	pracy = "t"
 	kolczyraz = "k"
 	adrlangczy = "l"
-	adrchar = 'e'
-elif parmetry.pracytabelaadrlanglocalpolishalphabet:
-	pracy = "t"
-	kolczyraz = "k"
-	adrlangczy = "l"
-	adrchar = 'l'
+# 	adrchar = 'e'
+# elif parmetry.pracytabelaadrlanglocalpolishalphabet:
+# 	pracy = "t"
+# 	kolczyraz = "k"
+# 	adrlangczy = "l"
+# 	adrchar = 'l'
 elif parmetry.pracykomp:
 	pracy = "k"
 	kolczyraz = "k"

@@ -1,52 +1,89 @@
 # -*- coding: utf-8 -*-
 class orzeczim:
-	"To jest klasa orzeczenia imiennegoi w ogole outputu standardowego"
+	"To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"
 
-	def __init__(self,row,stac,unx,pracy,lang):
+	def __init__(self,row,stac,unx,pracy,lang,jezadr,lanchar):
 		self.row = row
 		self.stac = stac
 		self.unx = unx
-		self.dz = dz
-		self.cz = cz
-		if lang == "eo":
-			from esperanto import *
-			jezyu = esperanto()
-			jezyczek = jezyu.slowniczek()
-		elif lang == "pl":
-			from polski import *
-			jezyu = polski()
-			jezyczek = jezyu.slowniczek()
-		elif lang == "en":
+		self.lang = lang
+		import datetime
+		#zrobmy dawne dz i cz z unixtime w tym miejscu
+		if lang == "en":
 			from english import *
-			jezyu = english()
-			jezyczek = jezyu.slowniczek()
-		elif lang == "de":
-			from deutsch import *
-			jezyu = deutsch()
-			jezyczek = jezyu.slowniczek()
+			lan = english()
+		elif lang == "eo":
+			if lanchar == 'y':
+				from esperanto import eo_natio
+				lan = eo_natio()
+			if lanchar == 'n':
+				from esperanto import eo_safe
+				lan = eo_safe()
+		elif lang == "pl":
+			if lanchar == 'y':
+				from polski import pl_natio
+				lan = pl_natio()
+			if lanchar == 'n':
+				from polski import pl_safe
+				lan = pl_safe()
+		elif lang = "de":
+			if lanchar == 'y':
+				from deutsch import de_natio
+				lan = de_natio()
+			if lanchar == 'n':
+				from deutsch import de_safe
+				lan = de_safe()
 		else:
-			print "An error occured: no such language as %s" % lang
+			print "An error occured: no such language possible as %s" % lang
 			quit()
-		ad = adresodictum
-		adresodictum = {'001TOR': 'Rynek Staromiejski', '002TOR': 'Plac sw. Katarzyny', '003TOR': 'Plac Rapackiego', '004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', '005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie', '006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', '007TOR': 'ul. Broniewskiego - Tesco', '008TOR': 'ul. Gen. Jozefa Hallera - Polo Market', '009TOR': 'ul. Szosa Chelminska - Polo Market', '010TOR': 'PKP Torun Glowny', '011TOR': 'ul. Dziewulskiego - Komisariat Policji', '012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'}
+		jezyczek = lan.dictu()
+		jezyu = lan
+		self.jezyu = jezyu
+		adrlocsafe = {
+			'001TOR': 'Rynek Staromiejski', 
+			'002TOR': 'Plac sw. Katarzyny', 
+			'003TOR': 'Plac Rapackiego', 
+			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
+			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie', 
+			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
+			'007TOR': 'ul. Broniewskiego - Tesco', 
+			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market', 
+			'009TOR': 'ul. Szosa Chelminska - Polo Market', 
+			'010TOR': 'PKP Torun Glowny', 
+			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
+			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+		}
+		adrlocnatio = {
+			'001TOR': 'Rynek Staromiejski', 
+			'002TOR': 'Plac św. Katarzyny', 
+			'003TOR': 'Plac Rapackiego', 
+			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
+			'005TOR': 'ul. Szosa Chełmińska - Targowisko Miejskie', 
+			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
+			'007TOR': 'ul. Broniewskiego - Tesco', 
+			'008TOR': 'ul. Gen. Józefa Hallera - Polo Market', 
+			'009TOR': 'ul. Szosa Chełmińska - Polo Market', 
+			'010TOR': 'PKP Toruń Główny', 
+			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
+			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+		}
+				if jezadr == "c":
+			ad = jezyu.lanstac()
+		elif jezadr == 'l':
+			if lanchar == 'e':
+				ad = adrlocsafe
+			elif lanchar == 'l':
+				ad = adrlocnatio
+			else:
+				print "Gupi błondd"
+				quit()
+		else:
+			print "Gupppiii bwond"
+			quit()
 		self.ad = ad
 	def orz(self):
 		row = self.row
-		if row == 0:
-			self.wyd = "estas neniu bicikloj"
-		elif row == -1:
-			self.wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n         "
-		elif row <= 0:
-			self.wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n          "
-		elif row == 1:
-			self.wyd = "estas 1  biciklo    "
-		elif row >= 2:
-			if row <= 9:
-				self.wyd = ("estas " + str(row) + "  bicikloj   ")
-			if row >= 10:
-				self.wyd = ("estas " + str(row) + " bicikloj   ")
-		else:
-			self.wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
+		self.wyd = self.jezyu.wyd(row)
 		wyd = self.wyd
 
 	def pisul(self):
@@ -55,7 +92,7 @@ class orzeczim:
 		dz = self.dz
 		st = self.stac
 		row = self.row
-		print dz, cz, "Al la biciklastacion", st, wyd
+		print dz, cz, self.jezyu.dictu[nastacji], st, wyd
 
 	def pisp(self):
 		cz = self.cz
@@ -82,7 +119,7 @@ class orzeczim:
 		dz = self.dz
 		st = self.stac
 		ad = self.ad
-		print dz, cz, "Al la biciklastacion", st, wyd, " - ", ad[st]
+		print dz, cz, self.jezyu.dictu[nastacji], st, wyd, " - ", ad[st]
 	def pist(self):
 		cz = self.cz
                 dz = self.dz
