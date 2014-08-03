@@ -1,6 +1,8 @@
 stacjetrm
 =========
 
+*Please use last release ("Releases") instead of current source code! I will remove this warning when I'll make current source code stable and begin to commit new features to another branch "new".*
+
 A script for getting the count of bicycles present on the trm24.pl stations.
 Skrypcik do liczby rowerów na stacjach trm24.pl.
 
