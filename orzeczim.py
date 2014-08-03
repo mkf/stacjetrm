@@ -26,7 +26,7 @@ class orzeczim:
 			if lanchar == 'n':
 				from polski import pl_safe
 				lan = pl_safe()
-		elif lang = "de":
+		elif lang == "de":
 			if lanchar == 'y':
 				from deutsch import de_natio
 				lan = de_natio()
