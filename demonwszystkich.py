@@ -292,8 +292,8 @@ elif parmetry.debugdef:
 else:
 	debugu = defdebugu
 
-import datetime
-import time
+#import datetime
+#import time
 
 if kolczyraz == 'k':
 	smartget = 'k'
