@@ -15,7 +15,7 @@ class english:
 			"nastacji": "On the station",
 			"sumallnotsupported": "The feature of sum of all of the stations isn't yet supported. Exiting.",
 			"sumchonotsupported": "The feature of sum of the chosen stations isn't yet supported. Exiting.",
-			"elektulabormodo": "Choose a work mode",
+			"elektulabormodon": "Choose a work mode",
 			"sevivolasketiunprogramonfunkcias": "if you want this program work",
 			"najprawdopodobniejtrybpracy": "Most probably the work mode",
 			"jestnieprawidlowy": "is incorrect",
