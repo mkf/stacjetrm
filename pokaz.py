@@ -27,4 +27,4 @@ class pokaz:
 			orze.pist()
 		else:
 			print "Elektu labormodo a, l, u, p, c aux m se vi volas ke tiun programon funkcas."
-				print "Plej eble ke la labormodo ", pracy, " estas malbona."
+			print "Plej eble ke la labormodo ", pracy, " estas malbona."
