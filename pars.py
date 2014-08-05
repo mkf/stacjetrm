@@ -4,9 +4,9 @@ class pars:
 	import re
 #	rowerky = 0
 #	rowery = 0
-	def __init__(self, skund, stacyjka, lan):
+	def __init__(self, skund, stacyjka, landictu):
 		import re
-		self.lan = lan
+		self.landictu = landictu
 		self.skund = skund
 		self.stacyjka = stacyjka
 		odnaleziono = re.search(r'w na stacji.*szt', skund, re.S)
