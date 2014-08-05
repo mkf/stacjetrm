@@ -44,9 +44,10 @@ class download:
 		self.czas = czas
 		we = wejs.read()
 		self.we = we
+		return we
 	def row(self):
 		from pars import pars
-		par = pars(self.we,self.stacn)
+		par = pars(self.down(),self.stacn)
 		rowery = par.rowerry()
 		self.rouwer = rowery
 		return rowery
