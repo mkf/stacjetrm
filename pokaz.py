@@ -29,5 +29,5 @@ class pokaz:
 		elif pracy == 't':
 			orze.pist()
 		else:
-			print lang.dictu()["elektulabormodon"]," ",lang.dictu()["sevivolasketiunprogramonfunkcias"],"."
-			print lang.dictu()["najprawdopodobniejtrybpracy"]," ", pracy, " ",lang.dictu()["jestnieprawidlowy"],"."
+			print lang.dictu()["elektulabormodon"],lang.dictu()["sevivolasketiunprogramonfunkcias"]
+			print lang.dictu()["najprawdopodobniejtrybpracy"]," ", pracy, " ",lang.dictu()["jestnieprawidlowy"]
