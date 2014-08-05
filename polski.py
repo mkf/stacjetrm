@@ -15,7 +15,10 @@ class pl_natio:
 			"nastacji": "Na stacji",
 			"sumallnotsupported": "Suma wszystkiego jeszcze nie obsługiwana. Kończenie.",
 			"sumchonotsupported": "Suma wybranych jeszcze nie obsługiwana. Kończenie.",
-			"i": "i",
+			"elektulabormodo": "Wybierz tryb pracy",
+			"sevivolasketiunprogramonfunkcias": "jeżeli chcesz, by ten program działał",
+			"najprawdopodobniejtrybpracy": "Najprawdopodobniej tryb pracy",
+			"jestnieprawidlowy": "jest nieprawidłowy",
 		}
 		return slo
 	def wyd(self, row):
@@ -71,13 +74,16 @@ class pl_safe:
 			"nastacji": "Na stacji",
 			"sumallnotsupported": "Suma wszystkiego jeszcze nie obslugiwana. Konczenie.",
 			"sumchonotsupported": "Suma wybranych jeszcze nie obslugiwana. Konczenie.",
-			"i": "i",
+			"elektulabormodo": "Wybierz tryb pracy",
+			"sevivolasketiunprogramonfunkcias": "jezeli chcesz, by ten program dzialal",
+			"najprawdopodobniejtrybpracy": "Najprawdopodobniej tryb pracy",
+			"jestnieprawidlowy": "jest nieprawidlowy",
 		}
 		return slo
 	
 	def wyd(self, row):
 		if row == 0:
-			wyd = "nie ma rowerów"
+			wyd = "nie ma rowerow"
 		elif row == -1:
 			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam -1 rower - a jest to liczba ujemna \n         "
 		elif row <= 0:

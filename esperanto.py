@@ -14,8 +14,11 @@ class eo_safe:
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
 			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
-			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
-			"i": "i",
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting]."
+			"elektulabormodo": "Elektu labormodon",
+			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
+			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
+			"jestnieprawidlowy": "estas malkorekta.",
 		}
 		return slo
 	def wyd(self, row):
@@ -67,8 +70,11 @@ class eo_natio:
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
 			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
-			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
-			"i": "i",
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting]."
+			"elektulabormodo": "Elektu labormodon",
+			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
+			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
+			"jestnieprawidlowy": "estas malkorekta.",
 		}
 		return slo
 	def wyd(self, row):
