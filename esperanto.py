@@ -13,6 +13,8 @@ class eo-safe:
 			"baddebugu": "Malkorektan senfusxmodon",
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
+			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
 			"i": "i",
 		}
 		return slo
@@ -64,6 +66,8 @@ class eo-natio:
 			"baddebugu": "Malkorektan senfuŝmodon",
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
+			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
 			"i": "i",
 		}
 		return slo

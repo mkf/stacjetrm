@@ -6,7 +6,10 @@ class getkol:
 	import datetime
 #	from download import *
 		
-	def __init__(self,stacje,pracy,lang,jezadr,lanchar):
+	def __init__(self,stacje,pracy,lan,jezadr,lanchar):
+		self.lan = lan
+		self.jezadr = jezadr
+		self.lanchar = lanchar
 		sa = 0
 		ssa = 0
 		sw = 0
@@ -26,7 +29,7 @@ class getkol:
 			else:
 				stacdict[int(s)] = int(a[0])
 				slownikczasow[int(s)] = int(a[1])
-				self.praca(int(s),int(a[0]),int(a[1]),pracy,lang,jezadr,lanchar)
+				self.praca(int(s),int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
@@ -34,7 +37,7 @@ class getkol:
 				try:
 					allone = stacdict[j]
 				except:
-					allone = self.si(j,lang,jezadr,lanchar)
+					allone = self.si(j)
 				stacdictal[j] = int(allone)
 				allesstac = allesstac + allone
 		if ssw == 1:
@@ -47,7 +50,8 @@ class getkol:
 			stacdict[0] = allerstac
 		self.stacdict = stacdict
 		self.slwcza = slownikczasow
-	def si(self,s,lang,jezadr,lanchar):
+	def si(self,s):
+		lan = self.lan
 		sa = 0
 		sw = 0
 		if int(s) == 0:
@@ -60,54 +64,27 @@ class getkol:
 			return a
 		elif int(s) < 0:
 			o = int(s) * (-1)
-			a = self.si(o,lang,jezadr,lanchar)
+			a = self.si(o)
 			return a
 		elif int(s) < 13:
-			download(int(s))
+			download(int(s),lan)
 			a = download.raz()
 			return a
 		else:
-			if lang == "en":
-				from english import *
-				lan = english()
-			elif lang == "eo":
-				if lanchar == 'y':
-					from esperanto import eo_natio
-					lan = eo_natio()
-				if lanchar == 'n':
-					from esperanto import eo_safe
-					lan = eo_safe()
-			elif lang == "pl":
-				if lanchar == 'y':
-					from polski import pl_natio
-					lan = pl_natio()
-				if lanchar == 'n':
-					from polski import pl_safe
-					lan = pl_safe()
-			elif lang = "de":
-				if lanchar == 'y':
-					from deutsch import de_natio
-					lan = de_natio()
-				if lanchar == 'n':
-					from deutsch import de_safe
-					lan = de_safe()
-			else:
-				print "An error occured: no such language possible as %s" % lang
-				quit()
 			jezodict = lan.dictu()
-			print "%s: %s" % jezyczek[badstacparam],str(s)
+			print "%s: %s" % jezodict[badstacparam],str(s)
 			quit()
-	def praca(self,st,row,utim,pr,lang,jezadr,lanchar):
+	def praca(self,st,row,utim,pr):
+		lan = self.lan
+		jezadr = self.jezadr
+		lanchar = self.lanchar
 		from pokaz import *
 		if pr == 'n':
 			pracowanie='nie'
-		#elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
+#		elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
 		else:
-			pokaz(row,st,utim,pr,lang,jezadr,lanchar)
+			pokaz(row,st,utim,pr,lan,jezadr,lanchar)
 	def slowstac(self):
 		return self.stacdict
 	def slowczas(self):
 		return self.slwcza
-#	def pobierz(self):
-#		
-#	def

@@ -340,4 +340,10 @@ else:
 		
 if pob == 'k':
 	from getkol import *
+	getkol(sta, pracy, lan, jezadr, lanchar)
+elif pob == 'j':
+	from getjednoczesnie import *
+	
+elif pob == 'w':
+	from getkolwait import *
 	

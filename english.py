@@ -13,6 +13,8 @@ class english:
 			"baddebugu": "Incorrect debug mode",
 			"badsm": "Incorrect write mode",
 			"nastacji": "On the station",
+			"sumallnotsupported": "The feature of sum of all of the stations isn't yet supported. Exiting.",
+			"sumchonotsupported": "The feature of sum of the chosen stations isn't yet supported. Exiting.",
 			"i": "i",
 		}
 		return slo

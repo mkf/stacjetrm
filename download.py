@@ -4,29 +4,29 @@ class download:
 	import urllib2
 	import time
 	
-	def __init__(self,stacja):
+	def __init__(self,stacja,lan):
 		if stacja == 0:
 			from suma import *
-			print "Suma jeszcze nie obsługiwana wszystkiego. Exiting."
+			print lan.dictu['sumallnotsupported']
 			quit()
 		elif stacja == 100:
 			from suma import *
-			print "Suma jeszcze nie obsługiwana wybranych. Exiting."
+			print lan.dictu['sumchonotsupported']
 			quit()
 		elif stacja < 10:
 			if stacja > 0:
 				na = (r'00', str(stacja), r'TOR')
 			elif stacja < 0:
-				print "Eraro: malkorekta biciklstacio: %s" % str(stacja)
+				print "%s: %s" % lan.dictu['badstacparam'],str(stacja)
 				quit()
 		elif stacja > 9:
 			if stacja > 12:
 				na = (r'0', str(stacja), r'TOR')
 			else:
-				print "Eraro: malkorekta biciklstacio: %s" % str(stacja)
+				print "%s: %s" % lan.dictu['badstacparam'],str(stacja)
 				quit()
 		else:
-			print "Eraro: malkorekta biciklstacio: %s" % str(stacja)
+			print "%s: %s" % lan.dictu['badstacparam'],str(stacja)
 			quit()
 		stacn = str.join()
 		urlt = (r'trm24.pl/panel-trm/', str(stacn), r'.jsp')

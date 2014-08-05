@@ -2,40 +2,17 @@
 class orzeczim:
 	"To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"
 
-	def __init__(self,row,stac,unx,pracy,lang,jezadr,lanchar):
+	def __init__(self,row,stac,unx,pracy,lan,jezadr,lanchar):
 		self.row = row
 		self.stac = stac
 		self.unx = unx
-		self.lang = lang
+		self.lan = lan
 		import datetime
-		#zrobmy dawne dz i cz z unixtime w tym miejscu
-		if lang == "en":
-			from english import *
-			lan = english()
-		elif lang == "eo":
-			if lanchar == 'y':
-				from esperanto import eo_natio
-				lan = eo_natio()
-			if lanchar == 'n':
-				from esperanto import eo_safe
-				lan = eo_safe()
-		elif lang == "pl":
-			if lanchar == 'y':
-				from polski import pl_natio
-				lan = pl_natio()
-			if lanchar == 'n':
-				from polski import pl_safe
-				lan = pl_safe()
-		elif lang == "de":
-			if lanchar == 'y':
-				from deutsch import de_natio
-				lan = de_natio()
-			if lanchar == 'n':
-				from deutsch import de_safe
-				lan = de_safe()
-		else:
-			print "An error occured: no such language possible as %s" % lang
-			quit()
+		hejoczasuu = []
+		for itt in datetime.datetime.fromtimestamp(unx).timetuple():
+			hejoczasuu.append(itt)
+		dzcz = datetime.datetime(hejoczasuu[0],hejoczasuu[1],hejoczasuu[2],hejoczasuu[3],hejoczasuu[4],hejoczasuu[5]).isoformat(' ')
+		self.dzcz = dzcz
 		jezyczek = lan.dictu()
 		jezyu = lan
 		self.jezyu = jezyu
@@ -67,7 +44,7 @@ class orzeczim:
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
 		}
-				if jezadr == "c":
+		if jezadr == "c":
 			ad = jezyu.lanstac()
 		elif jezadr == 'l':
 			if lanchar == 'e':
@@ -88,18 +65,18 @@ class orzeczim:
 
 	def pisul(self):
 		wyd = self.wyd
-		cz = self.cz
-		dz = self.dz
+		dzcz = self.dzcz
+		#dz = self.dz
 		st = self.stac
 		row = self.row
-		print dz, cz, self.jezyu.dictu[nastacji], st, wyd
+		print dzcz, self.jezyu.dictu[nastacji], st, wyd
 
 	def pisp(self):
-		cz = self.cz
-		dz = self.dz
+		dzcz = self.dzcz
+		#dz = self.dz
 		st = self.stac
 		row = self.row
-		print dz, cz, st, row
+		print dzcz, st, row
 
 	def pisc(self):
 		import re
@@ -115,17 +92,17 @@ class orzeczim:
 		print unx, st, row
 	def pisa(self):
 		wyd = self.wyd
-		cz = self.cz
-		dz = self.dz
+		dzcz = self.dzcz
+		#dz = self.dz
 		st = self.stac
 		ad = self.ad
-		print dz, cz, self.jezyu.dictu[nastacji], st, wyd, " - ", ad[st]
+		print dzcz, self.jezyu.dictu[nastacji], st, wyd, " - ", ad[st]
 	def pist(self):
-		cz = self.cz
-                dz = self.dz
-                st = self.stac
-                row = self.row
-                ad = self.ad
+		dzcz = self.dzcz
+        #dz = self.dz
+		st = self.stac
+		row = self.row
+		ad = self.ad
 		dl = len(ad[st])
 		ds = 43 - dl
 #		print ds
@@ -139,6 +116,6 @@ class orzeczim:
 #		for sp in range (0, ds):
 #			s = s + " "
 		if row <= 9:
-			print "|",dz,cz,"|",st,"|",row,"  | ",ad[st],sp,"|"
+			print "|",dzcz,"|",st,"|",row,"  | ",ad[st],sp,"|"
 		elif row >= 10:
-			print "|",dz,cz,"|",st,"|",row," | ",ad[st],sp,"|"
+			print "|",dzcz,"|",st,"|",row," | ",ad[st],sp,"|"

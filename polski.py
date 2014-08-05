@@ -13,6 +13,8 @@ class pl-natio:
 			"baddebugu": "Niepoprawny tryb debugowania",
 			"badsm": "Niepoprawny tryb zapisu",
 			"nastacji": "Na stacji",
+			"sumallnotsupported": "Suma wszystkiego jeszcze nie obsługiwana. Kończenie.",
+			"sumchonotsupported": "Suma wybranych jeszcze nie obsługiwana. Kończenie.",
 			"i": "i",
 		}
 		return slo
@@ -67,6 +69,8 @@ class pl-safe:
 			"baddebugu": "Niepoprawny tryb debugowania",
 			"badsm": "Niepoprawny tryb zapisu",
 			"nastacji": "Na stacji",
+			"sumallnotsupported": "Suma wszystkiego jeszcze nie obslugiwana. Konczenie.",
+			"sumchonotsupported": "Suma wybranych jeszcze nie obslugiwana. Konczenie.",
 			"i": "i",
 		}
 		return slo
