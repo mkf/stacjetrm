@@ -53,5 +53,5 @@ class download:
 	def cza(self):
 		return self.czas			
 	def raz(self):
-		a = (self.rouwer, self.czas, self.st, self.stacn)
+		a = (self.row(), self.czas, self.st, self.stacn)
 		return a
