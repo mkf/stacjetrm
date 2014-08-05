@@ -337,3 +337,7 @@ else:
 			pob = defget
 	except:
 		pob = smartget
+		
+if pob == 'k':
+	from getkol import *
+	

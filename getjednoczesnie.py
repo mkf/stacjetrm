@@ -5,7 +5,7 @@ class getjednoczesnie:
 #	import time
 	from pars import *
 
-	def __init__(self,stacje):
+	def __init__(self,stacje,pracy,lang,jezadr,lanchar):
 		
 	def pobierz(self):
 		
