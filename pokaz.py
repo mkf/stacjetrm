@@ -22,7 +22,10 @@ class pokaz:
 			orze.pism()
 		elif pracy == 'a':
 			orze.orz()
-			orze.pisa()
+			orze.pisfa()
+		elif pracy == 'f':
+			orze.orz()
+			orze.pisfa()
 		elif pracy == 't':
 			orze.pist()
 		else:

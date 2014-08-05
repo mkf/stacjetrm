@@ -91,7 +91,7 @@ class orzeczim:
 		st = self.stac
 		row = self.row
 		print unx, st, row
-	def pisa(self):
+	def pisfa(self):
 		wyd = self.wyd
 		dzcz = self.dzcz
 		#dz = self.dz
