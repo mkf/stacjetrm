@@ -45,7 +45,7 @@ class download:
 		we = wejs.read()
 		self.we = we
 	def row(self):
-		from pars import pars,rowerry
+		from pars import pars
 		par = pars(self.we,self.stacn)
 		rowery = par.rowerry()
 		self.rouwer = rowery
