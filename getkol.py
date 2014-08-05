@@ -69,7 +69,7 @@ class getkol:
 		elif int(s) < 13:
 			from download import download
 			download(int(s),lan.dictu())
-			a = download.raz()
+			a = download.raz(download)
 			return a
 		else:
 			jezodict = lan.dictu()
