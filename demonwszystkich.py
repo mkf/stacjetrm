@@ -89,14 +89,28 @@ arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj 
 arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejno z odstępem czasowym pomiędzy odczytami pojedyńczych stacji")
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
-if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultitimevolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
-	writekolczyraz = 'k'
-elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultitimevolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
-	writekolczyraz = 'r'
-elif parmetry.writeno:
-	writekolczyraz = 'n'
-else:
-	writekolczyraz = 'n'
+try:
+	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultitimevolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
+		writekolczyraz = 'k'
+	elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultitimevolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+		writekolczyraz = 'r'
+	elif parmetry.writeno:
+		writekolczyraz = 'n'
+	else:
+		writekolczyraz = 'n'
+except:
+	try:
+		if len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultitimevolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+			writekolczyraz = 'r'
+		elif parmetry.writeno:
+			writekolczyraz = 'n'
+		else:
+			writekolczyraz = 'n'
+	except:
+		if parmetry.writeno:
+			writekolczyraz = 'n'
+		else:
+			writekolczyraz = 'n'
 #if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile:
 #	multivol = 'j'
 #elif parmetry.writetocsvrazmultitimevolumefile or parmetry.writetocsvkolmultitimevolumefile:
