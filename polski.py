@@ -23,22 +23,22 @@ class pl_natio:
 		return slo
 	def wyd(self, row):
 		if row == 0:
-			wyd = "nie ma rowerów"
+			wyd = "  nie ma rowerów"
 		elif row == -1:
 			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam -1 rower - a jest to liczba ujemna \n         "
 		elif row <= 0:
 			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(row) + " rowerów - a jest to liczba ujemna \n          "
 		elif row == 1:
-			wyd = "jest 1  rower    "
+			wyd = "jest  1  rower    "
 		elif row >= 2:
 			if row <= 4:
-				wyd = ("są   " + str(row) + "  rowery   ")
+				wyd = ("są    " + str(row) + "  rowery   ")
 			elif row >= 5:
-				wyd = ("jest " + str(row) + "  rowerów  ")
+				wyd = ("jest  " + str(row) + "  rowerów  ")
 			elif row >= 10:
-				wyd = ("jest " + str(row) + " rowerów   ")
+				wyd = ("jest " + str(row) + "  rowerów   ")
 			elif row >= 22:
-				wyd = ("są   " + str(row) + " rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści"
+				wyd = ("są   " + str(row) + "  rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
 		else:
 			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba pobrania informacji zakończyła się błędem"
 		return wyd
@@ -83,7 +83,7 @@ class pl_safe:
 	
 	def wyd(self, row):
 		if row == 0:
-			wyd = "nie ma rowerow"
+			wyd = "  nie ma rowerow"
 		elif row == -1:
 			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam -1 rower - a jest to liczba ujemna \n         "
 		elif row <= 0:
@@ -92,13 +92,13 @@ class pl_safe:
 			wyd = "jest 1  rower    "
 		elif row >= 2:
 			if row <= 4:
-				wyd = ("sa   " + str(row) + "  rowery   ")
+				wyd = ("sa    " + str(row) + "  rowery   ")
 			elif row >= 5:
-				wyd = ("jest " + str(row) + "  rowerow  ")
+				wyd = ("jest  " + str(row) + "  rowerow  ")
 			elif row >= 10:
-				wyd = ("jest " + str(row) + " rowerow   ")
+				wyd = ("jest " + str(row) + "  rowerow   ")
 			elif row >= 22:
-				wyd = ("sa   " + str(row) + " rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci"
+				wyd = ("sa   " + str(row) + "  rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci")
 		else:
 			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba pobrania informacji zakonczyla się bledem"
 		return wyd

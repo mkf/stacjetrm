@@ -23,18 +23,18 @@ class english:
 		return slo
 	def wyd(self, row):
 		if row == 0:
-			wyd = "is no bicycles"
+			wyd = "is no bicycles "
 		elif row == -1:
 			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n         "
 		elif row <= 0:
 			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n          "
 		elif row == 1:
-			wyd = "is 1  bicycle    "
+			wyd = "is  1 bicycle  "
 		elif row >= 2:
 			if row <= 9:
-				wyd = ("is " + str(row) + "  bicycles   ")
+				wyd = ("is  " + str(row) + " bicycles ")
 			if row >= 10:
-				wyd = ("is " + str(row) + " bicycles   ")
+				wyd = ("is " + str(row) + " bicycles ")
 		else:
 			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error"
 		return wyd
