@@ -53,6 +53,7 @@ class orzeczim:
 				ad = adrlocnatio
 			else:
 				print "Gupi błondd"
+				print lanchar
 				quit()
 		else:
 			print "Gupppiii bwond"
