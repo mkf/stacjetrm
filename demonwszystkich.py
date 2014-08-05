@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 # Do README: Tryby pobierania jednoczesnego umożliwiają szybsze, acz jednoczesne i bardziej podatne na bana pobieranie, zaś pobieranie kolejno daje czas każdego z pomiarów oraz mniejsze ryzyko bana
-#później trza będzie zrobić też opcję pobierania 'jak kolejno, acz jednoczesnie', która będzie pobierała jednocześnie acz wyświelała w interfejsie kolejno, przy czym każde pobranie będzie miało swój timestamp
+#później trza będzie zrobić też opcję pobierania 'jak kolejno, acz jednoczesnie', która będzie pobierała jednocześnie acz wyświelała w interfejsie kolejno, przy czym każde pobranie będzie miało swój waitbetweenloopsstamp
 #mimo wielowątkowości, oczywistym jest, że część wątków wykona swoje zadanie szybciej od innych. W związku z tym ich wyni powinien iść dalej od razu, i nie czekać na resztę
 #to trzeba będzie przepisać do Github Issues i potytułować po jednym
 #mniej istotną jest możliwość odpalenia trybu kolejno w stylu jak jednocześnie
@@ -21,7 +21,7 @@ defsta = allsta
 defpracy = "f"
 defdebugu = "n"
 defwritemode = "n"
-deftime = 60
+defwaitbetweenloops = 60
 deflang = "e"
 defget = "k"
 defadrlangczy = "l"
@@ -31,7 +31,7 @@ defwvc = 1000
 argh = argparse.ArgumentParser()
 arglang = argh.add_mutually_exclusive_group()
 argchar = argh.add_mutually_exclusive_group()
-argtime = argh.add_mutually_exclusive_group()
+argwaitbetweenloops = argh.add_mutually_exclusive_group()
 argstac = argh.add_mutually_exclusive_group()
 argpracy = argh.add_mutually_exclusive_group()
 argdebugu = argh.add_mutually_exclusive_group()
@@ -44,9 +44,9 @@ arglang.add_argument("-la", "--langenglish", action="store_true", help="LANG: En
 arglang.add_argument("-le", "--langesperanto", action="store_true", help="LANG: Esperanto")
 arglang.add_argument("-lp", "--langpolski", action="store_true", help="LANG: Polski")
 arglang.add_argument("-ld", "--langdeutsch", action="store_true", help="LANG: Deutsch")
-argtime.add_argument("-t", "--time", type=int, help="Opóźnienie między zbieraniem danych w sekundach/Atendtempo/Delay between instances")
-argtime.add_argument("-td", "--deftime", action="store_true", help="-t z domyślną wartością/-t with default value")
-argtime.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
+argwaitbetweenloops.add_argument("-t", "--waitbetweenloops", type=int, help="Opóźnienie między zbieraniem danych w sekundach/Atendtempo/Delay between instances")
+argwaitbetweenloops.add_argument("-td", "--defwaitbetweenloops", action="store_true", help="-t z domyślną wartością/-t with default value")
+argwaitbetweenloops.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
 argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1,13), help="Wybierz stację, można użyć wielokrotnie")
@@ -77,9 +77,9 @@ argdebugu.add_argument("-bn", "--debugno", action="store_true", help="Debug wył
 argdebugu.add_argument("-bd", "--debugdef", action="store_true", help="Domyślne opcje debugu")
 argzapisu.add_argument("-wcks", "--writetocsvkolsinglefile", type=str, action="append", help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz nazwę pliku, zapis do jednego pliku ciągły")
 argzapisu.add_argument("-wcrs", "--writetocsvrazsinglefile", type=str, action="append", help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz nazwę pliku, zapis do jednego pliku ciągły")
-argzapisu.add_argument("-wckvt", "--writetocsvkolmultitimevolumefile", action="append", type=str, nargs=2, help=str("Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
-argzapisu.add_argument("-wcrvt", "--writetocsvrazmultitimevolumefile", action="append", type=str, nargs=2, help=str("Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
-#argzapisu.add_argument("-wvt", "--writemultivolumetimehours", type=int, action="store_true", help="Parametr opcjonalny zapisu wielowolumenowego: czas w godzinach na jeden plik"
+argzapisu.add_argument("-wckvt", "--writetocsvkolmultiwaitbetweenloopsvolumefile", action="append", type=str, nargs=2, help=str("Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
+argzapisu.add_argument("-wcrvt", "--writetocsvrazmultiwaitbetweenloopsvolumefile", action="append", type=str, nargs=2, help=str("Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
+#argzapisu.add_argument("-wvt", "--writemultivolumewaitbetweenloopshours", type=int, action="store_true", help="Parametr opcjonalny zapisu wielowolumenowego: czas w godzinach na jeden plik"
 argzapisu.add_argument("-wckvc", "--writetocsvkolmulticountvolumefile", type=str, action="append", nargs=2, help=str("Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz początek nazwy pliku i liczbę zapisów na wolumen (domyślnie %s); zapis wielowolumenowy wg ilości zapisów" % defwvc))
 argzapisu.add_argument("-wcrvc", "--writetocsvrazmulticountvolumefile", type=str, action="append", nargs=2, help=str("Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz początek nazwy pliku i liczbę zapisów na wolumen (domyślnie %s); zapis wielowolumenowy wg ilości zapisów" % defwvc))
 #argzapisu.add_argument("-wvc", "--writemultivolumeentrycount", type=int, action="store_true", help="Parametr opcjonalny zapisu wielowolumenowego: ilość wpisów na jeden plik"
@@ -90,9 +90,9 @@ arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejn
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 parmetry = argh.parse_args()
 try:
-	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultitimevolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
+	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
 		writekolczyraz = 'k'
-	elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultitimevolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+	elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
 		writekolczyraz = 'r'
 	elif parmetry.writeno:
 		writekolczyraz = 'n'
@@ -100,7 +100,7 @@ try:
 		writekolczyraz = 'n'
 except:
 	try:
-		if len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultitimevolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+		if len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
 			writekolczyraz = 'r'
 		elif parmetry.writeno:
 			writekolczyraz = 'n'
@@ -113,14 +113,14 @@ except:
 			writekolczyraz = 'n'
 #if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile:
 #	multivol = 'j'
-#elif parmetry.writetocsvrazmultitimevolumefile or parmetry.writetocsvkolmultitimevolumefile:
+#elif parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile or parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile:
 #	multivol = 't'
 #elif parmetry.writetocsvrazmulticountvolumefile or parmetry.writetocsvkolmulticountvolumefile:
 #	multivol = 'c'
 #else:
 #	multivol = 'n'
 tybyzapisu = []
-for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile, parmetry.writetocsvrazmultitimevolumefile, parmetry.writetocsvkolmultitimevolumefile, parmetry.writetocsvrazmulticountvolumefile, parmetry.writetocsvkolmulticountvolumefile):
+for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile, parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile, parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile, parmetry.writetocsvrazmulticountvolumefile, parmetry.writetocsvkolmulticountvolumefile):
 	try:
 		if len(tybzapisu)>0:
 			tybyzapisu.append(tybzapisu)
@@ -180,14 +180,14 @@ else:
 		lan = eo_safe()
 
 if parmetry.singlecheck:
-	time = "singlecheck"
+	waitbetweenloops = "singlecheck"
 else:
-	if type(parmetry.time) == "int":
-		time = parmetry.time
-	elif parmetry.deftime:
-		time = deftime
+	if type(parmetry.waitbetweenloops) == "int":
+		waitbetweenloops = parmetry.waitbetweenloops
+	elif parmetry.defwaitbetweenloops:
+		waitbetweenloops = defwaitbetweenloops
 	else:
-		time = deftime
+		waitbetweenloops = defwaitbetweenloops
 if parmetry.defstations:
 	sta = defsta
 elif parmetry.allstations:
@@ -310,8 +310,8 @@ elif parmetry.debugdef:
 else:
 	debugu = defdebugu
 
-#import datetime
-#import time
+#import datewaitbetweenloops
+#import waitbetweenloops
 
 if kolczyraz == 'k':
 	smartget = 'k'
@@ -358,7 +358,13 @@ else:
 		
 if pob == 'k':
 	from getkol import *
-	getkol(sta, pracy, lan, jezadr, lanchar)
+	if waitbetweenloops == "singlecheck":
+		getkol(sta, pracy, lan, jezadr, lanchar)
+	elif waitbetweenloops.type() == int:
+		import time
+		while True:
+			getkol(sta, pracy, lan, jezadr, lanchar)
+			time.wait(waitbetweenloops)
 elif pob == 'j':
 	from getjednoczesnie import *
 	
