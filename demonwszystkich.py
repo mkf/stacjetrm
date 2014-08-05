@@ -124,6 +124,8 @@ for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsingle
 	try:
 		if len(tybzapisu)>0:
 			tybyzapisu.append(tybzapisu)
+	except:
+		nicsieniedziejealecostrzawstawic = 1
 if parmetry.charsafe:
 	lanchar = 'n'
 elif parmetry.charwithnational:
