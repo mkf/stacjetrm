@@ -28,7 +28,7 @@ class download:
 		else:
 			print "%s: %s" % landictu['badstacparam'],str(stacja)
 			quit()
-		stacn = str.join()
+		stacn = str.join(na)
 		urlt = (r'trm24.pl/panel-trm/', str(stacn), r'.jsp')
 		url = str.join(urlt)
 		#wejs = urllib2.urlopen(url)
