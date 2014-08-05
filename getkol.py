@@ -67,6 +67,7 @@ class getkol:
 			a = self.si(o)
 			return a
 		elif int(s) < 13:
+			import download
 			download(int(s),lan)
 			a = download.raz()
 			return a
