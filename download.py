@@ -18,16 +18,16 @@ class download:
 			if stacja > 0:
 				na = (r'00', str(stacja), r'TOR')
 			elif stacja < 0:
-				print "%s: %s" % (landictu['badstacparam'], str(stacja))
+				print "in_elif: %s: %s" % (landictu['badstacparam'], str(stacja))
 				quit()
 		elif stacja > 9:
-			if stacja > 12:
+			if stacja < 13:
 				na = (r'0', str(stacja), r'TOR')
 			else:
-				print "%s: %s" % (landictu['badstacparam'], str(stacja))
+				print "in_else_min: %s: %s" % (landictu['badstacparam'], str(stacja))
 				quit()
 		else:
-			print "%s: %s" % (landictu['badstacparam'], str(stacja))
+			print "in_else_max: %s: %s" % (landictu['badstacparam'], str(stacja))
 			quit()
 		stacn = "".join(na)
 		urlt = (r'http://trm24.pl/panel-trm/', str(stacn), r'.jsp')
