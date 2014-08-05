@@ -14,7 +14,7 @@ class eo_safe:
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
 			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
-			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting]."
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
 			"elektulabormodo": "Elektu labormodon",
 			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
 			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
@@ -70,7 +70,7 @@ class eo_natio:
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
 			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
-			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting]."
+			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
 			"elektulabormodo": "Elektu labormodon",
 			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
 			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
