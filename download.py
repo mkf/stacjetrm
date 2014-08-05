@@ -5,6 +5,7 @@ class download:
 	import time
 	
 	def __init__(self,stacja,landictu):
+		self.landictu = landictu
 		if stacja == 0:
 			from suma import suma
 			print landictu['sumallnotsupported']
