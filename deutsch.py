@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-class de-natio:
+class de_natio:
 	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
 	
 	def __init__(self):
-		lang = "en"
+		lang = "de"
 	def dictu(self):
 		slo = {
 			"badwaittime": "Incorrect waiting time",
@@ -52,11 +52,11 @@ class de-natio:
 		}
 		return lanstadict
 		#powyzsze trzeba bedzie przetlumaczyc na niemiecki ze znaczkami
-class de-safe:
+class de_safe:
 	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
 	
 	def __init__(self):
-		lang = "en"
+		lang = "de"
 	def dictu(self):
 		slo = {
 			"badwaittime": "Incorrect waiting time",

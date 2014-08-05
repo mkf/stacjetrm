@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class eo-safe:
+class eo_safe:
 	u"Tio estas la pakagxo de la esperanta lingvo."
 	
 	def __init__(self):
@@ -52,7 +52,7 @@ class eo-safe:
 		}
 		return lanstadict
 		#powyzsze trzeba bedzie przetlumaczyc na esperanto w bezpiecznym alfabecie metoda x
-class eo-natio:
+class eo_natio:
 	u"Tio estas la pakaĝo de la esperanta lingvo."
 	
 	def __init__(self):

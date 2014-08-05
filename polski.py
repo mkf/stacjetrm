@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-class pl-natio:
+class pl_natio:
 	u"To jest plik języka polskiego"
 	
 	def __init__(self):
-		lang = "pl-natio"
+		lang = "pl_natio"
 	def dictu(self):
 		slo = {
 			"badwaittime": "Niepoprawny czas czekania",
@@ -55,11 +55,11 @@ class pl-natio:
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
 		}
 		return lanstadict
-class pl-safe:
+class pl_safe:
 	u"To jest plik jezyka polskiego"
 	
 	def __init__(self):
-		lang = "pl-natio"
+		lang = "pl_safe"
 	def dictu(self):
 		slo = {
 			"badwaittime": "Niepoprawny czas czekania",
