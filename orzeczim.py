@@ -70,7 +70,7 @@ class orzeczim:
 		#dz = self.dz
 		st = self.stac
 		row = self.row
-		print dzcz, self.jezyu.dictu['nastacji'], st, wyd
+		print dzcz, self.jezyu.dictu()['nastacji'], st, wyd
 
 	def pisp(self):
 		dzcz = self.dzcz
@@ -97,7 +97,7 @@ class orzeczim:
 		#dz = self.dz
 		st = self.stac
 		ad = self.ad
-		print dzcz, self.jezyu.dictu['nastacji'], st, wyd, " - ", ad[st]
+		print dzcz, self.jezyu.dictu()['nastacji'], st, wyd, " - ", ad[st]
 	def pist(self):
 		dzcz = self.dzcz
         #dz = self.dz
