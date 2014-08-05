@@ -7,7 +7,7 @@ class eo_safe:
 	def dictu(self):
 		slo = {
 			"badwaittime": "Malkorektan atendtempon",
-			"badstacparam": "Malkorentan staciparametron",
+			"badstacparam": "Malkorektan staciparametron",
 			"badlang": "Malkorektan lingvon",
 			"badpracy": "Malkorektan labormodon",
 			"baddebugu": "Malkorektan senfusxmodon",
@@ -60,7 +60,7 @@ class eo_natio:
 	def dictu(self):
 		slo = {
 			"badwaittime": "Malkorektan atendtempon",
-			"badstacparam": "Malkorentan staciparametron",
+			"badstacparam": "Malkorektan staciparametron",
 			"badlang": "Malkorektan lingvon",
 			"badpracy": "Malkorektan labormodon",
 			"baddebugu": "Malkorektan senfuŝmodon",
