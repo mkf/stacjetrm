@@ -360,7 +360,7 @@ if pob == 'k':
 	from getkol import *
 	if waitbetweenloops == "singlecheck":
 		getkol(sta, pracy, lan, jezadr, lanchar)
-	elif waitbetweenloops.type() == int:
+	elif type(waitbetweenloops) == int:
 		import time
 		while True:
 			getkol(sta, pracy, lan, jezadr, lanchar)
