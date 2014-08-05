@@ -67,8 +67,8 @@ class getkol:
 			a = self.si(o)
 			return a
 		elif int(s) < 13:
-			import download
-			download(int(s),lan)
+			from download import *
+			download(int(s),lan.dictu())
 			a = download.raz()
 			return a
 		else:
