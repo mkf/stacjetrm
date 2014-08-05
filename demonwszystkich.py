@@ -364,7 +364,7 @@ if pob == 'k':
 		import time
 		while True:
 			getkol(sta, pracy, lan, jezadr, lanchar)
-			time.wait(waitbetweenloops)
+			time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from getjednoczesnie import *
 	
