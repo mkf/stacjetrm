@@ -6,11 +6,11 @@ class download:
 	
 	def __init__(self,stacja,landictu):
 		if stacja == 0:
-			from suma import *
+			from suma import suma
 			print landictu['sumallnotsupported']
 			quit()
 		elif stacja == 100:
-			from suma import *
+			from suma import suma
 			print landictu['sumchonotsupported']
 			quit()
 		elif stacja < 10:
@@ -45,7 +45,7 @@ class download:
 		we = wejs.read()
 		self.we = we
 	def row(self):
-		from pars import *
+		from pars import pars,rowerry
 		par = pars(self.we,self.stacn)
 		rowery = par.rowerry()
 		self.rouwer = rowery
