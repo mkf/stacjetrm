@@ -67,7 +67,7 @@ class getkol:
 			a = self.si(o)
 			return a
 		elif int(s) < 13:
-			from download import *
+			from download import download
 			download(int(s),lan.dictu())
 			a = download.raz()
 			return a
@@ -79,7 +79,7 @@ class getkol:
 		lan = self.lan
 		jezadr = self.jezadr
 		lanchar = self.lanchar
-		from pokaz import *
+		from pokaz import pokaz
 		if pr == 'n':
 			pracowanie='nie'
 #		elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
