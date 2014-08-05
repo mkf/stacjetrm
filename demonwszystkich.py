@@ -298,6 +298,7 @@ else:
 	else:
 		print "Źlee"
 		quit()
+jezadr = adrlangczy
 if parmetry.debugfull:
 	debugu = "f"
 elif parmetry.debugyes:
