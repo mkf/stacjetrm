@@ -30,7 +30,7 @@ class download:
 			quit()
 		stacn = "".join(na)
 		urlt = (r'trm24.pl/panel-trm/', str(stacn), r'.jsp')
-		url = str.join(urlt)
+		url = "".join(urlt)
 		#wejs = urllib2.urlopen(url)
 		#we = wejs.read()
 		self.url = url
