@@ -47,9 +47,9 @@ class orzeczim:
 		if jezadr == "c":
 			ad = jezyu.lanstac()
 		elif jezadr == 'l':
-			if lanchar == 'e':
+			if lanchar == 'n':
 				ad = adrlocsafe
-			elif lanchar == 'l':
+			elif lanchar == 'y':
 				ad = adrlocnatio
 			else:
 				print "Gupi błondd"
