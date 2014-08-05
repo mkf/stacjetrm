@@ -121,8 +121,9 @@ except:
 #	multivol = 'n'
 tybyzapisu = []
 for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile, parmetry.writetocsvrazmultitimevolumefile, parmetry.writetocsvkolmultitimevolumefile, parmetry.writetocsvrazmulticountvolumefile, parmetry.writetocsvkolmulticountvolumefile):
-	if len(tybzapisu)>0:
-		tybyzapisu.append(tybzapisu)
+	try:
+		if len(tybzapisu)>0:
+			tybyzapisu.append(tybzapisu)
 if parmetry.charsafe:
 	lanchar = 'n'
 elif parmetry.charwithnational:
