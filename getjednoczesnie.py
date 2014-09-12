@@ -24,3 +24,4 @@ import threading
 			t.start()
 	def pobierzjedno(self, q, s):
 		
+# http://stackoverflow.com/questions/2846653/python-multithreading-for-dummies
