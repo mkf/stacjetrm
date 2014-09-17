@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class multipokaz:
-	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej"
+	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej (API)"
 	import datetime
 	from time import gmtime, strftime
 	from datetime import time, date, datetime
