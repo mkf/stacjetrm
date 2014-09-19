@@ -27,8 +27,6 @@ import threading
 			t.start()
 	
 
-	def suma(self
-
 	def si(self,s):
 		lan = self.lan
 		sa = 0
