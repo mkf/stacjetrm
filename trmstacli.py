@@ -88,7 +88,19 @@ arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobi
 arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
 arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejno z odstępem czasowym pomiędzy odczytami pojedyńczych stacji")
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
+argh.add_argument("-in", "--instantly", action="store_true", help="Wyświetlaj oraz zapisuj natychmiast po pobraniu informacji, równoważne z -iw oraz -id")
+argh.add_argument("-iw", "--instawrite", action="store_true", help="Zapisuj natycmiast po pobraniu informacji.")
+argh.add_argument("-id", "-instadisp", action="store_true", help="Wyświetlaj natychmiast po pobraniu informacji")
 parmetry = argh.parse_args()
+instawrite = 0
+instadisp = 0
+if parmetry.instantly:
+	instawrite = 1
+	instadisp = 1
+if parmetry.instawrite:
+	instawrite = 1
+if parmetry.instadisp:
+	instadisp = 1
 try:
 	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
 		writekolczyraz = 'k'
@@ -362,14 +374,21 @@ else:
 if pob == 'k':
 	from getkol import *
 	if waitbetweenloops == "singlecheck":
-		getkol(sta, pracy, lan, jezadr, lanchar)
+		getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
 	elif type(waitbetweenloops) == int:
 		import time
 		while True:
-			getkol(sta, pracy, lan, jezadr, lanchar)
+			getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
 			time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from getjednoczesnie import *
+	if waitbetweenloops == "singlecheck":
+		getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+	elif type(waitbetweenloops) == int:
+		import time
+		while True:
+			getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+			time.sleep(waitbetweenloops)
 	
 elif pob == 'w':
 	from getkolwait import *

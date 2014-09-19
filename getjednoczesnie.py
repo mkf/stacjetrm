@@ -7,7 +7,7 @@ class getjednoczesnie:
 import Queue
 import threading
 
-	def __init__(self,stacje,pracy,lan,jezadr,lanchar):
+	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis):
 		self.lan = lan
 		self.jezadr = jezadr
 		self.lanchar = lanchar
@@ -18,13 +18,22 @@ import threading
 		stacdict = {}
 		slownikczasow = ()
 		q = Queue.Queue()
+		def kolejka(q,s):
+			q.put(self.si(s))
 		for s in stacje:
 			sa = 0
 			sw = 0
-			a = 
-			t = threading.Thread(target=self.pobierzjedno, agrs = (q,s))
-			t.daemon=True
-			t.start()
+			a = self.si(s)
+			if a[0] == 'a':
+				sa = 1
+				ssa = 1
+			elif a[0] == 'w':
+				sw = 1
+				ssw = 1
+			else:
+				t = threading.Thread(target=kolejka, agrs = (q,s))
+				t.daemon=True
+				t.start()
 	
 
 	def si(self,s):
