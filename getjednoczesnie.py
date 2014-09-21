@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 class getjednoczesnie:
 	"To jest klasa pobierania jednoczesnego"
-	from download import * 
+	from download import download
 #	import time
-	from pars import *
+	from pars import pars
 import Queue
 import threading
 
