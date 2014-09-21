@@ -8,6 +8,7 @@ class tordown:
 			debug = 1
 		elif debugu == "n":
 			debug = 0
+		self.debug = debug
 		import StringIO
 		import socket
 		import urllib
