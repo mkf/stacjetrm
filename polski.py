@@ -6,63 +6,63 @@ class pl_natio:
 		lang = "pl_natio"
 	def dictu(self):
 		slo = {
-			"badwaittime": "Niepoprawny czas czekania",
-			"badstacparam": "Niepoprawny parametr stacji",
-			"badlang": "Niepoprawny język",
-			"badpracy": "Niepoprawny tryb pracy",
-			"baddebugu": "Niepoprawny tryb debugowania",
-			"badsm": "Niepoprawny tryb zapisu",
-			"nastacji": "Na stacji",
-			"sumallnotsupported": "Suma wszystkiego jeszcze nie obsługiwana. Kończenie.",
-			"sumchonotsupported": "Suma wybranych jeszcze nie obsługiwana. Kończenie.",
-			"elektulabormodon": "Wybierz tryb pracy",
-			"sevivolasketiunprogramonfunkcias": "jeżeli chcesz, by ten program działał",
-			"najprawdopodobniejtrybpracy": "Najprawdopodobniej tryb pracy",
-			"jestnieprawidlowy": "jest nieprawidłowy",
-			"trojliterr": "BŁĄ",
+			"badwaittime": u"Niepoprawny czas czekania",
+			"badstacparam": u"Niepoprawny parametr stacji",
+			"badlang": u"Niepoprawny język",
+			"badpracy": u"Niepoprawny tryb pracy",
+			"baddebugu": u"Niepoprawny tryb debugowania",
+			"badsm": u"Niepoprawny tryb zapisu",
+			"nastacji": u"Na stacji",
+			"sumallnotsupported": u"Suma wszystkiego jeszcze nie obsługiwana. Kończenie.",
+			"sumchonotsupported": u"Suma wybranych jeszcze nie obsługiwana. Kończenie.",
+			"elektulabormodon": u"Wybierz tryb pracy",
+			"sevivolasketiunprogramonfunkcias": u"jeżeli chcesz, by ten program działał",
+			"najprawdopodobniejtrybpracy": u"Najprawdopodobniej tryb pracy",
+			"jestnieprawidlowy": u"jest nieprawidłowy",
+			"trojliterr": u"BŁĄ",
 		}
 		return slo
 	def wyd(self, row):
 		if type(row) == int and row == 0:
-			wyd = "  nie ma rowerów"
+			wyd = u"  nie ma rowerów"
 		elif type(row) == int and row == -1:
-			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam -1 rower - a jest to liczba ujemna \n		 "
+			wyd = u"najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam -1 rower - a jest to liczba ujemna \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(row) + " rowerów - a jest to liczba ujemna \n		  "
+			wyd = u"najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(row) + " rowerów - a jest to liczba ujemna \n		  "
 		elif type(row) == int and row == 1:
-			wyd = "jest  1  rower	"
+			wyd = u"jest  1  rower	"
 		elif type(row) == int and row >= 2:
 			if row <= 4:
-				wyd = ("są	" + str(row) + "  rowery   ")
+				wyd = (u"są	" + str(row) + u"  rowery   ")
 			elif row >= 5:
-				wyd = ("jest  " + str(row) + "  rowerów  ")
+				wyd = (u"jest  " + str(row) + u"  rowerów  ")
 			elif row >= 10:
-				wyd = ("jest " + str(row) + "  rowerów   ")
+				wyd = (u"jest " + str(row) + u"  rowerów   ")
 			elif row >= 22:
-				wyd = ("są   " + str(row) + "  rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
+				wyd = (u"są   " + str(row) + u"  rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
 		elif row == "Download failed":
-			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
+			wyd = u", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
 		else:
-			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem, zwróciłą [typ: '%s', wartość: '%s']" % (type(row), str(row))
+			wyd = u", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem, zwróciłą [typ: '%s', wartość: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
-			'001TOR': 'Rynek Staromiejski', 
-			'002TOR': 'Plac św. Katarzyny', 
-			'003TOR': 'Plac Rapackiego', 
-			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
-			'005TOR': 'ul. Szosa Chełmińska - Targowisko Miejskie', 
-			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
-			'007TOR': 'ul. Broniewskiego - Tesco', 
-			'008TOR': 'ul. Gen. Józefa Hallera - Polo Market', 
-			'009TOR': 'ul. Szosa Chełmińska - Polo Market', 
-			'010TOR': 'PKP Toruń Główny', 
-			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
-			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
+			'001TOR': u'Rynek Staromiejski',
+			'002TOR': u'Plac św. Katarzyny',
+			'003TOR': u'Plac Rapackiego',
+			'004TOR': u'ul. Bulwar Filadelfijski - Brama Klasztorna',
+			'005TOR': u'ul. Szosa Chełmińska - Targowisko Miejskie',
+			'006TOR': u'ul. Gagarina - Biblioteka Uniwersytecka',
+			'007TOR': u'ul. Broniewskiego - Tesco',
+			'008TOR': u'ul. Gen. Józefa Hallera - Polo Market',
+			'009TOR': u'ul. Szosa Chełmińska - Polo Market',
+			'010TOR': u'PKP Toruń Główny',
+			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
+			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
 		}
 		return lanstadict
 class pl_safe:
-	u"To jest plik jezyka polskiego"
+	"To jest plik jezyka polskiego"
 	
 	def __init__(self):
 		lang = "pl_safe"
