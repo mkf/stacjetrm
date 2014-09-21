@@ -45,7 +45,8 @@ class getjednoczesnie:
 				t = threading.Thread(target=kolejka, args = (q,s))
 				t.daemon=True
 				t.start()
-		self.torin.zabij()
+		if tor == 1:
+				self.torin.zabij()
 
 	def si(self,s):
 		lan = self.lan
