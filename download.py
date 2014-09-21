@@ -43,13 +43,13 @@ class download:
 		import urllib2
 		import time
 		try:
-			if tor == 0:
+			if self.tor == 0:
 				wejs = urllib2.urlopen(self.url)
 				czas = time.time()
 				self.czas = czas
 				we = wejs.read()
 				self.we = we
-			elif tor == 1:
+			elif self.tor == 1:
 				wejs = self.tordown.pobierz(self.url)
 				czas = time.time()
 				self.czas = czas
