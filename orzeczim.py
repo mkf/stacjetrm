@@ -116,9 +116,9 @@ class orzeczim:
 		sp = spac
 #		for sp in range (0, ds):
 #			s = s + " "
-		if type(row) == "int" and row <= 9:
+		if type(row) == int and row <= 9:
 			print "|",dzcz,"|",st,"|",row,"  | ",ad[st],sp,"|"
-		elif type(row) == "int" and row >= 10:
+		elif type(row) == int and row >= 10:
 			print "|",dzcz,"|",st,"|",row," | ",ad[st],sp,"|"
 		elif row == "Download failed":
 			print "|",dzcz,"|",st,"|%s| "%self.jezyu.dictu()['trojliterr'],ad[st],sp,"| %s "%self.jezyu.dictu()['downfail']

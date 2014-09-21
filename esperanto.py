@@ -25,15 +25,15 @@ class eo_safe:
 		}
 		return slo
 	def wyd(self, row):
-		if type(row) == "int" and row == 0:
+		if type(row) == int and row == 0:
 			wyd = "estas neniu bicikloj"
-		elif type(row) == "int" and row == -1:
+		elif type(row) == int and row == -1:
 			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
-		elif type(row) == "int" and row <= 0:
+		elif type(row) == int and row <= 0:
 			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
-		elif type(row) == "int" and row == 1:
+		elif type(row) == int and row == 1:
 			wyd = "estas 1  biciklo	"
-		elif type(row) == "int" and row >= 2:
+		elif type(row) == int and row >= 2:
 			if row <= 9:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:
@@ -86,15 +86,15 @@ class eo_natio:
 		}
 		return slo
 	def wyd(self, row):
-		if type(row) == "int" and row == 0:
+		if type(row) == int and row == 0:
 			wyd = "estas neniu bicikloj"
-		elif type(row) == "int" and row == -1:
+		elif type(row) == int and row == -1:
 			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
-		elif type(row) == "int" and row <= 0:
+		elif type(row) == int and row <= 0:
 			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
-		elif type(row) == "int" and row == 1:
+		elif type(row) == int and row == 1:
 			wyd = "estas 1  biciklo	"
-		elif type(row) == "int" and row >= 2:
+		elif type(row) == int and row >= 2:
 			if row <= 9:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:

@@ -25,15 +25,15 @@ class english:
 		}
 		return slo
 	def wyd(self, row):
-		if type(row) == "int" and row == 0:
+		if type(row) == int and row == 0:
 			wyd = "is no bicycles "
-		elif type(row) == "int" and row == -1:
+		elif type(row) == int and row == -1:
 			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
-		elif type(row) == "int" and row <= 0:
+		elif type(row) == int and row <= 0:
 			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
-		elif type(row) == "int" and row == 1:
+		elif type(row) == int and row == 1:
 			wyd = "is  1 bicycle  "
-		elif type(row) == "int" and row >= 2:
+		elif type(row) == int and row >= 2:
 			if row <= 9:
 				wyd = ("is  " + str(row) + " bicycles ")
 			if row >= 10:
