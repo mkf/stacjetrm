@@ -23,15 +23,15 @@ class pl_natio:
 		}
 		return slo
 	def wyd(self, row):
-		if row == 0:
+		if type(row) == "int" and row == 0:
 			wyd = "  nie ma rowerów"
-		elif row == -1:
+		elif type(row) == "int" and row == -1:
 			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam -1 rower - a jest to liczba ujemna \n		 "
-		elif row <= 0:
+		elif type(row) == "int" and row <= 0:
 			wyd = "najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(row) + " rowerów - a jest to liczba ujemna \n		  "
-		elif row == 1:
+		elif type(row) == "int" and row == 1:
 			wyd = "jest  1  rower	"
-		elif row >= 2:
+		elif type(row) == "int" and row >= 2:
 			if row <= 4:
 				wyd = ("są	" + str(row) + "  rowery   ")
 			elif row >= 5:
@@ -86,15 +86,15 @@ class pl_safe:
 		return slo
 	
 	def wyd(self, row):
-		if row == 0:
+		if type(row) == "int" and row == 0:
 			wyd = "  nie ma rowerow"
-		elif row == -1:
+		elif type(row) == "int" and row == -1:
 			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam -1 rower - a jest to liczba ujemna \n		 "
-		elif row <= 0:
+		elif type(row) == "int" and row <= 0:
 			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam " + str(row) + " rowerow - a jest to liczba ujemna \n		  "
-		elif row == 1:
+		elif type(row) == "int" and row == 1:
 			wyd = "jest 1  rower	"
-		elif row >= 2:
+		elif type(row) == "int" and row >= 2:
 			if row <= 4:
 				wyd = ("sa	" + str(row) + "  rowery   ")
 			elif row >= 5:
