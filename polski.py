@@ -43,7 +43,7 @@ class pl_natio:
 		elif row == "Download failed":
 			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
 		else:
-			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem"
+			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem, zwróciłą [typ: '%s', wartość: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
@@ -106,7 +106,7 @@ class pl_safe:
 		elif row == "Download failed":
 			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz pobieranie zakonczylo się bledem"
 		else:
-			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem"
+			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem, zwrocila [typ: '%s', wartosc: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {

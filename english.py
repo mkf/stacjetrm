@@ -41,7 +41,7 @@ class english:
 		elif row == "Download failed":
 			wyd = ", there is no data how many bicycles there are, because an attempt to download the information has failed"
 		else:
-			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error"
+			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error, it returned [type: '%s', value: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {

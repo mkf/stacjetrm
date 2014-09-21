@@ -41,7 +41,7 @@ class eo_safe:
 		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la malsargxon de la biciklokvanto malsukcesis"
 		else:
-			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
+			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
@@ -102,7 +102,7 @@ class eo_natio:
 		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la malsarĝon de la biciklokvanto malsukcesis"
 		else:
-			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro"
+			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
