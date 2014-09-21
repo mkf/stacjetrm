@@ -3,60 +3,60 @@ class de_natio:
 	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
 	
 	def __init__(self):
-		lang = "de"
+		lang = "de_natio"
 	def dictu(self):
 		slo = {
-			"badwaittime": "Incorrect waiting time",
-			"badstacparam": "Incorrect station parameter",
-			"badlang": "Incorrect language",
-			"badpracy": "Incorrect work mode",
-			"baddebugu": "Incorrect debug mode",
-			"badsm": "Incorrect write mode",
-			"nastacji": "On the station",
-			"sumallnotsupported": "The feature of sum of all of the stations isn't yet supported. Exiting.",
-			"sumchonotsupported": "The feature of sum of the chosen stations isn't yet supported. Exiting.",
-			"elektulabormodon": "Choose a work mode",
-			"sevivolasketiunprogramonfunkcias": "if you want this program work",
-			"najprawdopodobniejtrybpracy": "Most probably the work mode",
-			"jestnieprawidlowy": "is incorrect",
-			"niepoprwartosc": "Incorrect value",
-			"downfail": "Download failed",
-			"trojliterr": "ERR",
+			"badwaittime": u"Incorrect waiting time",
+			"badstacparam": u"Incorrect station parameter",
+			"badlang": u"Incorrect language",
+			"badpracy": u"Incorrect work mode",
+			"baddebugu": u"Incorrect debug mode",
+			"badsm": u"Incorrect write mode",
+			"nastacji": u"On the station",
+			"sumallnotsupported": u"The feature of sum of all of the stations isn't yet supported. Exiting.",
+			"sumchonotsupported": u"The feature of sum of the chosen stations isn't yet supported. Exiting.",
+			"elektulabormodon": u"Choose a work mode",
+			"sevivolasketiunprogramonfunkcias": u"if you want this program work",
+			"najprawdopodobniejtrybpracy": u"Most probably the work mode",
+			"jestnieprawidlowy": u"is incorrect",
+			"niepoprwartosc": u"Incorrect value",
+			"downfail": u"Download failed",
+			"trojliterr": u"ERR",
 		}
 		return slo
 	def wyd(self, row):
 		if type(row) == int and row == 0:
-			wyd = "is no bicycles "
+			wyd = u"is no bicycles "
 		elif type(row) == int and row == -1:
-			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
+			wyd = u"probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
+			wyd = u"probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
 		elif type(row) == int and row == 1:
-			wyd = "is  1 bicycle  "
+			wyd = u"is  1 bicycle  "
 		elif type(row) == int and row >= 2:
 			if row <= 9:
-				wyd = ("is  " + str(row) + " bicycles ")
+				wyd = (u"is  " + str(row) + u" bicycles ")
 			if row >= 10:
-				wyd = ("is " + str(row) + " bicycles ")
+				wyd = (u"is " + str(row) + u" bicycles ")
 		elif row == "Download failed":
-			wyd = ", there is no data how many bicycles there are, because an attempt to download the information has failed"
+			wyd = u", there is no data how many bicycles there are, because an attempt to download the information has failed"
 		else:
-			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error, it returned [type: '%s', value: '%s']" % (type(row), str(row))
+			wyd = u", there is no data how many bicycles there are, because an attempt to get known encountered an error, it returned [type: '%s', value: '%s']" % (type(row), str(row))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
-			'001TOR': 'Rynek Staromiejski', 
-			'002TOR': 'Plac sw. Katarzyny', 
-			'003TOR': 'Plac Rapackiego', 
-			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
-			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie', 
-			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
-			'007TOR': 'ul. Broniewskiego - Tesco', 
-			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market', 
-			'009TOR': 'ul. Szosa Chelminska - Polo Market', 
-			'010TOR': 'PKP Torun Glowny', 
-			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
-			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+			'001TOR': u'Rynek Staromiejski',
+			'002TOR': u'Plac sw. Katarzyny',
+			'003TOR': u'Plac Rapackiego',
+			'004TOR': u'ul. Bulwar Filadelfijski - Brama Klasztorna',
+			'005TOR': u'ul. Szosa Chelminska - Targowisko Miejskie',
+			'006TOR': u'ul. Gagarina - Biblioteka Uniwersytecka',
+			'007TOR': u'ul. Broniewskiego - Tesco',
+			'008TOR': u'ul. Gen. Jozefa Hallera - Polo Market',
+			'009TOR': u'ul. Szosa Chelminska - Polo Market',
+			'010TOR': u'PKP Torun Glowny',
+			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
+			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej'
 		}
 		return lanstadict
 		#powyzsze trzeba bedzie przetlumaczyc na niemiecki ze znaczkami
@@ -64,7 +64,7 @@ class de_safe:
 	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
 	
 	def __init__(self):
-		lang = "de"
+		lang = "de_safe"
 	def dictu(self):
 		slo = {
 			"badwaittime": "Incorrect waiting time",
