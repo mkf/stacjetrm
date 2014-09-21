@@ -4,7 +4,9 @@ class download:
 	import urllib2
 	import time
 	
-	def __init__(self,stacja,landictu):
+	def __init__(self,stacja,landictu,tor,tordown):
+		self.tor = tor
+		self.tordown = tordown
 		self.landictu = landictu
 		if stacja == 0:
 			from suma import suma
@@ -41,11 +43,21 @@ class download:
 		import urllib2
 		import time
 		try:
-			wejs = urllib2.urlopen(self.url)
-			czas = time.time()
-			self.czas = czas
-			we = wejs.read()
-			self.we = we
+			if tor == 0:
+				wejs = urllib2.urlopen(self.url)
+				czas = time.time()
+				self.czas = czas
+				we = wejs.read()
+				self.we = we
+			elif tor == 1:
+				wejs = self.tordown.pobierz(self.url)
+				czas = time.time()
+				self.czas = czas
+				we = wejs.read()
+				self.we
+			else:
+				print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
+				quit()
 			return we
 		except:
 			czas = time.time()

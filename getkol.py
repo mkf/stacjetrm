@@ -6,7 +6,7 @@ class getkol:
 	import datetime
 #	from download import *
 		
-	def __init__(self,stacje,pracy,lan,jezadr,lanchar,iwri,idis):
+	def __init__(self,stacje,pracy,lan,jezadr,lanchar,iwri,idis,tor):
 		self.lan = lan
 		self.jezadr = jezadr
 		self.lanchar = lanchar

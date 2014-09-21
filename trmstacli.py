@@ -92,6 +92,7 @@ arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w tr
 argh.add_argument("-in", "--instantly", action="store_true", help="Wyświetlaj oraz zapisuj natychmiast po pobraniu informacji, równoważne z -iw oraz -id")
 argh.add_argument("-iw", "--instawrite", action="store_true", help="Zapisuj natycmiast po pobraniu informacji.")
 argh.add_argument("-id", "--instadisp", action="store_true", help="Wyświetlaj natychmiast po pobraniu informacji")
+argh.add_argument("-tor", "--tor", action="store_true", help="Pobieraj za pośrednictwem sieci Tor (wymaga stem)")
 parmetry = argh.parse_args()
 instawrite = 0
 instadisp = 0
@@ -102,6 +103,16 @@ if parmetry.instawrite:
 	instawrite = 1
 if parmetry.instadisp:
 	instadisp = 1
+if parmetry.tor:
+	try:
+		import stem.process
+		tor = 1
+	except:
+		print "Importing stem library failed. Install it with 'sudo easy_install stem' or 'sudo pip install stem'. Exiting."
+		quit()
+else:
+	tor = 0
+
 try:
 	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
 		writekolczyraz = 'k'
@@ -375,20 +386,20 @@ else:
 if pob == 'k':
 	from getkol import *
 	if waitbetweenloops == "singlecheck":
-		getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+		getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
 	elif type(waitbetweenloops) == int:
 		import time
 		while True:
-			getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+			getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
 			time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from getjednoczesnie import *
 	if waitbetweenloops == "singlecheck":
-		getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+		getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
 	elif type(waitbetweenloops) == int:
 		import time
 		while True:
-			getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite)
+			getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
 			time.sleep(waitbetweenloops)
 	
 elif pob == 'w':

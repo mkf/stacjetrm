@@ -7,7 +7,16 @@ class getjednoczesnie:
 import Queue
 import threading
 
-	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis):
+	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis,tor):
+		self.tor = tor
+		if tor == 0:
+			self.torin = "nico"
+		elif tor == 1:
+			from tordown import tordown
+			self.torin = tordown()
+		else:
+			print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
+			quit()
 		self.lan = lan
 		self.jezadr = jezadr
 		self.lanchar = lanchar
@@ -54,7 +63,7 @@ import threading
 			return a
 		elif int(s) < 13:
 			from download import download
-			thisisthedownloadinstance = download(int(s),lan.dictu())
+			thisisthedownloadinstance = download(int(s),lan.dictu(),self.tor,self.torin)
 			a = thisisthedownloadinstance.raz()
 			return a
 		else:
