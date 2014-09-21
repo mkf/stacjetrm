@@ -6,7 +6,7 @@ class tordown:
 		self.debugu = debugu
 		if debugu == "y" or debugu == "f":
 			debug = 1
-		elif debugu = "n":
+		elif debugu == "n":
 			debug = 0
 		import StringIO
 		import socket
