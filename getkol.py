@@ -71,7 +71,8 @@ class getkol:
 			stacdict[0] = allerstac
 		self.stacdict = stacdict
 		self.slwcza = slownikczasow
-		self.torin.zabij()
+		if tor == 1:
+			self.torin.zabij()
 	def si(self,s):
 		lan = self.lan
 		sa = 0
