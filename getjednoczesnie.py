@@ -8,6 +8,8 @@ class getjednoczesnie:
 	import threading
 	
 	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis,tor):
+		import Queue
+		import threading
 		self.tor = tor
 		if tor == 0:
 			self.torin = "nico"
@@ -40,7 +42,7 @@ class getjednoczesnie:
 				sw = 1
 				ssw = 1
 			else:
-				t = threading.Thread(target=kolejka, agrs = (q,s))
+				t = threading.Thread(target=kolejka, args = (q,s))
 				t.daemon=True
 				t.start()
 	
