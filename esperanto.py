@@ -19,6 +19,9 @@ class eo_safe:
 			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
 			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
 			"jestnieprawidlowy": "estas malkorekta.",
+			"niepoprwartosc": "Malkorekta valoro",
+			"downfail": "Malsargxi malsukcesis",
+			"trojliterr": "ERR",
 		}
 		return slo
 	def wyd(self, row):
@@ -35,6 +38,8 @@ class eo_safe:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:
 				wyd = ("estas " + str(row) + " bicikloj   ")
+		elif row = "Download failed":
+			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la malsargxon de la biciklokvanto malsukcesis"
 		else:
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
 		return wyd
@@ -69,12 +74,15 @@ class eo_natio:
 			"baddebugu": "Malkorektan senfuŝmodon",
 			"badsm": "Malkorektan skribamodon",
 			"nastacji": "Al la biciklastacion",
-			"sumallnotsupported": "La sumo de la cxio ne estas [supported] jam. [Exiting].",
-			"sumchonotsupported": "La sumo de la [wybrane] ne estas [supported] jam. [Exiting].",
+			"sumallnotsupported": "La sumo de la ĉio ne estas elportita jam. Elirata.",
+			"sumchonotsupported": "La sumo de la elektita ne estas elportita jam. Elirata.",
 			"elektulabormodon": "Elektu labormodon",
 			"sevivolasketiunprogramonfunkcias": "se vi volas ke tiun programon funkcias",
 			"najprawdopodobniejtrybpracy": "Plej eble ke la labormodo",
 			"jestnieprawidlowy": "estas malkorekta.",
+			"niepoprwartosc": "Malkorekta valoro",
+			"downfail": "Malsarĝi malsukcesis",
+			"trojliterr": "ERR",
 		}
 		return slo
 	def wyd(self, row):
@@ -91,6 +99,8 @@ class eo_natio:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:
 				wyd = ("estas " + str(row) + " bicikloj   ")
+		elif row = "Download failed":
+			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la malsarĝon de la biciklokvanto malsukcesis"
 		else:
 			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro"
 		return wyd

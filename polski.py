@@ -19,6 +19,7 @@ class pl_natio:
 			"sevivolasketiunprogramonfunkcias": "jeżeli chcesz, by ten program działał",
 			"najprawdopodobniejtrybpracy": "Najprawdopodobniej tryb pracy",
 			"jestnieprawidlowy": "jest nieprawidłowy",
+			"trojliterr": "BŁĄ",
 		}
 		return slo
 	def wyd(self, row):
@@ -39,8 +40,10 @@ class pl_natio:
 				wyd = ("jest " + str(row) + "  rowerów   ")
 			elif row >= 22:
 				wyd = ("są   " + str(row) + "  rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
+		elif row = "Download failed":
+			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
 		else:
-			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba pobrania informacji zakończyła się błędem"
+			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem"
 		return wyd
 	def lanstac(self):
 		lanstadict = {
@@ -78,6 +81,7 @@ class pl_safe:
 			"sevivolasketiunprogramonfunkcias": "jezeli chcesz, by ten program dzialal",
 			"najprawdopodobniejtrybpracy": "Najprawdopodobniej tryb pracy",
 			"jestnieprawidlowy": "jest nieprawidlowy",
+			"trojliterr": "ERR",
 		}
 		return slo
 	
@@ -99,8 +103,10 @@ class pl_safe:
 				wyd = ("jest " + str(row) + "  rowerow   ")
 			elif row >= 22:
 				wyd = ("sa   " + str(row) + "  rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci")
+		elif row = "Download failed":
+			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz pobieranie zakonczylo się bledem"
 		else:
-			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba pobrania informacji zakonczyla się bledem"
+			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem"
 		return wyd
 	def lanstac(self):
 		lanstadict = {

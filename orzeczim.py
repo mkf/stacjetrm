@@ -120,3 +120,7 @@ class orzeczim:
 			print "|",dzcz,"|",st,"|",row,"  | ",ad[st],sp,"|"
 		elif row >= 10:
 			print "|",dzcz,"|",st,"|",row," | ",ad[st],sp,"|"
+		elif row == "Download failed":
+			print "|",dzcz,"|",st,"|%s| "%self.jezyu.dictu()['trojliterr'],ad[st],sp,"| %s "%self.jezyu.dictu()['downfail']
+		else:
+			print "|",dzcz,"|",st,"|%s| "%self.jezyu.dictu()['trojliterr'],ad[st],sp,"| %s "%self.jezyu.dictu()['niepoprwartosc']

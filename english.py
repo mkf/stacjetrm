@@ -19,6 +19,9 @@ class english:
 			"sevivolasketiunprogramonfunkcias": "if you want this program work",
 			"najprawdopodobniejtrybpracy": "Most probably the work mode",
 			"jestnieprawidlowy": "is incorrect",
+			"niepoprwartosc": "Incorrect value",
+			"downfail": "Download failed",
+			"trojliterr": "ERR",
 		}
 		return slo
 	def wyd(self, row):
@@ -35,6 +38,8 @@ class english:
 				wyd = ("is  " + str(row) + " bicycles ")
 			if row >= 10:
 				wyd = ("is " + str(row) + " bicycles ")
+		elif row = "Download failed":
+			wyd = ", there is no data how many bicycles there are, because an attempt to download the information has failed"
 		else:
 			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error"
 		return wyd

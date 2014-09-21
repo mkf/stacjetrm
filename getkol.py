@@ -27,9 +27,21 @@ class getkol:
 				sw = 1
 				ssw = 1
 			else:
-				stacdict[int(s)] = int(a[0])
+				try:
+					stacdict[int(s)] = int(a[0])
+				except:
+					if a[0] == "Download failed":
+						stacdict[int(s)] = a[0]
+					else:
+						stacdict[int(s)] = int(a[0])
 				slownikczasow[int(s)] = int(a[1])
-				self.praca(int(s),int(a[0]),int(a[1]),pracy)
+				try:
+					self.praca(int(s),int(a[0]),int(a[1]),pracy)
+				except:
+					if a[0] == "Download failed":
+						self.praca(int(s),a[0]),int(a[1]),pracy)
+					else:
+						self.praca(int(s),int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
