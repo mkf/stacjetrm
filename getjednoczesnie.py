@@ -4,9 +4,9 @@ class getjednoczesnie:
 	from download import download
 #	import time
 	from pars import pars
-import Queue
-import threading
-
+	import Queue
+	import threading
+	
 	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis,tor):
 		self.tor = tor
 		if tor == 0:
