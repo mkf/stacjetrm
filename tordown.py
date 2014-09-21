@@ -61,10 +61,10 @@ class tordown:
 			print "pobieram"
 			def query(self, url):
 				"Uses urllib to fetch a site using SocksiPy for Tor over the SOCKS_PORT."
-					try:
-						return urllib.urlopen(url).read()
-					except:
-						return "Unable to reach %s" % url
+				try:
+					return urllib.urlopen(url).read()
+				except:
+					return "Unable to reach %s" % url
 			print term.format("\nChecking our endpoint:\n", term.Attr.BOLD)
 			print term.format(query("https://www.atagar.com/echo.php"), term.Color.BLUE)
 		return urllib.urlopen(url)
