@@ -47,6 +47,12 @@ class download:
 			we = wejs.read()
 			self.we = we
 			return we
+		except:
+			czas = time.time()
+			self.czas = czas
+			we = "Download failed"
+			self.we = we
+			return we
 	def row(self):
 		from pars import pars
 		par = pars(self.down(),self.stacn,self.landictu)
