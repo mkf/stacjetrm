@@ -5,6 +5,7 @@ class pars:
 #	rowerky = 0
 #	rowery = 0
 	def __init__(self, skund, stacyjka, landictu):
+		import re
 		self.landictu = landictu
 		self.skund = skund
 		self.stacyjka = stacyjka
@@ -14,7 +15,6 @@ class pars:
 		if skund == "Download failed":
 			rowery = "Download failed"
 		else:
-			import re
 			odnaleziono = re.search(r'w na stacji.*szt', skund, re.S)
 			wynalezione = odnaleziono.group()
 			odnalezione = str(wynalezione)
