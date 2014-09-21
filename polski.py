@@ -40,7 +40,7 @@ class pl_natio:
 				wyd = ("jest " + str(row) + "  rowerów   ")
 			elif row >= 22:
 				wyd = ("są   " + str(row) + "  rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
-		elif row = "Download failed":
+		elif row == "Download failed":
 			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
 		else:
 			wyd = ", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem"
@@ -103,7 +103,7 @@ class pl_safe:
 				wyd = ("jest " + str(row) + "  rowerow   ")
 			elif row >= 22:
 				wyd = ("sa   " + str(row) + "  rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci")
-		elif row = "Download failed":
+		elif row == "Download failed":
 			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz pobieranie zakonczylo się bledem"
 		else:
 			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem"

@@ -38,7 +38,7 @@ class eo_safe:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:
 				wyd = ("estas " + str(row) + " bicikloj   ")
-		elif row = "Download failed":
+		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la malsargxon de la biciklokvanto malsukcesis"
 		else:
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro"
@@ -99,7 +99,7 @@ class eo_natio:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
 			if row >= 10:
 				wyd = ("estas " + str(row) + " bicikloj   ")
-		elif row = "Download failed":
+		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la malsarĝon de la biciklokvanto malsukcesis"
 		else:
 			wyd = ", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro"
