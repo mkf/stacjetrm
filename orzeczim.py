@@ -108,9 +108,9 @@ class orzeczim:
 		ds = 43 - dl
 #		print ds
 #		sp = spacje(ds)
-				spac = " "
-				for i in range(ds):
-						spac = spac + ' '
+		spac = " "
+		for i in range(ds):
+			spac = spac + ' '
 #		s = " "
 #		sp = s * ds
 		sp = spac
