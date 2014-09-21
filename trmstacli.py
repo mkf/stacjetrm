@@ -341,8 +341,8 @@ elif kolczyraz == 'n':
 		smartget = writekolczyraz
 	else:
 		smartget = defget
-#               ^— to może budzić kontrowersje. Otóż zamiast tego powinno być jeszcze
-#    (sub)if-owanie na temat odpowiednika kolczyrazu, tyle że do spraw nie wyświetlania, a zapisu
+#			   ^— to może budzić kontrowersje. Otóż zamiast tego powinno być jeszcze
+#	(sub)if-owanie na temat odpowiednika kolczyrazu, tyle że do spraw nie wyświetlania, a zapisu
 # sęk w tym, że będzie to miało sens dopiero, gdy powstanie zapis
 else:
 	print 'kolczyraz nie jest ani k, ani r, ani n, więc czym jest?! Przecież ten program nie może, ot tak, niczego nie robić!'

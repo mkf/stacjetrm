@@ -25,11 +25,11 @@ class eo_safe:
 		if row == 0:
 			wyd = "estas neniu bicikloj"
 		elif row == -1:
-			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n         "
+			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif row <= 0:
-			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n          "
+			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif row == 1:
-			wyd = "estas 1  biciklo    "
+			wyd = "estas 1  biciklo	"
 		elif row >= 2:
 			if row <= 9:
 				wyd = ("estas " + str(row) + "  bicikloj   ")
@@ -81,11 +81,11 @@ class eo_natio:
 		if row == 0:
 			wyd = "estas neniu bicikloj"
 		elif row == -1:
-			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n         "
+			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif row <= 0:
-			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n          "
+			wyd = "okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif row == 1:
-			wyd = "estas 1  biciklo    "
+			wyd = "estas 1  biciklo	"
 		elif row >= 2:
 			if row <= 9:
 				wyd = ("estas " + str(row) + "  bicikloj   ")

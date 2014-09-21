@@ -12,7 +12,7 @@ class pokaz:
 			orze.orz()
 			orze.pisul()
 		elif pracy == 'l':
-			orze.orz()                                                  
+			orze.orz()												  
 			orze.pisul()
 		elif pracy == 'p':
 			orze.pisp()

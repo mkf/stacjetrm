@@ -52,7 +52,7 @@ class multipokaz:
 #		print stacjetab
 		print qeaddown
 		print headdown
-		print '| Czas:      Stacje—> |',(str(stacjetab)) # <— to jeszcze wróci, ale dla debugu testujemy na linię wyżej
+		print '| Czas:	  Stacje—> |',(str(stacjetab)) # <— to jeszcze wróci, ale dla debugu testujemy na linię wyżej
 		print keaddown
 	def stacprint(self,stacdict,unixtime):
 #		if stacdict.keys() == stacje

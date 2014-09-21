@@ -100,7 +100,7 @@ class orzeczim:
 		print dzcz, ":", self.jezyu.dictu()['nastacji'], st, wyd, " - ", ad[st]
 	def pist(self):
 		dzcz = self.dzcz
-        #dz = self.dz
+		#dz = self.dz
 		st = self.stac
 		row = self.row
 		ad = self.ad
@@ -108,9 +108,9 @@ class orzeczim:
 		ds = 43 - dl
 #		print ds
 #		sp = spacje(ds)
-                spac = " "
-                for i in range(ds):
-                        spac = spac + ' '
+				spac = " "
+				for i in range(ds):
+						spac = spac + ' '
 #		s = " "
 #		sp = s * ds
 		sp = spac

@@ -25,9 +25,9 @@ class de_natio:
 		if row == 0:
 			wyd = "is no bicycles "
 		elif row == -1:
-			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n         "
+			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
 		elif row <= 0:
-			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n          "
+			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
 		elif row == 1:
 			wyd = "is  1 bicycle  "
 		elif row >= 2:
@@ -81,9 +81,9 @@ class de_safe:
 		if row == 0:
 			wyd = "is no bicycles "
 		elif row == -1:
-			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n         "
+			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
 		elif row <= 0:
-			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n          "
+			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
 		elif row == 1:
 			wyd = "is  1 bicycle  "
 		elif row >= 2:
