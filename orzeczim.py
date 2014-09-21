@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class orzeczim:
-	"To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"
+	u"To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"
 
 	def __init__(self,row,stac,unx,pracy,lan,jezadr,lanchar):
 		self.row = row
@@ -31,18 +31,18 @@ class orzeczim:
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
 		}
 		adrlocnatio = {
-			'001TOR': 'Rynek Staromiejski', 
-			'002TOR': 'Plac św. Katarzyny', 
-			'003TOR': 'Plac Rapackiego', 
-			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
-			'005TOR': 'ul. Szosa Chełmińska - Targowisko Miejskie', 
-			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
-			'007TOR': 'ul. Broniewskiego - Tesco', 
-			'008TOR': 'ul. Gen. Józefa Hallera - Polo Market', 
-			'009TOR': 'ul. Szosa Chełmińska - Polo Market', 
-			'010TOR': 'PKP Toruń Główny', 
-			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
-			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+			'001TOR': u'Rynek Staromiejski',
+			'002TOR': u'Plac św. Katarzyny',
+			'003TOR': u'Plac Rapackiego',
+			'004TOR': u'ul. Bulwar Filadelfijski - Brama Klasztorna',
+			'005TOR': u'ul. Szosa Chełmińska - Targowisko Miejskie',
+			'006TOR': u'ul. Gagarina - Biblioteka Uniwersytecka',
+			'007TOR': u'ul. Broniewskiego - Tesco',
+			'008TOR': u'ul. Gen. Józefa Hallera - Polo Market',
+			'009TOR': u'ul. Szosa Chełmińska - Polo Market',
+			'010TOR': u'PKP Toruń Główny',
+			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
+			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej'
 		}
 		if jezadr == "c":
 			ad = jezyu.lanstac()
@@ -52,7 +52,7 @@ class orzeczim:
 			elif lanchar == 'y':
 				ad = adrlocnatio
 			else:
-				print "Gupi błondd"
+				print u"Gupi błondd"
 				print lanchar
 				quit()
 		else:
