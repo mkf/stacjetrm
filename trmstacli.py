@@ -91,7 +91,7 @@ arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejn
 arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
 argh.add_argument("-in", "--instantly", action="store_true", help="Wyświetlaj oraz zapisuj natychmiast po pobraniu informacji, równoważne z -iw oraz -id")
 argh.add_argument("-iw", "--instawrite", action="store_true", help="Zapisuj natycmiast po pobraniu informacji.")
-argh.add_argument("-id", "-instadisp", action="store_true", help="Wyświetlaj natychmiast po pobraniu informacji")
+argh.add_argument("-id", "--instadisp", action="store_true", help="Wyświetlaj natychmiast po pobraniu informacji")
 parmetry = argh.parse_args()
 instawrite = 0
 instadisp = 0
