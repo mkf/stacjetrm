@@ -39,7 +39,7 @@ class getkol:
 					self.praca(int(s),int(a[0]),int(a[1]),pracy)
 				except:
 					if a[0] == "Download failed":
-						self.praca(int(s),a[0]),int(a[1]),pracy)
+						self.praca(int(s),a[0],int(a[1]),pracy)
 					else:
 						self.praca(int(s),int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
