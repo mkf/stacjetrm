@@ -57,7 +57,7 @@ class tordown:
 		)
 
 	def pobierz(self, url):
-		if self.debugu = 'f':
+		if self.debugu == 'f':
 			print "pobieram"
 			def query(self, url):
 				"Uses urllib to fetch a site using SocksiPy for Tor over the SOCKS_PORT."
