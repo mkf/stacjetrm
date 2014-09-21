@@ -11,5 +11,5 @@ Składnia/Syntax:
 	
 Recomended:
 	python trmstacli.py --help
-		I know it's a bit messy, but it hass all the information you need.
+		I know it's a bit messy, but it has all the information you need.
 	
