@@ -30,18 +30,18 @@ class eo_safe:
 		elif type(row) == int and row == -1:
 			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
+			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif type(row) == int and row == 1:
-			wyd = "estas 1  biciklo	"
+			wyd = "estas  1  biciklo    "
 		elif type(row) == int and row >= 2:
 			if row <= 9:
-				wyd = ("estas " + str(row) + "  bicikloj   ")
+				wyd = ("estas " + str("{:2d} ".format(row)) + " bicikloj   ")
 			if row >= 10:
-				wyd = ("estas " + str(row) + " bicikloj   ")
+				wyd = ("estas " + str("{:2d} ".format(row)) + " bicikloj   ")
 		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la malsargxon de la biciklokvanto malsukcesis"
 		else:
-			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(row))
+			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(" {:2d} ".format(row)))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
@@ -91,18 +91,18 @@ class eo_natio:
 		elif type(row) == int and row == -1:
 			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(row) + " bicikloj - kaj tio estas negativa kvanto \n		  "
+			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif type(row) == int and row == 1:
-			wyd = u"estas 1  biciklo	"
+			wyd = u"estas  1  biciklo    "
 		elif type(row) == int and row >= 2:
 			if row <= 9:
-				wyd = (u"estas " + str(row) + u"  bicikloj   ")
+				wyd = (u"estas" + str(" {:2d} ".format(row)) + u" bicikloj   ")
 			if row >= 10:
-				wyd = (u"estas " + str(row) + u" bicikloj   ")
+				wyd = (u"estas" + str(" {:2d} ".format(row)) + u" bicikloj   ")
 		elif row == "Download failed":
 			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la malsarĝon de la biciklokvanto malsukcesis"
 		else:
-			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(row))
+			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(" {:2d} ".format(row)))
 		return wyd
 	def lanstac(self):
 		lanstadict = {

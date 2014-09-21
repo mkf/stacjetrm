@@ -30,18 +30,18 @@ class english:
 		elif type(row) == int and row == -1:
 			wyd = "probably encountered an error, as it shows that there is -1 bicycle, and this is a negative count \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "probably encountered an error, as it shows that there is " + str(row) + " bicycles, and this is a negative count \n		  "
+			wyd = "probably encountered an error, as it shows that there is " + str(" {:2d} ".format(row)) + " bicycles, and this is a negative count \n		  "
 		elif type(row) == int and row == 1:
 			wyd = "is  1 bicycle  "
 		elif type(row) == int and row >= 2:
 			if row <= 9:
-				wyd = ("is  " + str(row) + " bicycles ")
+				wyd = ("is" + str(" {:2d} ".format(row)) + "bicycles ")
 			if row >= 10:
-				wyd = ("is " + str(row) + " bicycles ")
+				wyd = ("is" + str(" {:2d} ".format(row)) + "bicycles ")
 		elif row == "Download failed":
 			wyd = ", there is no data how many bicycles there are, because an attempt to download the information has failed"
 		else:
-			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error, it returned [type: '%s', value: '%s']" % (type(row), str(row))
+			wyd = ", there is no data how many bicycles there are, because an attempt to get known encountered an error, it returned [type: '%s', value: '%s']" % (type(row), str(" {:2d} ".format(row)))
 		return wyd
 	def lanstac(self):
 		lanstadict = {
