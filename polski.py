@@ -33,7 +33,7 @@ class pl_natio:
 			wyd = u"jest  1  rower	"
 		elif type(row) == int and row >= 2:
 			if row <= 4:
-				wyd = (u"są	" + str(row) + u"  rowery   ")
+				wyd = (u"są " + str(row) + u"  rowery   ")
 			elif row >= 5:
 				wyd = (u"jest  " + str(row) + u"  rowerów  ")
 			elif row >= 10:
