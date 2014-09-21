@@ -7,7 +7,7 @@ class getjednoczesnie:
 	import Queue
 	import threading
 	
-	def __init__(self,stacje,pracy,lan,jezadr,lanchar, iwri, idis,tor):
+	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar, iwri, idis,tor):
 		import Queue
 		import threading
 		self.tor = tor
@@ -15,7 +15,7 @@ class getjednoczesnie:
 			self.torin = "nico"
 		elif tor == 1:
 			from tordown import tordown
-			self.torin = tordown()
+			self.torin = tordown(debugu)
 		else:
 			print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
 			quit()
@@ -45,7 +45,7 @@ class getjednoczesnie:
 				t = threading.Thread(target=kolejka, args = (q,s))
 				t.daemon=True
 				t.start()
-	
+		self.torin.zabij()
 
 	def si(self,s):
 		lan = self.lan

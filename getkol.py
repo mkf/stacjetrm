@@ -6,13 +6,13 @@ class getkol:
 	import datetime
 #	from download import *
 		
-	def __init__(self,stacje,pracy,lan,jezadr,lanchar,iwri,idis,tor):
+	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor):
 		self.tor = tor
 		if tor == 0:
 			self.torin = "nico"
 		elif tor == 1:
 			from tordown import tordown
-			self.torin = tordown()
+			self.torin = tordown(debugu)
 		else:
 			print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
 			quit()
@@ -71,6 +71,7 @@ class getkol:
 			stacdict[0] = allerstac
 		self.stacdict = stacdict
 		self.slwcza = slownikczasow
+		self.torin.zabij()
 	def si(self,s):
 		lan = self.lan
 		sa = 0

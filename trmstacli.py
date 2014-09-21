@@ -386,20 +386,20 @@ else:
 if pob == 'k':
 	from getkol import *
 	if waitbetweenloops == "singlecheck":
-		getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
+		getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
 	elif type(waitbetweenloops) == int:
 		import time
 		while True:
-			getkol(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
+			getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
 			time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from getjednoczesnie import *
 	if waitbetweenloops == "singlecheck":
-		getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
+		getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
 	elif type(waitbetweenloops) == int:
 		import time
 		while True:
-			getjednoczesnie(sta, pracy, lan, jezadr, lanchar, instadisp, instawrite, tor)
+			getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
 			time.sleep(waitbetweenloops)
 	
 elif pob == 'w':
