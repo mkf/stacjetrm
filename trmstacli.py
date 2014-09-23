@@ -206,7 +206,7 @@ else:
 if parmetry.singlecheck:
 	waitbetweenloops = "singlecheck"
 else:
-	if type(parmetry.waitbetweenloops) == "int":
+	if type(parmetry.waitbetweenloops) == int:
 		waitbetweenloops = parmetry.waitbetweenloops
 	elif parmetry.defwaitbetweenloops:
 		waitbetweenloops = defwaitbetweenloops
