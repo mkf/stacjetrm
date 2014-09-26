@@ -29,12 +29,12 @@ class getjednoczesnie:
 		stacdict = {}
 		slownikczasow = ()
 		q = Queue.Queue()
-		def kolejka(q,s):
-			q.put(self.si(s))
+		def kolejka(q,s,iwri,idis):
+			q.put(self.si(s,iwri,idis))
 		for s in stacje:
 			sa = 0
 			sw = 0
-			a = self.si(s)
+			a = self.si(s,iwri,idis)
 			if a[0] == 'a':
 				sa = 1
 				ssa = 1
@@ -42,13 +42,13 @@ class getjednoczesnie:
 				sw = 1
 				ssw = 1
 			else:
-				t = threading.Thread(target=kolejka, args = (q,s))
+				t = threading.Thread(target=kolejka, args = (q,s,iwri,idis))
 				t.daemon=True
 				t.start()
 		if tor == 1:
 				self.torin.zabij()
 
-	def si(self,s):
+	def si(self,s,iwri,idis):
 		lan = self.lan
 		sa = 0
 		sw = 0
@@ -62,7 +62,7 @@ class getjednoczesnie:
 			return a
 		elif int(s) < 0:
 			o = int(s) * (-1)
-			a = self.si(o)
+			a = self.si(o,iwri,idis)
 			return a
 		elif int(s) < 13:
 			from download import download
