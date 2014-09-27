@@ -29,6 +29,7 @@ class getjednoczesnie:
 		stacdict = {}
 		slownikczasow = ()
 		q = Queue.Queue()
+		self.pracy = pracy
 		def kolejka(q,s,iwri,idis):
 			q.put(self.si(s,iwri,idis))
 		for s in stacje:
@@ -68,7 +69,10 @@ class getjednoczesnie:
 			from download import download
 			thisisthedownloadinstance = download(int(s),lan.dictu(),self.tor,self.torin)
 			a = thisisthedownloadinstance.raz()
-			return a
+			if iwri == 1:
+				print "instawrite"
+			if idis == 1:
+				self.praca(int(s), int(a[0]), int(a[1[]),self.pracy)			return a
 		else:
 			jezodict = lan.dictu()
 			print "%s: %s" % jezodict[badstacparam],str(s)
