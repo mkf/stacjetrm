@@ -88,6 +88,21 @@ class getjednoczesnie:
 #		elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
 		else:
 			pokaz(row,st,utim,pr,lan,jezadr,lanchar)
+	def razpraca(self,stli,rowslo,pr):
+		lan = self.lan
+		jezadr = self.jezadr
+		lanchar = self.lanchar
+		from multipokaz import multipokaz
+		if pr =='n':
+			pracowanie='nie'
+		else:
+			multipokaz(stli,rowslo,pr,lan,jezadr,lanchar)
+	def razwrajt(self,stli,rowslo,utim,pr):
+		blah = 'blah'
+	def kolwrajt(self,st,row,utim,pr):
+		blah = 'blah'
+	def wrajt(self,st,row,utim,pr):
+		blah = 'blah'
 	def slowstac(self):
 		return self.stacdict
 	def slowczas(self):
