@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import sys
+
 # Do README: Tryby pobierania jednoczesnego umożliwiają szybsze, acz jednoczesne i bardziej podatne na bana pobieranie, zaś pobieranie kolejno daje czas każdego z pomiarów oraz mniejsze ryzyko bana
 #później trza będzie zrobić też opcję pobierania 'jak kolejno, acz jednoczesnie', która będzie pobierała jednocześnie acz wyświelała w interfejsie kolejno, przy czym każde pobranie będzie miało swój waitbetweenloopsstamp
 #mimo wielowątkowości, oczywistym jest, że część wątków wykona swoje zadanie szybciej od innych. W związku z tym ich wyni powinien iść dalej od razu, i nie czekać na resztę
@@ -10,9 +10,9 @@ import sys
 #również jest jeszcze kwestia zapisu do wielu celów, do wielu plików/baz danych jednocześnie, przy dwóch różnych trybach
 #możliwe musi być jednoczesne zapisywanie zupełnie odmiennymi we wszystkim trybami do wielu różnych plików i baz danych jednocześnie
 #przepisać powyższe do GitHub Issues
-import re
+
 import argparse
-from generatornazwyplikuzdata import *
+
 #from paramdemonwszystkich import *
 #argu = sys.argv
 #prmdw = paramdemonwszystkich(argu)
@@ -36,7 +36,7 @@ argwaitbetweenloops = argh.add_mutually_exclusive_group()
 argstac = argh.add_mutually_exclusive_group()
 argpracy = argh.add_mutually_exclusive_group()
 argdebugu = argh.add_mutually_exclusive_group()
-argzapisu = argh #.add_mutually_exclusive_group()
+argzapisu = argh  #.add_mutually_exclusive_group()
 arggetu = argh.add_mutually_exclusive_group()
 #argh.add_argument("-l", "--lang", type=str, help="Jednoznakowy kod języka: \nOne-character language code: \nUnulitera lingvkodo: \n - a - English \n - e - Esperanto \n - p - Polski \n - d - Deutsch \n ")
 argchar.add_argument("-cs", "--charsafe", action="store_true", help='No "unsafe" national characters in language and adresses')
@@ -50,7 +50,7 @@ argwaitbetweenloops.add_argument("-td", "--defwaitbetweenloops", action="store_t
 argwaitbetweenloops.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
 argstac.add_argument("-sa", "--allstations", action="store_true", help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 argstac.add_argument("-sd", "--defstations", action="store_true", help="Domyślne stacje/[def] biciklstacjoj/Default stations")
-argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1,13), help="Wybierz stację, można użyć wielokrotnie")
+argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 13), help="Wybierz stację, można użyć wielokrotnie")
 #argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
 argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w wybranym języku adresami")
 argpracy.add_argument("-pfl", "--pracyfulladrlanglocal", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami w alfabecie polskim")
@@ -114,9 +114,9 @@ else:
 	tor = 0
 
 try:
-	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile+parmetry.writetocsvkolmulticountvolumefile)>0:
+	if len(parmetry.writetocsvkolsinglefile+parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile+parmetry.writetocsvkolmulticountvolumefile) > 0:
 		writekolczyraz = 'k'
-	elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+	elif len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile) > 0:
 		writekolczyraz = 'r'
 	elif parmetry.writeno:
 		writekolczyraz = 'n'
@@ -124,7 +124,7 @@ try:
 		writekolczyraz = 'n'
 except:
 	try:
-		if len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile)>0:
+		if len(parmetry.writetocsvrazsinglefile+parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile+parmetry.writetocsvrazmulticountvolumefile) > 0:
 			writekolczyraz = 'r'
 		elif parmetry.writeno:
 			writekolczyraz = 'n'
@@ -146,7 +146,7 @@ except:
 tybyzapisu = []
 for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile, parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile, parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile, parmetry.writetocsvrazmulticountvolumefile, parmetry.writetocsvkolmulticountvolumefile):
 	try:
-		if len(tybzapisu)>0:
+		if len(tybzapisu) > 0:
 			tybyzapisu.append(tybzapisu)
 	except:
 		nicsieniedziejealecostrzawstawic = 1
@@ -403,5 +403,3 @@ elif pob == 'j':
 			time.sleep(waitbetweenloops)
 	
 elif pob == 'w':
-	from getkolwait import *
-	
