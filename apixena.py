@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 class apixena:
-	"To jest klasa analogiczna do pars.py, jednak bioraca dane z API Xena"
+	"To jest klasa analogiczna do pars.py, jednak biorąca dane z API Xena"
 	
 	def __init__(self,st):
 		self.st = st
-		import sys
-		import re
 		import json
 		import urllib
 		file = urllib.urlopen("http://xenotium.pl/workshop/index.php/api/trm/stations/format/json")
@@ -15,7 +13,7 @@ class apixena:
 		#print data[1]
 		#for i in range(1,len(data)):
 		#	print data[str(i)]
-		rowery = 
+		rowery =
 		self.rowery = rowery
 		
 	def rowerry(self):
