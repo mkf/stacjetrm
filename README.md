@@ -7,9 +7,11 @@ A script for getting the count of bicycles present on the trm24.pl stations.
 Skrypcik do liczby rowerów na stacjach trm24.pl.
 
 Składnia/Syntax:
+---------
 	python trmstacli.py [OPTIONS-OPCJE]
 	
 Recomended:
+---------
 	python trmstacli.py --help
-		I know it's a bit messy, but it has all the information you need.
-	
+
+I know it's a bit messy, but it has all the information you need.
