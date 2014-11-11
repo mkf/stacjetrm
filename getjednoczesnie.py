@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 class getjednoczesnie:
 	"To jest klasa pobierania jednoczesnego"
-	from download import download
-#	import time
-	from pars import pars
-	import Queue
-	import threading
-	
+	#	import time
+
 	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar, iwri, idis,tor):
 		import Queue
 		import threading
@@ -72,10 +68,10 @@ class getjednoczesnie:
 			if iwri == 1:
 				print "instawrite"
 			if idis == 1:
-				self.praca(int(s), int(a[0]), int(a[1[]),self.pracy)			return a
+				self.praca(int(s), int(a[0]), int(a[1]),self.pracy)			return a
 		else:
 			jezodict = lan.dictu()
-			print "%s: %s" % jezodict[badstacparam],str(s)
+			print "%s: %s" % (jezodict[badstacparam],str(s))
 			quit()			
 			
 	def praca(self,st,row,utim,pr):

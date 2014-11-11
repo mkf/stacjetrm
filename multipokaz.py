@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 class multipokaz:
 	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej (API)"
-	import datetime
-	from time import gmtime, strftime
-	from datetime import time, date, datetime
-#	czasu = datetime.datetime()
+	#	czasu = datetime.datetime()
 #	self.czasu = czasu
 	#czasu = datetime.datetime()
 	#def __init__(self,rowerdict,pracy,debugu,unix,dz,cz):
@@ -45,7 +42,7 @@ class multipokaz:
 			else:
 				print "Error: station %s"(str(sh))
 				quit()
-			stacjetab = stacjetab + st
+			stacjetab += st
 			headdown = headdown + ht + "_"
 			qeaddown = qeaddown + qt + "_"
 			keaddown = keaddown + kt + u"—"
@@ -60,8 +57,8 @@ class multipokaz:
 #		else:
 		import datetime
 		import operator
-		from time import strftime
-		stacje = self.stacje
+
+stacje = self.stacje
 		ifcheck1 = []
 		iffcheck2 = []
 		for ifs in stacdict.keys():
@@ -105,7 +102,7 @@ class multipokaz:
 					ts = stacdict[int(s)]
 			its = int(ts)
 			tts = self.ppstacprint(its,s)
-			tsh = tsh + tts
+			tsh += tts
 		return tsh
 	def morethansto(self,its,s):
 		#while its > 100:
@@ -113,7 +110,7 @@ class multipokaz:
 		#its = 
 		if its > 999:
 			while its > 1000:
-				its = its - 1000
+				its -= 1000
 			tss = self.ppstacprint(its,s)
 		elif its < 1000:
 			if int(s) == 0 or int(s) == 100:
@@ -123,7 +120,7 @@ class multipokaz:
 		return tss
 	def ppstacprint(self,its,s):
 		if its < 0:
-			its = its * -1
+			its *= -1
 		if its < 0:
 			if int(s) == 0:
 				print "Error: bikes count %s on station SumAll"(str(its))

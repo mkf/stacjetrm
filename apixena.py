@@ -2,7 +2,7 @@
 class apixena:
 	"To jest klasa analogiczna do pars.py, jednak biorąca dane z API Xena"
 	
-	def __init__(self,st):
+	def __init__(self, st):
 		self.st = st
 		import json
 		import urllib

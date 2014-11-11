@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 class getkol:
 	"To jest klasa pobierania kolejno bez odstępu czasowego"
-	from download import *
-#	import datetime
-	import datetime
-#	from download import *
+	#	import datetime
+	#	from download import *
 		
 	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor):
 		self.tor = tor
@@ -64,7 +62,7 @@ class getkol:
 		if ssw == 1:
 			allerstac = 0
 			for u in stacdict.keys():
-				allerstac = allerstac + int(stacdict[u])
+				allerstac += int(stacdict[u])
 		if ssa == 1:
 			stacdict[0] = allesstac
 		if ssw == 1:
@@ -96,7 +94,7 @@ class getkol:
 			return a
 		else:
 			jezodict = lan.dictu()
-			print "%s: %s" % jezodict[badstacparam],str(s)
+			print "%s: %s" % (jezodict[badstacparam],str(s))
 			quit()
 	def praca(self,st,row,utim,pr):
 		lan = self.lan

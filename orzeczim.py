@@ -110,7 +110,7 @@ class orzeczim:
 #		sp = spacje(ds)
 		spac = " "
 		for i in range(ds):
-			spac = spac + ' '
+			spac += ' '
 #		s = " "
 #		sp = s * ds
 		sp = spac
