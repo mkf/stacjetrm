@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 class download:
 	"Ta klasa będzie po prostu pobierać jeden plik jednej stacji i mówić czy succesful i z jakiego czasu pochodzi plik, ciekawe czy da się wsio w inicie"
-	import urllib2
-	import time
-	
-	def __init__(self,stacja,landictu,tor,tordown):
+
+	def __init__(self, stacja, landictu, tor, tordown):
 		self.tor = tor
 		self.tordown = tordown
 		self.landictu = landictu
 		if stacja == 0:
-			from suma import suma
+
 			print landictu['sumallnotsupported']
 			quit()
 		elif stacja == 100:
-			from suma import suma
+
 			print landictu['sumchonotsupported']
 			quit()
 		elif stacja < 10:
@@ -34,14 +32,16 @@ class download:
 		stacn = "".join(na)
 		urlt = (r'http://trm24.pl/panel-trm/', str(stacn), r'.jsp')
 		url = "".join(urlt)
-		#wejs = urllib2.urlopen(url)
-		#we = wejs.read()
+		# wejs = urllib2.urlopen(url)
+		# we = wejs.read()
 		self.url = url
 		self.st = int(stacja)
 		self.stacn = stacn
+
 	def down(self):
 		import urllib2
 		import time
+
 		try:
 			if self.tor == 0:
 				wejs = urllib2.urlopen(self.url)
@@ -65,14 +65,18 @@ class download:
 			we = "Download failed"
 			self.we = we
 			return we
+
 	def row(self):
 		from pars import pars
-		par = pars(self.down(),self.stacn,self.landictu)
+
+		par = pars(self.down(), self.stacn, self.landictu)
 		rowery = par.rowerry()
 		self.rouwer = rowery
 		return rowery
+
 	def cza(self):
 		return self.czas
+
 	def raz(self):
 		a = (self.row(), self.czas, self.st, self.stacn)
 		return a

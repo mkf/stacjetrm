@@ -89,12 +89,12 @@ class getkol:
 			return a
 		elif int(s) < 13:
 			from download import download
-			thisisthedownloadinstance = download(int(s),lan.dictu(),self.tor,self.torin)
+			thisisthedownloadinstance = download(int(s),lan.dictu,self.tor,self.torin)
 			a = thisisthedownloadinstance.raz()
 			return a
 		else:
-			jezodict = lan.dictu()
-			print "%s: %s" % (jezodict[badstacparam],str(s))
+			jezodict = lan.dictu
+			print "%s: %s" % (jezodict['badstacparam'],str(s))
 			quit()
 	def praca(self,st,row,utim,pr):
 		lan = self.lan

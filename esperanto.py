@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 class eo_safe:
 	u"Tio estas la pakagxo de la esperanta lingvo."
-	
+
 	def __init__(self):
-		lang='eo-safe'
+		lang = 'eo-safe'
+
+	@property
 	def dictu(self):
 		slo = {
 			"badwaittime": "Malkorektan atendtempon",
@@ -24,13 +26,16 @@ class eo_safe:
 			"trojliterr": "ERR",
 		}
 		return slo
-	def wyd(self, row):
+
+	@staticmethod
+	def wyd(row):
 		if type(row) == int and row == 0:
 			wyd = "estas neniu bicikloj"
 		elif type(row) == int and row == -1:
 			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
+			wyd = "okazis iun eraron, cxar gxi transdonas ke tie estas " + str(
+				" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif type(row) == int and row == 1:
 			wyd = "estas  1  biciklo    "
 		elif type(row) == int and row >= 2:
@@ -41,30 +46,38 @@ class eo_safe:
 		elif row == "Download failed":
 			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la malsargxon de la biciklokvanto malsukcesis"
 		else:
-			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(" {:2d} ".format(row)))
+			wyd = ", ni ne scias kiom bicikloj estas tie, cxar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (
+				type(row), str(" {:2d} ".format(row)))
 		return wyd
+
+	@property
 	def lanstac(self):
 		lanstadict = {
-			'001TOR': 'Rynek Staromiejski', 
-			'002TOR': 'Plac sw. Katarzyny', 
-			'003TOR': 'Plac Rapackiego', 
-			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
-			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie', 
-			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
-			'007TOR': 'ul. Broniewskiego - Tesco', 
-			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market', 
-			'009TOR': 'ul. Szosa Chelminska - Polo Market', 
-			'010TOR': 'PKP Torun Glowny', 
-			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
+			'001TOR': 'Rynek Staromiejski',
+			'002TOR': 'Plac sw. Katarzyny',
+			'003TOR': 'Plac Rapackiego',
+			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna',
+			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie',
+			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka',
+			'007TOR': 'ul. Broniewskiego - Tesco',
+			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market',
+			'009TOR': 'ul. Szosa Chelminska - Polo Market',
+			'010TOR': 'PKP Torun Glowny',
+			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
 		}
 		return lanstadict
-		#powyzsze trzeba bedzie przetlumaczyc na esperanto w bezpiecznym alfabecie metoda x
+
+	# powyzsze trzeba bedzie przetlumaczyc na esperanto w bezpiecznym alfabecie metoda x
+
+
 class eo_natio:
 	u"Tio estas la pakaĝo de la esperanta lingvo."
-	
+
 	def __init__(self):
-		lang='eo-natio'
+		lang = 'eo-natio'
+
+	@property
 	def dictu(self):
 		slo = {
 			"badwaittime": u"Malkorektan atendtempon",
@@ -85,13 +98,16 @@ class eo_natio:
 			"trojliterr": u"ERR",
 		}
 		return slo
-	def wyd(self, row):
+
+	@staticmethod
+	def wyd(row):
 		if type(row) == int and row == 0:
 			wyd = u"estas neniu bicikloj"
 		elif type(row) == int and row == -1:
 			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas -1 biciklo - kaj tio estas negativa kvanto \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
+			wyd = u"okazis iun eraron, ĉar ĝi transdonas ke tie estas " + str(
+				" {:2d} ".format(row)) + " bicikloj - kaj tio estas negativa kvanto \n		  "
 		elif type(row) == int and row == 1:
 			wyd = u"estas  1  biciklo    "
 		elif type(row) == int and row >= 2:
@@ -102,8 +118,11 @@ class eo_natio:
 		elif row == "Download failed":
 			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la malsarĝon de la biciklokvanto malsukcesis"
 		else:
-			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (type(row), str(" {:2d} ".format(row)))
+			wyd = u", ni ne scias kiom bicikloj estas tie, ĉar dum la akiroprovon de la biciklokvanto okazis la eraro, tion gavis [tipon: '%s', valoron: '%s']" % (
+				type(row), str(" {:2d} ".format(row)))
 		return wyd
+
+	@property
 	def lanstac(self):
 		lanstadict = {
 			'001TOR': u'Rynek Staromiejski',

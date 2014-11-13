@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 class pl_natio:
 	u"To jest plik języka polskiego"
-	
+
 	def __init__(self):
 		lang = "pl_natio"
+
+	@property
 	def dictu(self):
 		slo = {
 			"badwaittime": u"Niepoprawny czas czekania",
@@ -22,13 +24,16 @@ class pl_natio:
 			"trojliterr": u"BŁĄ",
 		}
 		return slo
-	def wyd(self, row):
+
+	@staticmethod
+	def wyd(row):
 		if type(row) == int and row == 0:
 			wyd = u"  nie ma rowerów"
 		elif type(row) == int and row == -1:
 			wyd = u"najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam -1 rower - a jest to liczba ujemna \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = u"najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(" {:2d} ".format(row)) + " rowerów - a jest to liczba ujemna \n		  "
+			wyd = u"najprawdopodobniej wystąpił błąd - stacja twierdzi, że jest tam " + str(
+				" {:2d} ".format(row)) + " rowerów - a jest to liczba ujemna \n		  "
 		elif type(row) == int and row == 1:
 			wyd = u"jest  1  rower	"
 		elif type(row) == int and row >= 2:
@@ -39,12 +44,16 @@ class pl_natio:
 			elif row > 10 or row == 10:
 				wyd = (u"jest" + str(" {:2d} ".format(row)) + u"rowerów  ")
 			elif row > 22 or row == 22:
-				wyd = (u"są  " + str(" {:2d} ".format(row)) + u"rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
+				wyd = (u"są  " + str(
+					" {:2d} ".format(row)) + u"rowery, choć to praktycznie niemożliwe, gdyż stacja tyle nie pomieści")
 		elif row == "Download failed":
 			wyd = u", nie wiemy ile rowerów jest na tej stacji, ponieważ pobieranie zakończyło się błędem"
 		else:
-			wyd = u", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem, zwróciła [typ: '%s', wartość: '%s']" % (type(row), str(" {:2d} ".format(row)))
+			wyd = u", nie wiemy ile rowerów jest na tej stacji, ponieważ próba zdobycia informacji zakończyła się błędem, zwróciła [typ: '%s', wartość: '%s']" % (
+				type(row), str(" {:2d} ".format(row)))
 		return wyd
+
+	@property
 	def lanstac(self):
 		lanstadict = {
 			'001TOR': u'Rynek Staromiejski',
@@ -61,11 +70,15 @@ class pl_natio:
 			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
 		}
 		return lanstadict
+
+
 class pl_safe:
 	"To jest plik jezyka polskiego"
-	
+
 	def __init__(self):
 		lang = "pl_safe"
+
+	@property
 	def dictu(self):
 		slo = {
 			"badwaittime": "Niepoprawny czas czekania",
@@ -84,14 +97,16 @@ class pl_safe:
 			"trojliterr": "ERR",
 		}
 		return slo
-	
-	def wyd(self, row):
+
+	@staticmethod
+	def wyd(row):
 		if type(row) == int and row == 0:
 			wyd = "  nie ma rowerow"
 		elif type(row) == int and row == -1:
 			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam -1 rower - a jest to liczba ujemna \n		 "
 		elif type(row) == int and row <= 0:
-			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam " + str(" {:2d} ".format(row)) + " rowerow - a jest to liczba ujemna \n		  "
+			wyd = "najprawdopodobniej wystapil blad - stacja twierdzi, ze jest tam " + str(
+				" {:2d} ".format(row)) + " rowerow - a jest to liczba ujemna \n		  "
 		elif type(row) == int and row == 1:
 			wyd = "jest  1  rower	"
 		elif type(row) == int and row >= 2:
@@ -102,25 +117,29 @@ class pl_safe:
 			elif row >= 10:
 				wyd = ("jest" + str(" {:2d} ".format(row)) + " rowerow   ")
 			elif row >= 22:
-				wyd = ("sa  " + str(" {:2d} ".format(row)) + " rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci")
+				wyd = ("sa  " + str(
+					" {:2d} ".format(row)) + " rowery, choc to praktycznie niemozliwe, gdyz stacja tyle nie pomiesci")
 		elif row == "Download failed":
 			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz pobieranie zakonczylo się bledem"
 		else:
-			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem, zwrocila [typ: '%s', wartosc: '%s']" % (type(row), str(" {:2d} ".format(row)))
+			wyd = ", nie wiemy ile rowerow jest na tej stacji, poniewaz proba zdobycia informacji zakonczyla sie bledem, zwrocila [typ: '%s', wartosc: '%s']" % (
+				type(row), str(" {:2d} ".format(row)))
 		return wyd
+
+	@property
 	def lanstac(self):
 		lanstadict = {
-			'001TOR': 'Rynek Staromiejski', 
-			'002TOR': 'Plac sw. Katarzyny', 
-			'003TOR': 'Plac Rapackiego', 
-			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna', 
-			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie', 
-			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka', 
-			'007TOR': 'ul. Broniewskiego - Tesco', 
-			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market', 
-			'009TOR': 'ul. Szosa Chelminska - Polo Market', 
-			'010TOR': 'PKP Torun Glowny', 
-			'011TOR': 'ul. Dziewulskiego - Komisariat Policji', 
+			'001TOR': 'Rynek Staromiejski',
+			'002TOR': 'Plac sw. Katarzyny',
+			'003TOR': 'Plac Rapackiego',
+			'004TOR': 'ul. Bulwar Filadelfijski - Brama Klasztorna',
+			'005TOR': 'ul. Szosa Chelminska - Targowisko Miejskie',
+			'006TOR': 'ul. Gagarina - Biblioteka Uniwersytecka',
+			'007TOR': 'ul. Broniewskiego - Tesco',
+			'008TOR': 'ul. Gen. Jozefa Hallera - Polo Market',
+			'009TOR': 'ul. Szosa Chelminska - Polo Market',
+			'010TOR': 'PKP Torun Glowny',
+			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
 		}
 		return lanstadict
