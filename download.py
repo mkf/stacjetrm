@@ -22,7 +22,7 @@ class download:
 				print "in_elif: %s: %s" % (landictu['badstacparam'], str(stacja))
 				quit()
 		elif stacja > 9:
-			if stacja < 13:
+			if stacja <= 13:
 				na = (r'0', str(stacja), r'TOR')
 			else:
 				print "in_else_min: %s: %s" % (landictu['badstacparam'], str(stacja))

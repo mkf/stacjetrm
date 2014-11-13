@@ -30,7 +30,8 @@ class orzeczim:
 			'009TOR': 'ul. Szosa Chelminska - Polo Market',
 			'010TOR': 'PKP Torun Glowny',
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
-			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
+			'013TOR': 'ul. Dabrowskiego - Dworzec autobusowy'
 		}
 		adrlocnatio = {
 			'001TOR': u'Rynek Staromiejski',
@@ -44,7 +45,8 @@ class orzeczim:
 			'009TOR': u'ul. Szosa Chełmińska - Polo Market',
 			'010TOR': u'PKP Toruń Główny',
 			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
-			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej'
+			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
+			'013TOR': u'ul. Dąbrowskiego - Dworzec autobusowy'
 		}
 		if jezadr == "c":
 			ad = jezyu.lanstac

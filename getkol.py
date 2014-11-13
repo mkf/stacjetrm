@@ -52,7 +52,7 @@ class getkol:
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
-			for j in range(1,13):
+			for j in range(1,14):
 				try:
 					allone = stacdict[j]
 				except:
@@ -87,7 +87,7 @@ class getkol:
 			o = int(s) * (-1)
 			a = self.si(o)
 			return a
-		elif int(s) < 13:
+		elif int(s) <= 13:
 			from download import download
 			thisisthedownloadinstance = download(int(s),lan.dictu,self.tor,self.torin)
 			a = thisisthedownloadinstance.raz()

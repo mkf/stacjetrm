@@ -17,7 +17,7 @@ import argparse
 # argu = sys.argv
 # prmdw = paramdemonwszystkich(argu)
 # lng = paramdemonwszystkich.lng()
-allsta = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+allsta = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 defsta = allsta
 defpracy = "f"
 defdebugu = "n"
@@ -56,7 +56,7 @@ argstac.add_argument("-sa", "--allstations", action="store_true",
 					 help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 argstac.add_argument("-sd", "--defstations", action="store_true",
 					 help="Domyślne stacje/[def] biciklstacjoj/Default stations")
-argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 13),
+argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 14),
 					 help="Wybierz stację, można użyć wielokrotnie")
 # argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
 argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true",
