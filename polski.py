@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class pl_natio:
-	u"To jest plik języka polskiego"
+	u"""To jest plik języka polskiego"""
 
 	def __init__(self):
 		lang = "pl_natio"
@@ -73,7 +73,7 @@ class pl_natio:
 
 
 class pl_safe:
-	"To jest plik jezyka polskiego"
+	"""To jest plik jezyka polskiego"""
 
 	def __init__(self):
 		lang = "pl_safe"

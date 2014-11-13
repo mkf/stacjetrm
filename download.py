@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class download:
-	"Ta klasa będzie po prostu pobierać jeden plik jednej stacji i mówić czy succesful i z jakiego czasu pochodzi plik, ciekawe czy da się wsio w inicie"
+	"""Ta klasa będzie po prostu pobierać jeden plik jednej stacji i mówić czy succesful
+	i z jakiego czasu pochodzi plik, ciekawe czy da się wsio w inicie"""
 
 	def __init__(self, stacja, landictu, tor, tordown):
 		self.tor = tor
@@ -54,7 +55,7 @@ class download:
 				czas = time.time()
 				self.czas = czas
 				we = wejs.read()
-				self.we
+				self.we = we
 			else:
 				print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
 				quit()

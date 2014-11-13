@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class zapis:
-	"To jest klasa sluzaca do zapisu m.in. do csv, ale chyba do baz danych tez"
+	"""To jest klasa sluzaca do zapisu m.in. do csv, ale chyba do baz danych tez"""
 
 	def __init__(self, gdzie, row, stac, unx, dz, cz):
 		self.gdzie = gdzie
@@ -17,4 +17,4 @@ class zapis:
 			  '010TOR': 'PKP Torun Glowny', '011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			  '012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'}
 		self.ad = ad
-		
+		self.stac = stac

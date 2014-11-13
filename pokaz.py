@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class pokaz:
-	"Klasa pokazujaca pojedynczo"
+	"""Klasa pokazujaca pojedynczo"""
 
 	def __init__(self, row, stac, unix, pracy, lang, jezadr, lanchar):
 		from orzeczim import orzeczim

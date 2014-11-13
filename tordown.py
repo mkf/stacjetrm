@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class tordown:
-	"To jest klasa pobierania za pośrednictwem sieci Tor, bazowana na https://stem.torproject.org/tutorials/to_russia_with_love.html "
+	"""To jest klasa pobierania za pośrednictwem sieci Tor, bazowana na https://stem.torproject.org/tutorials/to_russia_with_love.html """
 
 	def __init__(self, debugu):
 		self.debugu = debugu
@@ -57,21 +57,24 @@ class tordown:
 
 	def pobierz(self, url):
 		import urllib
+
 		if self.debugu == 'f':
 			print "pobieram"
 
-			def query(self, url):
-				"Uses urllib to fetch a site using SocksiPy for Tor over the SOCKS_PORT."
+			def query(url):
+				"""Uses urllib to fetch a site using SocksiPy for Tor over the SOCKS_PORT."""
 				try:
 					import urllib
+
 					return urllib.urlopen(url).read()
 				except:
 					return "Unable to reach %s" % url
-			from stem.util import term
-			print term.format("\nChecking our endpoint:\n", term.Attr.BOLD)
-			print term.format(query("https://www.atagar.com/echo.php"), term.Color.BLUE)
-		return urllib.urlopen(url)
 
+			from stem.util import term
+
+			print term.format("\nChecking our endpoint:\n", term.Attr.BOLD)
+			print term.format(query(), term.Color.BLUE)
+		return urllib.urlopen(url)
 
 	def zabij(self):
 		self.tor_process.kill()  # stops tor

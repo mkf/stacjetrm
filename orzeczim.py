@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class orzeczim:
-	u"To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"
+	u"""To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"""
 
 	def __init__(self, row, stac, unx, pracy, lan, jezadr, lanchar):
 		self.row = row
@@ -15,7 +15,7 @@ class orzeczim:
 		dzcz = datetime.datetime(hejoczasuu[0], hejoczasuu[1], hejoczasuu[2], hejoczasuu[3], hejoczasuu[4],
 								 hejoczasuu[5]).isoformat(' ')
 		self.dzcz = dzcz
-		jezyczek = lan.dictu
+		jezykinfoa = lan.dictu
 		jezyu = lan
 		self.jezyu = jezyu
 		adrlocsafe = {

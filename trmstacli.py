@@ -184,7 +184,7 @@ for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsingle
 		if len(tybzapisu) > 0:
 			tybyzapisu.append(tybzapisu)
 	except:
-		nicsieniedziejealecostrzawstawic = 1
+		pass
 if parmetry.charsafe:
 	lanchar = 'n'
 elif parmetry.charwithnational:
@@ -324,10 +324,10 @@ elif parmetry.pracytabelaadrlanglocal:
 	adrlangczy = "l"
 # adrchar = 'e'
 # elif parmetry.pracytabelaadrlanglocalpolishalphabet:
-# 	pracy = "t"
-# 	kolczyraz = "k"
-# 	adrlangczy = "l"
-# 	adrchar = 'l'
+# pracy = "t"
+# kolczyraz = "k"
+# adrlangczy = "l"
+# adrchar = 'l'
 elif parmetry.pracykomp:
 	pracy = "k"
 	kolczyraz = "k"

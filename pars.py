@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class pars:
-	'To jest klasa odczytywania plików pobranych ze Źródła'
+	"""To jest klasa odczytywania plików pobranych ze Źródła"""
 	# rowerky = 0
 	# rowery = 0
 	def __init__(self, skund, stacyjka, landictu):

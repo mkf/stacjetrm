@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class de_natio:
-	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
+	u"""Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."""
 
 	def __init__(self):
 		lang = "de_natio"
@@ -27,7 +27,8 @@ class de_natio:
 		}
 		return slo
 
-	def wyd(self, row):
+	@staticmethod
+	def wyd(row):
 		if type(row) == int and row == 0:
 			wyd = u"is no bicycles "
 		elif type(row) == int and row == -1:
@@ -71,7 +72,7 @@ class de_natio:
 
 
 class de_safe:
-	u"Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."
+	u"""Das ist ein sprechtpackage, lecz niestety kompletnie nie jest zrobiony."""
 
 	def __init__(self):
 		lang = "de_safe"

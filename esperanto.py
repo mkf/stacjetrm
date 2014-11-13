@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class eo_safe:
-	u"Tio estas la pakagxo de la esperanta lingvo."
+	u"""Tio estas la pakagxo de la esperanta lingvo."""
 
 	def __init__(self):
 		lang = 'eo-safe'
@@ -72,7 +72,7 @@ class eo_safe:
 
 
 class eo_natio:
-	u"Tio estas la pakaĝo de la esperanta lingvo."
+	u"""Tio estas la pakaĝo de la esperanta lingvo."""
 
 	def __init__(self):
 		lang = 'eo-natio'
@@ -139,4 +139,4 @@ class eo_natio:
 			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
 		}
 		return lanstadict
-		#powyzsze trzeba bedzie przetlumaczyc na esperanto ze znaczkami
+		# powyzsze trzeba bedzie przetlumaczyc na esperanto ze znaczkami

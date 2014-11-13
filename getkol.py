@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class getkol:
-	"To jest klasa pobierania kolejno bez odstępu czasowego"
+	"""To jest klasa pobierania kolejno bez odstępu czasowego"""
 	#	import datetime
 	#	from download import *
 		
@@ -36,7 +36,7 @@ class getkol:
 			else:
 				try:
 					stacdict[int(s)] = int(a[0])
-				except:
+				except ValueError:
 					if a[0] == "Download failed":
 						stacdict[int(s)] = a[0]
 					else:
@@ -44,7 +44,7 @@ class getkol:
 				slownikczasow[int(s)] = int(a[1])
 				try:
 					self.praca(int(s),int(a[0]),int(a[1]),pracy)
-				except:
+				except ValueError:
 					if a[0] == "Download failed":
 						self.praca(int(s),a[0],int(a[1]),pracy)
 					else:

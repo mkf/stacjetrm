@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class getjednoczesnie:
-	"To jest klasa pobierania jednoczesnego"
+	"""To jest klasa pobierania jednoczesnego"""
 	# import time
 
 	def __init__(self, stacje, pracy, debugu, lan, jezadr, lanchar, iwri, idis, tor):

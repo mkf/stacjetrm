@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class english:
-	u"This is an English language file"
+	u"""This is an English language file"""
 
 	def __init__(self):
 		lang = "en"

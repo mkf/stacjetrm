@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 class multipokaz:
-	"Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki oraz w formie bardziej kompowej (API)"
+	"""Ta klasa bedzie pokazywala wszystkie stacje w jednej linijce, w formie ludzkiej tabelki
+	oraz w formie bardziej kompowej (API)"""
 	# czasu = datetime.datetime()
 	# self.czasu = czasu
 	# czasu = datetime.datetime()
 	# def __init__(self,rowerdict,pracy,debugu,unix,dz,cz):
-	def __init__(self, pracy, debugu, stacje, lan, lanchar):
+	def __init__(self, stacje, pracy, debugu, rowslo, lan, lanchar):
 		self.stacje = stacje
 		self.debugu = debugu
 		self.pracy = pracy
@@ -159,4 +160,3 @@ class multipokaz:
 			elif its > 100:
 				tss = self.morethansto(its, s)
 		return str(tss)
-		
