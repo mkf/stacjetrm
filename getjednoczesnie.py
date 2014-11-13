@@ -65,7 +65,7 @@ class getjednoczesnie:
 			o = int(s) * (-1)
 			a = self.si(o, iwri, idis)
 			return a
-		elif int(s) < 13:
+		elif int(s) <= 13:
 			from download import download
 
 			thisisthedownloadinstance = download(int(s), lan.dictu, self.tor, self.torin)

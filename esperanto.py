@@ -64,7 +64,8 @@ class eo_safe:
 			'009TOR': 'ul. Szosa Chelminska - Polo Market',
 			'010TOR': 'PKP Torun Glowny',
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
-			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej'
+			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
+			'013TOR': 'ul. Dabrowskiego — Dworzec autobusowy'
 		}
 		return lanstadict
 
@@ -137,6 +138,7 @@ class eo_natio:
 			'010TOR': u'PKP Torun Glowny',
 			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
+			'013TOR': u'ul. Dabrowskiego - Dworzec autobusowy'
 		}
 		return lanstadict
 		# powyzsze trzeba bedzie przetlumaczyc na esperanto ze znaczkami

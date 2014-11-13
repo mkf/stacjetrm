@@ -35,7 +35,7 @@ class multipokaz:
 				ht = "____"
 				qt = ht
 				kt = u"————"
-			elif int(sh) < 13:
+			elif int(sh) <= 13:
 				st = str(sh) + " | "
 				ht = "____"
 				qt = ht
