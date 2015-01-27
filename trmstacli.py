@@ -13,7 +13,7 @@
 
 import argparse
 
-# from paramdemonwszystkich import *
+# from ownlib.paramdemonwszystkich import *
 # argu = sys.argv
 # prmdw = paramdemonwszystkich(argu)
 # lng = paramdemonwszystkich.lng()
@@ -195,7 +195,7 @@ if parmetry.langenglish:
 	lang = "en"
 	if lanchar == 'a':
 		lanchar = 'n'
-	from english import *
+	from ownlib.english import *
 
 	lan = english()
 elif parmetry.langesperanto:
@@ -203,11 +203,11 @@ elif parmetry.langesperanto:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from esperanto import eo_natio
+		from ownlib.esperanto import eo_natio
 
 		lan = eo_natio()
 	if lanchar == 'n':
-		from esperanto import eo_safe
+		from ownlib.esperanto import eo_safe
 
 		lan = eo_safe()
 elif parmetry.langpolski:
@@ -215,11 +215,11 @@ elif parmetry.langpolski:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from polski import pl_natio
+		from ownlib.polski import pl_natio
 
 		lan = pl_natio()
 	if lanchar == 'n':
-		from polski import pl_safe
+		from ownlib.polski import pl_safe
 
 		lan = pl_safe()
 elif parmetry.langdeutsch:
@@ -227,11 +227,11 @@ elif parmetry.langdeutsch:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from deutsch import de_natio
+		from ownlib.deutsch import de_natio
 
 		lan = de_natio()
 	if lanchar == 'n':
-		from deutsch import de_safe
+		from ownlib.deutsch import de_safe
 
 		lan = de_safe()
 else:
@@ -239,11 +239,11 @@ else:
 	if lanchar == 'a':
 		lanchar = 'n'
 	if lanchar == 'y':
-		from esperanto import eo_natio
+		from ownlib.esperanto import eo_natio
 
 		lan = eo_natio()
 	if lanchar == 'n':
-		from esperanto import eo_safe
+		from ownlib.esperanto import eo_safe
 
 		lan = eo_safe()
 
@@ -428,7 +428,7 @@ else:
 		pob = smartget
 
 if pob == 'k':
-	from getkol import *
+	from ownlib.getkol import *
 
 	if waitbetweenloops == "singlecheck":
 		getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
@@ -439,7 +439,7 @@ if pob == 'k':
 			getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
 			time.sleep(waitbetweenloops)
 elif pob == 'j':
-	from getjednoczesnie import *
+	from ownlib.getjednoczesnie import *
 
 	if waitbetweenloops == "singlecheck":
 		getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)

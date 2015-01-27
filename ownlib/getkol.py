@@ -2,14 +2,14 @@
 class getkol:
 	"""To jest klasa pobierania kolejno bez odstępu czasowego"""
 	#	import datetime
-	#	from download import *
+	#	from ownlib.download import *
 		
 	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor):
 		self.tor = tor
 		if tor == 0:
 			self.torin = "nico"
 		elif tor == 1:
-			from tordown import tordown
+			from ownlib.tordown import tordown
 			self.torin = tordown(debugu)
 		else:
 			print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
@@ -88,7 +88,7 @@ class getkol:
 			a = self.si(o)
 			return a
 		elif int(s) <= 13:
-			from download import download
+			from ownlib.download import download
 			thisisthedownloadinstance = download(int(s),lan.dictu,self.tor,self.torin)
 			a = thisisthedownloadinstance.raz()
 			return a
@@ -100,7 +100,7 @@ class getkol:
 		lan = self.lan
 		jezadr = self.jezadr
 		lanchar = self.lanchar
-		from pokaz import pokaz
+		from ownlib.pokaz import pokaz
 		if pr == 'n':
 			pracowanie='nie'
 #		elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
