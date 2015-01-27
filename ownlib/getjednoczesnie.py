@@ -11,7 +11,7 @@ class getjednoczesnie:
 		if tor == 0:
 			self.torin = "nico"
 		elif tor == 1:
-			from tordown import tordown
+			from ownlib.tordown import tordown
 
 			self.torin = tordown(debugu)
 		else:
@@ -66,7 +66,7 @@ class getjednoczesnie:
 			a = self.si(o, iwri, idis)
 			return a
 		elif int(s) <= 13:
-			from download import download
+			from ownlib.download import download
 
 			thisisthedownloadinstance = download(int(s), lan.dictu, self.tor, self.torin)
 			a = thisisthedownloadinstance.raz()
@@ -84,7 +84,7 @@ class getjednoczesnie:
 		lan = self.lan
 		jezadr = self.jezadr
 		lanchar = self.lanchar
-		from pokaz import pokaz
+		from ownlib.pokaz import pokaz
 
 		if pr == 'n':
 			pracowanie = 'nie'
@@ -96,7 +96,7 @@ class getjednoczesnie:
 		lan = self.lan
 		#jezadr = self.jezadr
 		lanchar = self.lanchar
-		from multipokaz import multipokaz
+		from ownlib.multipokaz import multipokaz
 
 		if pr == 'n':
 			pracowanie = 'nie'

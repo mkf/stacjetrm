@@ -3,7 +3,7 @@ class pokaz:
 	"""Klasa pokazujaca pojedynczo"""
 
 	def __init__(self, row, stac, unix, pracy, lang, jezadr, lanchar):
-		from orzeczim import orzeczim
+		from ownlib.orzeczim import orzeczim
 		# if stac #dokonczyc watek myslowy
 		orze = orzeczim(row, str(str("%03dTOR" % int(stac))), unix, pracy, lang, jezadr, lanchar)
 		if pracy == 'u':

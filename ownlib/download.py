@@ -68,7 +68,7 @@ class download:
 			return we
 
 	def row(self):
-		from pars import pars
+		from ownlib.pars import pars
 
 		par = pars(self.down(), self.stacn, self.landictu)
 		rowery = par.rowerry()
