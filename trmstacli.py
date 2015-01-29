@@ -132,15 +132,10 @@ if parmetry.instawrite:
 if parmetry.instadisp:
 	instadisp = 1
 if parmetry.tor:
-	try:
-		import stem.process
-
-		tor = 1
-	except:
-		print "Importing stem library failed. Install it with 'sudo easy_install stem' or 'sudo pip install stem'. Exiting."
-		quit()
-else:
-	tor = 0
+	tor = 1
+	import stem.process
+	#except: raise ImportError("Importing stem library failed. Install it with 'sudo easy_install stem' or 'sudo pip install stem'. Exiting.")
+else: tor = 0
 
 try:
 	if len(
