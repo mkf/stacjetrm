@@ -198,7 +198,7 @@ if parmetry.langenglish:
 	lang = "en"
 	if lanchar == 'a':
 		lanchar = 'n'
-	from ownlib.english import *
+	from ownlib.lang.english import *
 
 	lan = english()
 elif parmetry.langesperanto:
@@ -206,11 +206,11 @@ elif parmetry.langesperanto:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from ownlib.esperanto import eo_natio
+		from ownlib.lang.esperanto import eo_natio
 
 		lan = eo_natio()
 	if lanchar == 'n':
-		from ownlib.esperanto import eo_safe
+		from ownlib.lang.esperanto import eo_safe
 
 		lan = eo_safe()
 elif parmetry.langpolski:
@@ -218,11 +218,11 @@ elif parmetry.langpolski:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from ownlib.polski import pl_natio
+		from ownlib.lang.polski import pl_natio
 
 		lan = pl_natio()
 	if lanchar == 'n':
-		from ownlib.polski import pl_safe
+		from ownlib.lang.polski import pl_safe
 
 		lan = pl_safe()
 elif parmetry.langdeutsch:
@@ -230,11 +230,11 @@ elif parmetry.langdeutsch:
 	if lanchar == 'a':
 		lanchar = 'y'
 	if lanchar == 'y':
-		from ownlib.deutsch import de_natio
+		from ownlib.lang.deutsch import de_natio
 
 		lan = de_natio()
 	if lanchar == 'n':
-		from ownlib.deutsch import de_safe
+		from ownlib.lang.deutsch import de_safe
 
 		lan = de_safe()
 else:
@@ -242,11 +242,11 @@ else:
 	if lanchar == 'a':
 		lanchar = 'n'
 	if lanchar == 'y':
-		from ownlib.esperanto import eo_natio
+		from ownlib.lang.esperanto import eo_natio
 
 		lan = eo_natio()
 	if lanchar == 'n':
-		from ownlib.esperanto import eo_safe
+		from ownlib.lang.esperanto import eo_safe
 
 		lan = eo_safe()
 
