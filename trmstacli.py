@@ -144,10 +144,12 @@ else:
 
 try:
 	if len(
-							parmetry.writetocsvkolsinglefile + parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile + parmetry.writetocsvkolmulticountvolumefile) > 0:
+		parmetry.writetocsvkolsinglefile + \
+			parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile + parmetry.writetocsvkolmulticountvolumefile) > 0:
 		writekolczyraz = 'k'
 	elif len(
-							parmetry.writetocsvrazsinglefile + parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
+		parmetry.writetocsvrazsinglefile + \
+			parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
 		writekolczyraz = 'r'
 	elif parmetry.writeno:
 		writekolczyraz = 'n'
@@ -156,7 +158,8 @@ try:
 except:
 	try:
 		if len(
-								parmetry.writetocsvrazsinglefile + parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
+			parmetry.writetocsvrazsinglefile + \
+				parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
 			writekolczyraz = 'r'
 		elif parmetry.writeno:
 			writekolczyraz = 'n'
