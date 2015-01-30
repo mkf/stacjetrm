@@ -24,7 +24,7 @@ parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetw
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
 tor=1 if parmetry.tor else 0
-if tor==1 import stem.process
+if tor==1: import stem.process
 try:
 	if len(
 		parmetry.writetocsvkolsinglefile + \
