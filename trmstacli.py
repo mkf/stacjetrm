@@ -23,36 +23,11 @@ from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
-try:
-	if len(
-		parmetry.writetocsvkolsinglefile + \
-			parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile + parmetry.writetocsvkolmulticountvolumefile) > 0:
-		writekolczyraz = 'k'
-	elif len(
-		parmetry.writetocsvrazsinglefile + \
-			parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
-		writekolczyraz = 'r'
-	elif parmetry.writeno: writekolczyraz = 'n'
-	else: writekolczyraz = 'n'
-except:
-	try:
-		if len(
-			parmetry.writetocsvrazsinglefile + \
-				parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile + parmetry.writetocsvrazmulticountvolumefile) > 0:
-			writekolczyraz = 'r'
-		elif parmetry.writeno: writekolczyraz = 'n'
-		else: writekolczyraz = 'n'
-	except:
-		if parmetry.writeno: writekolczyraz = 'n'
-		else: writekolczyraz = 'n'
-#if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile:
-#	multivol = 'j'
-#elif parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile or parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile:
-#	multivol = 't'
-#elif parmetry.writetocsvrazmulticountvolumefile or parmetry.writetocsvkolmulticountvolumefile:
-#	multivol = 'c'
-#else:
-#	multivol = 'n'
+from ownlib.writekolczyraz import writekolczyraz as writerkolczyraza; writekolczyraz = writerkolczyraza(parmetry)
+#if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile: multivol = 'j'
+#elif parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile or parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile: multivol = 't'
+#elif parmetry.writetocsvrazmulticountvolumefile or parmetry.writetocsvkolmulticountvolumefile: multivol = 'c'
+#else: multivol = 'n'
 tybyzapisu = []
 for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile,
 				  parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile,
@@ -64,6 +39,8 @@ for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsingle
 if parmetry.charsafe: lanchar = 'n'
 elif parmetry.charwithnational: lanchar = 'y'
 else: lanchar = "a"
+
+#  -----------------------LANGUAGES -----__________________
 if parmetry.langenglish:
 	lang = "en"
 	if lanchar == 'a': lanchar = 'n'
@@ -88,22 +65,17 @@ else:
 	if lanchar == 'a': lanchar = 'n'
 	if lanchar == 'y': from ownlib.lang.esperanto import eo_natio ; lan = eo_natio()
 	if lanchar == 'n': from ownlib.lang.esperanto import eo_safe ; lan = eo_safe()
+#  END:___________ LANGUAGES -------------------------------
+
+
 if parmetry.singlecheck: waitbetweenloops = "singlecheck"
-else:
-	waitbetweenloops = parmetry.waitbetweenloops if type(parmetry.waitbetweenloops) == int else \
-		defwaitbetweenloops if parmetry.defwaitbetweenloops else defwaitbetweenloops  #bzdurna nibyformalność
+else: waitbetweenloops = parmetry.waitbetweenloops if type(parmetry.waitbetweenloops) == int else \
+	defwaitbetweenloops if parmetry.defwaitbetweenloops else defwaitbetweenloops  #bzdurna nibyformalność
 if parmetry.defstations: sta = defsta
 elif parmetry.allstations: sta = allsta
 else:
-	try:
-		if len(parmetry.station) > 0: sta = parmetry.station
-		else: sta = defsta
+	try: sta = parmetry.station if len(parmetry.station)>0 else defsta
 	except: sta = defsta
-# print argpracy
-# print "def"
-# print sta
-# print type(parmetry.station)
-# print parmetry.station
 if parmetry.pracyfulladrlangchosen: pracy = "f" ; adrlangczy = "c" ; kolczyraz = "k"
 elif parmetry.pracyfulladrlanglocal: pracy = "f" ; adrlangczy = "l" ; kolczyraz = "k"
 # adrchar = 'e'
