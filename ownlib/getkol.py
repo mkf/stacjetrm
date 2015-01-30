@@ -5,72 +5,42 @@ class getkol:
 	#	from ownlib.download import *
 		
 	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor=0,czyzapis=False,zapisu='n'):
+		assert tor == 0 or tor == 1, "Tor parameter variable doesn't contain 0 nor 1; Exiting."
+		if tor == 1: from ownlib.tordown import tordown
 		self.tor = tor
-		if tor == 0:
-			self.torin = "nico"
-		elif tor == 1:
-			from ownlib.tordown import tordown
-			self.torin = tordown(debugu)
-		else:
-			print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
-			quit()
+		self.torin = tordown(debugu) if tor == 1 else "nico"
 		self.lan = lan
 		self.jezadr = jezadr
 		self.lanchar = lanchar
-		sa = 0
-		ssa = 0
-		sw = 0
-		ssw = 0
-		stacdict = {}
-		slownikczasow = {}
+		sa,ssa,sw,ssw = 0
+		stacdict,slownikczasow = {}
 		for s in stacje:
-			sa = 0
-			sw = 0
+			sa,sw = 0
 			a = self.si(s)
-			if a[0] == 'a':
-				sa = 1
-				ssa = 1
-			elif a[0] == 'w':
-				sw = 1
-				ssw = 1
+			if a[0] == 'a': sa, ssa = 1
+			elif a[0] == 'w': sw, ssw = 1
 			else:
-				try:
-					stacdict[int(s)] = int(a[0])
-				except ValueError:
-					if a[0] == "Download failed":
-						stacdict[int(s)] = a[0]
-					else:
-						stacdict[int(s)] = int(a[0])
+				try: stacdict[int(s)] = int(a[0])
+				except ValueError: stacdict[int(s)] = a[0] if a[0]=="Download failed" else int(a[0])
 				slownikczasow[int(s)] = int(a[1])
-				try:
-					self.praca(int(s),int(a[0]),int(a[1]),pracy)
-				except ValueError:
-					if a[0] == "Download failed":
-						self.praca(int(s),a[0],int(a[1]),pracy)
-					else:
-						self.praca(int(s),int(a[0]),int(a[1]),pracy)
+				try: self.praca(int(s),int(a[0]),int(a[1]),pracy)
+				except ValueError: self.praca(int(s),a[0] if a[0]=="Download failed" else int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
 			stacdictal = {}
 			allesstac = 0
 			for j in range(1,14):
-				try:
-					allone = stacdict[j]
-				except:
-					allone = self.si(j)
+				try: allone = stacdict[j]
+				except: allone = self.si(j)
 				stacdictal[j] = int(allone)
 				allesstac = allesstac + allone
 		if ssw == 1:
 			allerstac = 0
-			for u in stacdict.keys():
-				allerstac += int(stacdict[u])
-		if ssa == 1:
-			stacdict[0] = allesstac
-		if ssw == 1:
-			stacdict[0] = allerstac
+			for u in stacdict.keys(): allerstac += int(stacdict[u])
+		if ssa == 1: stacdict[0] = allesstac
+		if ssw == 1: stacdict[0] = allerstac
 		self.stacdict = stacdict
 		self.slwcza = slownikczasow
-		if tor == 1:
-			self.torin.zabij()
+		if tor == 1: self.torin.zabij()
 	def si(self,s):
 		lan = self.lan
 		sa = 0
@@ -101,11 +71,8 @@ class getkol:
 		jezadr = self.jezadr
 		lanchar = self.lanchar
 		from ownlib.pokaz import pokaz
-		if pr == 'n':
-			pracowanie='nie'
-#		elif pr == 'f' or pr == 'l' or pr == 'u' or pr == 'a' or pr == 't' or pr == 'k' or pr == 'c' or pr == 'm':
-		else:
-			pokaz(row,st,utim,pr,lan,jezadr,lanchar)
+		if pr == 'n': pracowanie='nie'
+		else: pokaz(row,st,utim,pr,lan,jezadr,lanchar)
 	def slowstac(self):
 		return self.stacdict
 	def slowczas(self):
