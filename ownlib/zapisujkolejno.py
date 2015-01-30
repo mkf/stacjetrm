@@ -14,10 +14,11 @@ class zapisujkolejno:
 			with open(plik,'rb') as cfile:
 				if typ=='csv': assert csv.reader(plik)[0][0]=='Stacja',"Plik nie jest w tym typie"
 			cfile.close()
-		if typ=='csv': with open(plik,'a') as csvfile:
-			writer = csv.DictWriter(csvfile,fieldnames=['Stacja','Rowery',"CzasUNIX"])
-			writer.writeheader()
-			self.writer = writer
+		if typ=='csv': 
+			with open(plik,'a') as csvfile:
+				writer = csv.DictWriter(csvfile,fieldnames=['Stacja','Rowery',"CzasUNIX"])
+				writer.writeheader()
+				self.writer = writer
 	def entry(self,stacja,rowery,czasunix):
 		if self.czyplik and self.typ=='csv':
 			assert (str(stacja)[0]=='0') and (str(stacja)[-3:]=='TOR'), "Zapis: niepoprawna nazwa stacji [%s], ma byc 0**TOR" % str(stacja)
