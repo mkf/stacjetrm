@@ -11,7 +11,7 @@
 # możliwe musi być jednoczesne zapisywanie zupełnie odmiennymi we wszystkim trybami do wielu różnych plików i baz danych jednocześnie
 # przepisać powyższe do GitHub Issues
 
-import argparse
+#import argparse
 
 # from ownlib.paramdemonwszystkich import *
 # argu = sys.argv
@@ -19,7 +19,8 @@ import argparse
 # lng = paramdemonwszystkich.lng()
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
 defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
-import ownlib.argparsingtrmstacli
+from ownlib.argparsingtrmstacli import argparsowanie
+parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
 try:
