@@ -12,10 +12,10 @@ class getkol:
 		self.lan = lan
 		self.jezadr = jezadr
 		self.lanchar = lanchar
-		sa,ssa,sw,ssw = 0
-		stacdict,slownikczasow = {}
+		sa=0;ssa=0;sw=0;ssw = 0
+		stacdict={};slownikczasow={}
 		for s in stacje:
-			sa,sw = 0
+			sa=0;sw=0
 			a = self.si(s)
 			if a[0] == 'a': sa, ssa = 1
 			elif a[0] == 'w': sw, ssw = 1
@@ -43,8 +43,7 @@ class getkol:
 		if tor == 1: self.torin.zabij()
 	def si(self,s):
 		lan = self.lan
-		sa = 0
-		sw = 0
+		sa = 0;sw = 0
 		if int(s) == 0:
 			sa = 1
 			a = 'a'
