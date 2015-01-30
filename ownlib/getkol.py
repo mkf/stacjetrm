@@ -30,7 +30,8 @@ class getkol:
 				stacdictal[j] = int(allone)
 				allesstac = allesstac + allone
 		if ssw == 1: 
-			allerstac = 0 ; for u in stacdict.keys(): allerstac += int(stacdict[u])
+			allerstac = 0
+			for u in stacdict.keys(): allerstac += int(stacdict[u])
 		if ssa == 1: stacdict[0] = allesstac
 		if ssw == 1: stacdict[0] = allerstac
 		self.stacdict = stacdict ; self.slwcza = slownikczasow
