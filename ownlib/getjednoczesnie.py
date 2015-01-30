@@ -3,8 +3,12 @@ class getjednoczesnie:
 	"""To jest klasa pobierania jednoczesnego"""
 	# import time
 
-	def __init__(self, stacje, pracy, debugu, lan, jezadr, lanchar, iwri, idis):
+	def __init__(self, stacje, pracy, debugu, lan, jezadr, lanchar, iwri, idis,tor):
 		import Queue, threading
+		assert tor==0 or tor==1,"Tor parameter variable doesn't contain 0 nor 1; Exiting."
+		self.tor=tor
+		if tor==1: from ownlib.tordown import tordown
+		self.torin = tordown(debugu) if tor==1 else "nico"
 		self.lan=lan;self.jezadr=jezadr;self.lanchar=lanchar;ssa=0;ssw=0;stacdict={};slownikczasow=();q=Queue.Queue();self.pracy=pracy
 		def kolejka(q, s, iwri, idis): q.put(self.si(s, iwri, idis))
 		for s in stacje:
@@ -12,6 +16,7 @@ class getjednoczesnie:
 			if a[0] == 'a': sa = 1 ; ssa = 1
 			elif a[0] == 'w': sw = 1 ; ssw = 1
 			else: t = threading.Thread(target=kolejka, args=(q, s, iwri, idis)) ; t.daemon = True ; t.start()
+		if tor==1: self.torin.zabij()
 	def si(self, s, iwri, idis):
 		lan = self.lan ; sa = 0 ; sw = 0
 		assert int(s) ==0 or int(s)==100 or int(s)<0 or int(s)<=13, "%s: %s" % (lan.dictu['badstacparam'],str(s))
@@ -20,7 +25,7 @@ class getjednoczesnie:
 		elif int(s) < 0: o = int(s) * (-1) ; a = self.si(o, iwri, idis) ; return a
 		elif int(s) <= 13:
 			from ownlib.download import download
-			a = download(int(s), lan.dictu).raz()
+			a = download(int(s), lan.dictu,self.tor,self.torin).raz()
 			if iwri == 1: print "instawrite"
 			if idis == 1: self.praca(int(s), int(a[0]), int(a[1]), self.pracy) ; return a
 	def praca(self, st, row, utim, pr):

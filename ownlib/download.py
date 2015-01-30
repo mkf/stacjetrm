@@ -3,8 +3,8 @@ class download:
 	"""Ta klasa będzie po prostu pobierać jeden plik jednej stacji i mówić czy succesful
 	i z jakiego czasu pochodzi plik, ciekawe czy da się wsio w inicie"""
 
-	def __init__(self, stacja, landictu):
-		self.landictu = landictu
+	def __init__(self, stacja, landictu,tor,tordown):
+		self.landictu = landictu ; self.tor=tor;self.tordown=tordown
 		if stacja == 0:
 
 			print landictu['sumallnotsupported']
@@ -42,11 +42,18 @@ class download:
 		import time
 
 		try:
-			wejs = urllib2.urlopen(self.url)
-			czas = time.time()
-			self.czas = czas
-			we = wejs.read()
-			self.we = we
+			if self.tor==0:
+				wejs = urllib2.urlopen(self.url)
+				czas = time.time()
+				self.czas = czas
+				we = wejs.read()
+				self.we = we
+			elif self.tor==1:
+				wejs = self.tordown.pobierz(self.url)
+				czas = time.time()
+				self.czas = czas
+				we = wejs.read()
+				self.we = we
 			return we
 		except:
 			czas = time.time()

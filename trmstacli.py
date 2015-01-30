@@ -23,6 +23,8 @@ from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
+tor=1 if parmetry.tor else 0
+if tor==1 import stem.process
 try:
 	if len(
 		parmetry.writetocsvkolsinglefile + \
@@ -190,14 +192,14 @@ else:
 
 if pob == 'k':
 	from ownlib.getkol import *
-	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
+	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite,tor)
 	elif type(waitbetweenloops) == int:
 		import time.sleep
-		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
+		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite,tor) ; time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from ownlib.getjednoczesnie import *
-	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
+	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite,tor)
 	elif type(waitbetweenloops) == int:
 		import time.sleep
-		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
+		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite,tor) ; time.sleep(waitbetweenloops)
 elif pob == 'w': pass
