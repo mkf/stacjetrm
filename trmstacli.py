@@ -11,7 +11,7 @@
 # możliwe musi być jednoczesne zapisywanie zupełnie odmiennymi we wszystkim trybami do wielu różnych plików i baz danych jednocześnie
 # przepisać powyższe do GitHub Issues
 
-import argparse
+#import argparse
 
 # from ownlib.paramdemonwszystkich import *
 # argu = sys.argv
@@ -19,11 +19,10 @@ import argparse
 # lng = paramdemonwszystkich.lng()
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
 defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
-import ownlib.argparsingtrmstacli
+from ownlib.argparsingtrmstacli import argparsowanie
+parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
-tor = 1 if parmetry.tor else 0
-if tor==1: import stem.process
 try:
 	if len(
 		parmetry.writetocsvkolsinglefile + \
@@ -191,14 +190,14 @@ else:
 
 if pob == 'k':
 	from ownlib.getkol import *
-	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
+	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
 	elif type(waitbetweenloops) == int:
 		import time.sleep
-		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite,tor) ; time.sleep(waitbetweenloops)
+		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
 elif pob == 'j':
 	from ownlib.getjednoczesnie import *
-	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, tor)
+	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
 	elif type(waitbetweenloops) == int:
 		import time.sleep
-		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite,tor) ; time.sleep(waitbetweenloops)
+		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
 elif pob == 'w': pass
