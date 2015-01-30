@@ -4,7 +4,7 @@ class getkol:
 	#	import datetime
 	#	from ownlib.download import *
 		
-	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor):
+	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,tor=0,czyzapis=False,zapisu='n'):
 		self.tor = tor
 		if tor == 0:
 			self.torin = "nico"
@@ -96,7 +96,7 @@ class getkol:
 			jezodict = lan.dictu
 			print "%s: %s" % (jezodict['badstacparam'],str(s))
 			quit()
-	def praca(self,st,row,utim,pr):
+	def praca(self,st,row,utim,pr,czyzapis=False,zapisywanie=None):
 		lan = self.lan
 		jezadr = self.jezadr
 		lanchar = self.lanchar
