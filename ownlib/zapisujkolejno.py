@@ -12,7 +12,7 @@ class zapisujkolejno:
 		self.debugu = debugu
 		if czyplik and os.path.isfile(plik): 
 			with open(plik,'rb') as cfile:
-				if typ='csv': assert csv.reader(plik)[0][0]=='Stacja',"Plik nie jest w tym typie"
+				if typ=='csv': assert csv.reader(plik)[0][0]=='Stacja',"Plik nie jest w tym typie"
 			cfile.close()
 		if typ=='csv': with open(plik,'a') as csvfile:
 			writer = csv.DictWriter(csvfile,fieldnames=['Stacja','Rowery',"CzasUNIX"])
