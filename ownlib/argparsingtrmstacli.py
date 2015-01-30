@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 argh = argparse.ArgumentParser();arglang = argh.add_mutually_exclusive_group();argchar = argh.add_mutually_exclusive_group()
 argwaitbetweenloops = argh.add_mutually_exclusive_group();argstac = argh.add_mutually_exclusive_group()
 argpracy = argh.add_mutually_exclusive_group();argdebugu = argh.add_mutually_exclusive_group()
