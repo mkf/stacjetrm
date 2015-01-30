@@ -2,7 +2,7 @@
 class zapisujkolejno:
 	"""To jest klasa zapisujaca wszystkie stacje po kolei"""
 
-	def __init__(self, plik, typ='csv', czyplik=True, debugu):
+	def __init__(self, plik, typ='csv', czyplik=True, debugu=True):
 		if typ=='csv': import csv
 		if czyplik: import os.path
 		self.plik = plik
