@@ -87,5 +87,4 @@ argh.add_argument("-iw", "--instawrite", action="store_true",
 	help="Zapisuj natycmiast po pobraniu informacji., konieczny tryb wyświetlania pojedyńczego")
 argh.add_argument("-id", "--instadisp", action="store_true",
 	help="Wyświetlaj natychmiast po pobraniu informacji, konieczny tryb wyświetlania pojedyńczego")
-argh.add_argument("-tor", "--tor", action="store_true", help="Pobieraj za pośrednictwem sieci Tor (wymaga stem)")
 parmetry = argh.parse_args()

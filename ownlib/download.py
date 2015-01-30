@@ -3,9 +3,7 @@ class download:
 	"""Ta klasa będzie po prostu pobierać jeden plik jednej stacji i mówić czy succesful
 	i z jakiego czasu pochodzi plik, ciekawe czy da się wsio w inicie"""
 
-	def __init__(self, stacja, landictu, tor, tordown):
-		self.tor = tor
-		self.tordown = tordown
+	def __init__(self, stacja, landictu):
 		self.landictu = landictu
 		if stacja == 0:
 
@@ -44,21 +42,11 @@ class download:
 		import time
 
 		try:
-			if self.tor == 0:
-				wejs = urllib2.urlopen(self.url)
-				czas = time.time()
-				self.czas = czas
-				we = wejs.read()
-				self.we = we
-			elif self.tor == 1:
-				wejs = self.tordown.pobierz(self.url)
-				czas = time.time()
-				self.czas = czas
-				we = wejs.read()
-				self.we = we
-			else:
-				print "Tor parameter variable doesn't contain 0 nor 1; Exiting."
-				quit()
+			wejs = urllib2.urlopen(self.url)
+			czas = time.time()
+			self.czas = czas
+			we = wejs.read()
+			self.we = we
 			return we
 		except:
 			czas = time.time()
