@@ -10,15 +10,16 @@ class zapisujkolejno:
 		self.czyplik = czyplik
 		#self.pracy = pracy
 		self.debugu = debugu
+		noheader=False
 		if czyplik and os.path.isfile(plik): 
 			with open(plik,'rb') as cfile:
-				if typ=='csv': assert csv.reader(plik)[0][0]=='Stacja',"Plik nie jest w tym typie"
+				if typ=='csv': assert csv.reader(plik)[0][0]=='Stacja',"Plik nie jest w tym typie" ; noheader=True
 			cfile.close()
 		if typ=='csv': 
 			#with open(plik,'ab') as self.csvfile:
 			self.csvfile = open(plik,'ab')
 			writer = csv.DictWriter(self.csvfile,fieldnames=['Stacja','Rowery',"CzasUNIX"])
-			writer.writeheader()
+			if not noheader: writer.writeheader()
 			self.writer = writer
 	def entry(self,stacja,rowery,czasunix):
 		if self.czyplik and self.typ=='csv':
