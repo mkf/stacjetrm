@@ -15,3 +15,6 @@ Recomended:
 	python trmstacli.py --help
 
 I know it's a bit messy, but it has all the information you need.
+
+
+The modes of downloading simultaneously allow faster, but ban-risky download, while the one-by-one mode returns exact time of each of measurements and minors the risk of being banned.
