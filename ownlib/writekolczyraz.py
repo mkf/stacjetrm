@@ -22,4 +22,6 @@ class writekolczyraz:
 			except:
 				if parmetry.writeno: writekolczyraz = 'n'
 				else: writekolczyraz = 'n'
-		return writekolczyraz
+		self.writekolczyraz = writekolczyraz
+	#def writekolczyraz(self):
+	#	return self.writekolczyraz
