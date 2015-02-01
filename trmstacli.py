@@ -33,10 +33,10 @@ else: lanchar = "a"
 langs = {
 	'english': {'shortname':'en','natiothing':False,'lanchar_a':'n'},
 	'esperanto': {'shortname':'eo','natiothing':True,'lanchar_a':'n'},
-	'polish': {'shortname':'pl','natiothing':True,'lanchar_a':'y'},
+	'polski': {'shortname':'pl','natiothing':True,'lanchar_a':'y'},
 	'deutsch': {'shortname':'de','natiothing':True,'lanchar_a':'y'}
 }
-langorder=['english','esperanto','polish','deutsch']
+langorder=['english','esperanto','polski','deutsch']
 deflang='esperanto'
 islang=False
 natiolamb = lambda lanchar: 'natio' if lanchar=='y' else 'safe' if lanchar=='n' else ('natio' if langs[lingvo]['lanchar_a']=='y' else 'safe' if langs[lingvo]['lanchar_a']=='n' else None)if lanchar=='a' else None
