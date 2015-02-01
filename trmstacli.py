@@ -156,13 +156,13 @@ if pob == 'k':  # kolejno
 	from ownlib.getkol import *
 	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
 	elif type(waitbetweenloops) == int:
-		import time.sleep
-		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
+		from time import sleep
+		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; sleep(waitbetweenloops)
 elif pob == 'j':  # jednocześnie
 	from ownlib.getjednoczesnie import *
 	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
 	elif type(waitbetweenloops) == int:
-		import time.sleep
-		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; time.sleep(waitbetweenloops)
+		from time import sleep
+		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; sleep(waitbetweenloops)
 elif pob == 'w':  # kolejno-wait (getkolwait)
 	pass

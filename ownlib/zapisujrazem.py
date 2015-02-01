@@ -30,9 +30,9 @@ class zapisujrazem:
 			fjeld = list(fildy)
 			for stacja in rowedict.keys():
 				assert (str(stacja)[0]=='0') and (str(stacja)[-3:]=='TOR'), "Zapis: niepoprawna nazwa stacji [%s], ma byc 0**TOR" % str(stacja)
-				assert int(str(stacja)[:3]) < 14 and int(str(stacja)[:3]) > 0 , "Niepoprawna stacja"
+				assert 14 > int(str(stacja)[:3]) > 0, "Niepoprawna stacja"
 				rowery = rowedict[stacja]
-				assert (not int(rowery) < 0) and int(rowery)<20, "Żła liczba rowerów"
+				assert (not int(rowery) < 0) and int(rowery)<20, "ła liczba rowerów"
 				rowerdict[str(stacja)]=int(rowery)
 				fjeld.remove(stacja)
 			for i in fjeld: rowerdict[i]=''

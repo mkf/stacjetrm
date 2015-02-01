@@ -11,8 +11,8 @@ class getkol:
 		for s in stacje:
 			sa=0;sw=0
 			a = self.si(s)
-			if a[0] == 'a': sa, ssa = 1
-			elif a[0] == 'w': sw, ssw = 1
+			if a[0] == 'a': sa=1;ssa=1
+			elif a[0] == 'w': sw=1;ssw=1
 			else:
 				try: stacdict[int(s)] = int(a[0])
 				except ValueError: stacdict[int(s)] = a[0] if a[0]=="Download failed" else int(a[0])
