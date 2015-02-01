@@ -55,10 +55,7 @@ class orzeczim:
 				ad = adrlocsafe
 			elif lanchar == 'y':
 				ad = adrlocnatio
-			else:
-				print u"Gupi błondd"
-				print lanchar
-				quit()
+			else: raise AssertionError('lanchar: %s'%str(lanchar))
 		else:
 			print "Gupppiii bwond"
 			quit()
