@@ -29,38 +29,22 @@ if parmetry.charsafe: lanchar = 'n'
 elif parmetry.charwithnational: lanchar = 'y'
 else: lanchar = "a"
 
-# —————————————————————-LANGUAGES ----————————————————————
+#——————————————————————-LANGUAGES-——————————————————————
 langs = {
-	'eo': {'fullname':'esperanto','natiothing':True,'lanchar_a':'n'},
-	'en': {'fullname':'english','natiothing':False,'lanchar_a':'n'},
-	'pl': {'fullname':'polish','natiothing':True,'lanchar_a':'y'},
-	'de': {'fullname':'deutsch','natiothing':True,'lanchar_a':'y'}
+	'english': {'shortname':'en','natiothing':False,'lanchar_a':'n'},
+	'esperanto': {'shortname':'eo','natiothing':True,'lanchar_a':'n'},
+	'polish': {'shortname':'pl','natiothing':True,'lanchar_a':'y'},
+	'deutsch': {'shortname':'de','natiothing':True,'lanchar_a':'y'}
 }
-if parmetry.langenglish:
-	lang = "en"
-	if lanchar == 'a': lanchar = 'n'
-	from ownlib.lang.english import * ; lan = english()
-elif parmetry.langesperanto:
-	lang = "eo"
-	if lanchar == 'a': lanchar = 'y'
-	if lanchar == 'y': from ownlib.lang.esperanto import eo_natio ; lan = eo_natio()
-	if lanchar == 'n': from ownlib.lang.esperanto import eo_safe ; lan = eo_safe()
-elif parmetry.langpolski:
-	lang = "pl"
-	if lanchar == 'a': lanchar = 'y'
-	if lanchar == 'y': from ownlib.lang.polski import pl_natio ; lan = pl_natio()
-	if lanchar == 'n': from ownlib.lang.polski import pl_safe ; lan = pl_safe()
-elif parmetry.langdeutsch:
-	lang = "de"
-	if lanchar == 'a': lanchar = 'y'
-	if lanchar == 'y': from ownlib.lang.deutsch import de_natio ; lan = de_natio()
-	if lanchar == 'n': from ownlib.lang.deutsch import de_safe ; lan = de_safe()
-else:
-	lang = "eo"
-	if lanchar == 'a': lanchar = 'n'
-	if lanchar == 'y': from ownlib.lang.esperanto import eo_natio ; lan = eo_natio()
-	if lanchar == 'n': from ownlib.lang.esperanto import eo_safe ; lan = eo_safe()
-#  END:___________ LANGUAGES -------------------------------
+langorder=['english','esperanto','polish','deutsch']
+deflang='esperanto'
+islang=False
+natiolamb = lambda lanchar: 'natio' if lanchar=='y' else 'safe' if lanchar=='n' else ('natio' if langs[lingvo]['lanchar_a']=='y' else 'safe' if langs[lingvo]['lanchar_a']=='n' else None)if lanchar=='a' else None
+langen = lambda lingvo,langs,lanchar: eval("importlib.import_module('ownlib.lang."+lingvo+"')."+langs[lingvo]['shortname']+"_"+natiolamb(lanchar)+"()")
+for lingvo in langorder:
+	if eval('parmetry.lang'+str(lingvo)): islang=True ; lan = langen(lingvo,langs,lanchar) ; break
+if not islang: lan=langen(deflang,langs,lanchar)
+#—— E N D : —————————— LANGUAGES ———————————————————————————————
 
 
 #———————————————————————————SINGLE CHECK OR WAITING BETWEEN LOOPS —————————————————————————————————
