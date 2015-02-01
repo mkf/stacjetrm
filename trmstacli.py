@@ -39,12 +39,12 @@ langs = {
 langorder=['english','esperanto','polski','deutsch']
 deflang='esperanto'
 islang=False
-if lanchar=='a': lanchar='natio' if langs[lingvo]['lanchar_a']=='y' else 'safe' if langs[lingvo]['lanchar_a']=='n' else None
+exec 'import importlib'
 natiolamb = lambda lanchar: 'natio' if lanchar=='y' else 'safe' if lanchar=='n' else None
 langen = lambda lingvo,langs,lanchar: eval("importlib.import_module('ownlib.lang."+lingvo+"')."+langs[lingvo]['shortname']+"_"+natiolamb(lanchar)+"()")
 for lingvo in langorder:
-	if eval('parmetry.lang'+str(lingvo)): islang=True ; lan = langen(lingvo,langs,lanchar) ; break
-if not islang: lan=langen(deflang,langs,lanchar)
+	if eval('parmetry.lang'+str(lingvo)): islang=True ; lanchar=lanchar if not lanchar=='a' else langs[lingvo]['lanchar_a']; lan = langen(lingvo,langs,lanchar) ; lang = langs[lingvo]['shortname'] ; break
+if not islang: lanchar=lanchar if not lanchar=='a' else langs[deflang]['lanchar_a'] ; lan=langen(deflang,langs,lanchar) ; lang = langs[deflang]['shortname']
 #—— E N D : —————————— LANGUAGES ———————————————————————————————
 
 
