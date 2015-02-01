@@ -30,6 +30,12 @@ elif parmetry.charwithnational: lanchar = 'y'
 else: lanchar = "a"
 
 # —————————————————————-LANGUAGES ----————————————————————
+langs = {
+	'eo': {'fullname':'esperanto','natiothing':True,'lanchar_a':'n'},
+	'en': {'fullname':'english','natiothing':False,'lanchar_a':'n'},
+	'pl': {'fullname':'polish','natiothing':True,'lanchar_a':'y'},
+	'de': {'fullname':'deutsch','natiothing':True,'lanchar_a':'y'}
+}
 if parmetry.langenglish:
 	lang = "en"
 	if lanchar == 'a': lanchar = 'n'
