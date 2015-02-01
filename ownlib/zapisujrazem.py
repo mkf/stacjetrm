@@ -24,7 +24,7 @@ class zapisujrazem:
 			self.writer = writer
 			self.fildy=fildy
 	def entry(self,czasunix,rowedict):
-		if self.czyplik and self.typ='csv':
+		if self.czyplik and self.typ=='csv':
 			fildy=self.fildy
 			rowerdict = {}
 			fjeld = list(fildy)
@@ -32,7 +32,7 @@ class zapisujrazem:
 				assert (str(stacja)[0]=='0') and (str(stacja)[-3:]=='TOR'), "Zapis: niepoprawna nazwa stacji [%s], ma byc 0**TOR" % str(stacja)
 				assert int(str(stacja)[:3]) < 14 and int(str(stacja)[:3]) > 0 , "Niepoprawna stacja"
 				rowery = rowedict[stacja]
-				assert (not int(rowery) < 0) and int(rowery)<20. "Żła liczba rowerów"
+				assert (not int(rowery) < 0) and int(rowery)<20, "Żła liczba rowerów"
 				rowerdict[str(stacja)]=int(rowery)
 				fjeld.remove(stacja)
 			for i in fjeld: rowerdict[i]=''

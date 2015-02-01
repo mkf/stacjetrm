@@ -25,5 +25,5 @@ class zapisujkolejno:
 		if self.czyplik and self.typ=='csv':
 			assert (str(stacja)[0]=='0') and (str(stacja)[-3:]=='TOR'), "Zapis: niepoprawna nazwa stacji [%s], ma byc 0**TOR" % str(stacja)
 			assert int(str(stacja)[:3]) < 14 and int(str(stacja)[:3]) > 0 , "Niepoprawna stacja"
-			assert (not int(rowery) < 0) and int(rowery)<20. "Żła liczba rowerów"
+			assert (not int(rowery) < 0) and int(rowery)<20, "Żła liczba rowerów"
 			self.writer.writerow({'Stacja':str(stacja),'Rowery':int(rowery),"CzasUNIX":int(czasunix)})
