@@ -4,26 +4,28 @@ class zapisujrazem:
 
 	def __init__(self, plik, typ='csv', czyplik=True, debugu=True):
 		if typ=='csv': import csv
-                if czyplik: import os.path
-                self.plik = plik
-                self.typ = typ
-                self.czyplik = czyplik
-                #self.pracy = pracy
-                self.debugu = debugu
+		if czyplik: import os.path
+		self.plik = plik
+		self.typ = typ
+		self.czyplik = czyplik
+		#self.pracy = pracy
+		self.debugu = debugu
 		noheader=False
-                if czyplik and os.path.isfile(plik):
-                        with open(plik,'rb') as cfile:
-                                if typ=='csv': assert csv.reader(plik)[0][0]=='CzasUNIX',"Plik nie jest w tym typie" ; noheader=True
-                        cfile.close()
-                if typ=='csv':
-                        #with open(plik,'ab') as self.csvfile:
-                        self.csvfile = open(plik,'ab')
+		if czyplik and os.path.isfile(plik):
+			with open(plik,'rb') as cfile:
+				if typ=='csv': assert csv.reader(plik)[0][0]=='CzasUNIX',"Plik nie jest w tym typie" ; noheader=True
+				cfile.close()
+		if typ=='csv':
+			#with open(plik,'ab') as self.csvfile:
+			self.csvfile = open(plik,'ab')
 			fildy=("CzasUNIX",'001TOR','002TOR','003TOR','004TOR','005TOR','006TOR','007TOR','008TOR','009TOR','010TOR','011TOR','012TOR','013TOR')
-                        writer = csv.DictWriter(self.csvfile,fieldnames=list(fildy))
-                        if not noheader: writer.writeheader()
-                        self.writer = writer
+			writer = csv.DictWriter(self.csvfile,fieldnames=list(fildy))
+			if not noheader: writer.writeheader()
+			self.writer = writer
+			self.fildy=fildy
 	def entry(self,czasunix,rowedict):
 		if self.czyplik and self.typ='csv':
+			fildy=self.fildy
 			rowerdict = {}
 			fjeld = list(fildy)
 			for stacja in rowedict.keys():

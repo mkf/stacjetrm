@@ -12,6 +12,8 @@ class getjednoczesnie:
 			if a[0] == 'a': sa = 1 ; ssa = 1
 			elif a[0] == 'w': sw = 1 ; ssw = 1
 			else: t = threading.Thread(target=kolejka, args=(q, s, iwri, idis)) ; t.daemon = True ; t.start()
+		self.stacdict=stacdict
+		self.slwcza=slownikczasow
 	def si(self, s, iwri, idis):
 		lan = self.lan ; sa = 0 ; sw = 0
 		assert int(s) ==0 or int(s)==100 or int(s)<0 or int(s)<=13, "%s: %s" % (lan.dictu['badstacparam'],str(s))

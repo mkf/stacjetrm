@@ -4,6 +4,7 @@ allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";
 defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
+#TODO: Wywalić pozostałość zwaną adrchar/defadrchar stąd, z argparsowania i zewsząd
 
 #—————————————INSTAWRITE,,INSTADISP———————————————————————————
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
@@ -61,32 +62,48 @@ else:
 	except: sta = defsta
 
 #————————————————————PRACY————————————————————————
-if parmetry.pracyfulladrlangchosen: pracy = "f" ; adrlangczy = "c" ; kolczyraz = "k"
-elif parmetry.pracyfulladrlanglocal: pracy = "f" ; adrlangczy = "l" ; kolczyraz = "k"
-elif parmetry.pracylong: pracy = "l" ; kolczyraz = "k"
-elif parmetry.pracyrazem: pracy = "r" ; kolczyraz = "r"
-elif parmetry.pracyrazkomp: pracy = "rk" ; kolczyraz = "r"
-elif parmetry.pracyuser: pracy = "u" ; kolczyraz = "k"
-elif parmetry.pracyadresadrlangchosen: pracy = "a" ; kolczyraz = "k" ; adrlangczy = "c"
-elif parmetry.pracyadresadrlanglocal: pracy = "a" ; kolczyraz = "k" ; adrlangczy = "l"
-elif parmetry.pracytabelaadrlangchosen: pracy = "t" ; kolczyraz = "k" ; adrlangczy = "c"
-elif parmetry.pracytabelaadrlanglocal: pracy = "t" ; kolczyraz = "k" ; adrlangczy = "l"
-elif parmetry.pracykomp: pracy = "k" ; kolczyraz = "k"
-elif parmetry.pracycompressed: pracy = "c" ; kolczyraz = "k"
-elif parmetry.pracyminim: pracy = "m" ; kolczyraz = "k"
-elif parmetry.pracynone: pracy = "n"  ; kolczyraz = "k"
-elif parmetry.pracydef: 
-	pracy = defpracy ; adrlangczy = defadrlangczy ; adrchar = defadrchar
-	assert pracy in ['f','l','u','a','t','k','c','m','r','rk','n']
-	if pracy in ['f','l','u','a','t','k','c','m']: kolczyraz = "k"
-	elif pracy == "r" or pracy == "rk": kolczyraz = "r"
-	elif pracy == "n": kolczyraz = "n"
-else:
-	pracy = defpracy ; adrlangczy = defadrlangczy ; adrchar = defadrchar
-	assert pracy in ['f','l','u','a','t','k','c','m','r','rk','n']
-	if pracy in ['f','l','u','a','t','k','c','m']: kolczyraz = "k"
-	elif pracy == "r" or pracy == "rk": kolczyraz = "r"
-	elif pracy == "n": kolczyraz = "n"
+pracedicto = {
+	'fulladrlangchosen':  {'pracy':'f', 'kolczyraz':'k','adrlangczy':'c'},
+	'fulladrlanglocal':   {'pracy':'f', 'kolczyraz':'k','adrlangczy':'l'},
+	'long':               {'pracy':'l', 'kolczyraz':'k'},
+	'razem':              {'pracy':'l', 'kolczyraz':'r'},
+	'razkomp':            {'pracy':'rk','kolczyraz':'r'},
+	'user':               {'pracy':'u', 'kolczyraz':'k'},
+	'adresadrlangchosen': {'pracy':'a', 'kolczyraz':'k','adrlangczy':'c'},
+	'adresadrlanglocal' : {'pracy':'a', 'kolczyraz':'k','adrlangczy':'l'},
+	'tabelaadrlangchosen':{'pracy':'t', 'kolczyraz':'k','adrlangczy':'c'},
+	'tabelaadrlanglocal' :{'pracy':'t', 'kolczyraz':'k','adrlangczy':'l'},
+	'komp':               {'pracy':'k', 'kolczyraz':'k'},
+	'compressed':         {'pracy':'c', 'kolczyraz':'k'},
+	'minim':              {'pracy':'m', 'kolczyraz':'k'},
+	'none':               {'pracy':'n', 'kolczyraz':'n'},
+	'def':                {'pracy':None}
+}
+foundpraca=False
+for probprac in pracedicto.keys():
+	if eval('parmetry.pracy'+probprac):
+		pracprob=pracedicto[probprac] if not probprac=='def' else None
+		pracy=pracprob['pracy'] if not probprac=='def' else defpracy
+		setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy]) if probprac=='def' else None
+		assert setkolczyrazowdefpracy is None or len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
+		kolczyraz=pracprob['kolczyraz'] if not probprac=='def' else (list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None)
+		if not probprac=='def':
+			if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
+		else:
+			setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
+			assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
+			if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
+		foundpraca=True
+		break
+if not foundpraca:
+	pracy=defpracy
+	setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy])
+	assert len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
+	kolczyraz=list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None
+	setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
+	assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
+	if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
+
 
 #———————————————JĘZYK ADRESÓW —————————————————————
 try: jezadr = adrlangczy
