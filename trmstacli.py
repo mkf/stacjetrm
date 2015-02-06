@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
-defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
+allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta
+defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
+defget = "k";defadrlangczy = "l";defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(defwvt,defwvc)
-#TODO: Wywalić pozostałość zwaną adrchar/defadrchar stąd, z argparsowania i zewsząd
 
 #—————————————INSTAWRITE,,INSTADISP———————————————————————————
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
@@ -38,7 +38,6 @@ langs = {
 	'deutsch': {'shortname':'de','natiothing':True,'lanchar_a':'y'}
 }
 langorder=['english','esperanto','polski','deutsch']
-deflang='esperanto'
 islang=False
 exec 'import importlib'
 natiolamb = lambda lanchar: 'natio' if lanchar=='y' else 'safe' if lanchar=='n' else None
