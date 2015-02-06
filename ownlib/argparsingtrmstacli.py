@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#TODO: Fix error when trying --help
 def argparsowanie(defwvt,defwvc):
 	import argparse
 	argh = argparse.ArgumentParser()
