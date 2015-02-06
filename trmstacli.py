@@ -62,21 +62,18 @@ else:
 
 #————————————————————PRACY————————————————————————
 pracedicto = {
-	'fulladrlangchosen':  {'pracy':'f', 'kolczyraz':'k','adrlangczy':'c'},
-	'fulladrlanglocal':   {'pracy':'f', 'kolczyraz':'k','adrlangczy':'l'},
-	'long':               {'pracy':'l', 'kolczyraz':'k'},
-	'razem':              {'pracy':'l', 'kolczyraz':'r'},
-	'razkomp':            {'pracy':'rk','kolczyraz':'r'},
-	'user':               {'pracy':'u', 'kolczyraz':'k'},
-	'adresadrlangchosen': {'pracy':'a', 'kolczyraz':'k','adrlangczy':'c'},
-	'adresadrlanglocal' : {'pracy':'a', 'kolczyraz':'k','adrlangczy':'l'},
-	'tabelaadrlangchosen':{'pracy':'t', 'kolczyraz':'k','adrlangczy':'c'},
-	'tabelaadrlanglocal' :{'pracy':'t', 'kolczyraz':'k','adrlangczy':'l'},
-	'komp':               {'pracy':'k', 'kolczyraz':'k'},
-	'compressed':         {'pracy':'c', 'kolczyraz':'k'},
-	'minim':              {'pracy':'m', 'kolczyraz':'k'},
-	'none':               {'pracy':'n', 'kolczyraz':'n'},
-	'def':                {'pracy':None}
+	'full':      {'pracy':'f', 'kolczyraz':'k','needadrlangczy':True},
+	'long':      {'pracy':'l', 'kolczyraz':'k'},
+	'razem':     {'pracy':'l', 'kolczyraz':'r'},
+	'razkomp':   {'pracy':'rk','kolczyraz':'r'},
+	'user':      {'pracy':'u', 'kolczyraz':'k'},
+	'adres':     {'pracy':'a', 'kolczyraz':'k','needadrlangczy':True},
+	'tabela':    {'pracy':'t', 'kolczyraz':'k','needadrlangczy':True},
+	'komp':      {'pracy':'k', 'kolczyraz':'k'},
+	'compressed':{'pracy':'c', 'kolczyraz':'k'},
+	'minim':     {'pracy':'m', 'kolczyraz':'k'},
+	'none':      {'pracy':'n', 'kolczyraz':'n'},
+	'def':       {'pracy':None}
 }
 foundpraca=False
 for probprac in pracedicto.keys():
@@ -89,7 +86,7 @@ for probprac in pracedicto.keys():
 		if not probprac=='def':
 			if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
 		else:
-			setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
+			setadrlangczow = set([(alce['needadrlangczy'] if 'needadrlangczy' in alce else False) for alce in pracedicto.values() if alce['pracy']==pracy])
 			assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
 			if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
 		foundpraca=True

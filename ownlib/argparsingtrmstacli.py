@@ -11,6 +11,7 @@ def argparsowanie(defwvt,defwvc):
 	argdebugu = argh.add_mutually_exclusive_group()
 	argzapisu = argh  # .add_mutually_exclusive_group()
 	argadrlang = argh.add_mutually_exclusive_group()
+	argvolumeny = argh.add_mutually_exclusive_group()
 	arggetu = argh.add_mutually_exclusive_group()
 
 	argchar.add_argument("-cs", "--charsafe", action="store_true",
@@ -47,44 +48,33 @@ def argparsowanie(defwvt,defwvc):
 	argpracy.add_argument("-pa", "--pracyadres", action="store_true",help="Interfejs pełny z adresami")
 	argpracy.add_argument("-pt", "--pracytabela", action="store_true", help="Interfejs tabeli z adresami")
 	argpracy.add_argument("-pk", "--pracykomp", action="store_true", help="Interfejs programowy")
-	argpracy.add_argument("-pc", "--pracycompressed", action="store_true",
-		help="Interfejs programowy czasUNIX,jedno- lub dwu cyfrowy numer stacji, liczba rowerów")
+	argpracy.add_argument("-pc", "--pracycompressed", action="store_true",help="Interfejs programowy czasUNIX,jedno- lub dwu cyfrowy numer stacji, liczba rowerów")
 	argpracy.add_argument("-pm", "--pracyminim", action="store_true", help="Interfejs programowy minimalistyczny")
-	argpracy.add_argument("-prk", "--pracyrazkomp", action="store_true",
-		help="Interfejs programowy, wszystkie stacje naraz")
+	argpracy.add_argument("-prk", "--pracyrazkomp", action="store_true",help="Interfejs programowy, wszystkie stacje naraz")
 	argpracy.add_argument("-pn", "--pracynone", action="store_true", help="Interfejs bez danych na stdout")
 	argpracy.add_argument("-pd", "--pracydef", action="store_true", help="Opcja domyślna trybu pracy")
+
 	argdebugu.add_argument("-bf", "--debugfull", action="store_true", help="Debug pełny")
 	argdebugu.add_argument("-by", "--debugyes", action="store_true", help="Debug częściowy")
 	argdebugu.add_argument("-bn", "--debugno", action="store_true", help="Debug wyłączony")
 	argdebugu.add_argument("-bd", "--debugdef", action="store_true", help="Domyślne opcje debugu")
-	argzapisu.add_argument("-wcks", "--writetocsvkolsinglefile", type=str, action="append",
-		help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz nazwę pliku, zapis do jednego pliku ciągły")
-	argzapisu.add_argument("-wcrs", "--writetocsvrazsinglefile", type=str, action="append",
-		help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz nazwę pliku, zapis do jednego pliku ciągły")
-	argzapisu.add_argument("-wckvt", "--writetocsvkolmultiwaitbetweenloopsvolumefile", action="append", type=str, nargs=2,
-		help=str("Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
-	argzapisu.add_argument("-wcrvt", "--writetocsvrazmultiwaitbetweenloopsvolumefile", action="append", type=str, nargs=2,
-		help=str("Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz początek nazwy pliku i liczbę godzin (ta druga domyślnie %s); zapis wielowolumenowy wg czasu" % defwvt))
-	# argzapisu.add_argument("-wvt", "--writemultivolumewaitbetweenloopshours", type=int, action="store_true", 
-	#	help="Parametr opcjonalny zapisu wielowolumenowego: czas w godzinach na jeden plik"
-	argzapisu.add_argument("-wckvc", "--writetocsvkolmulticountvolumefile", type=str, action="append", nargs=2, 
-		help=str("Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz początek nazwy pliku i liczbę zapisów na wolumen (domyślnie %s); zapis wielowolumenowy wg ilości zapisów" % defwvc))
-	argzapisu.add_argument("-wcrvc", "--writetocsvrazmulticountvolumefile", type=str, action="append", nargs=2, 
-		help=str("Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz początek nazwy pliku i liczbę zapisów na wolumen (domyślnie %s); zapis wielowolumenowy wg ilości zapisów" % defwvc))
-	# argzapisu.add_argument("-wvc", "--writemultivolumeentrycount", type=int, action="store_true", 
-	#	help="Parametr opcjonalny zapisu wielowolumenowego: ilość wpisów na jeden plik"
+
+	argvolumeny.add_argument("-vs","--singlefile",action="store_true",help="Zapis do pojedyńczego pliku, bez podziału na wolumeny")
+	argvolumeny.add_argument("-vt","--volumesbytime",type=float,help="Zapis z podziałem na wolumeny wg czasu: podaj liczbę godzin pomiędzy podziałami (może być ułamek)")
+	argvolumeny.add_argument("-vc","--volumesbycount",type=int,help="Zapis z podziałem na wolumeny wg ilości wpisów: podaj próg podziału")
+
+	argzapisu.add_argument("-wck","--writetocsvkol",type=str,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz nazwę pliku")
+	argzapisu.add_argument("-wcr", "--writetocsvraz", type=str, action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz nazwę pliku")
 	argzapisu.add_argument("-wn", "--writeno", action="store_true", help="Nie zapisuj")
+
 	arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
 	arggetu.add_argument("-gk", "--getkolejno", action="store_true", help="Pobieraj kolejno bez odstępu czasowego")
-	arggetu.add_argument("-gkw", "--getkolejnowait", type=int,
-		help="Pobieraj kolejno z odstępem czasowym pomiędzy odczytami pojedyńczych stacji")
+	arggetu.add_argument("-gkw", "--getkolejnowait", type=int, help="Pobieraj kolejno z odstępem czasowym pomiędzy odczytami pojedyńczych stacji (podaj w sekundach)")
 	arggetu.add_argument("-gd", "--getdef", action="store_true", help="Pobieraj w trybie domyślnym")
-	argh.add_argument("-in", "--instantly", action="store_true",
-		help="Wyświetlaj oraz zapisuj natychmiast po pobraniu informacji, równoważne z -iw oraz -id")
-	argh.add_argument("-iw", "--instawrite", action="store_true",
-		help="Zapisuj natycmiast po pobraniu informacji., konieczny tryb wyświetlania pojedyńczego")
-	argh.add_argument("-id", "--instadisp", action="store_true",
-		help="Wyświetlaj natychmiast po pobraniu informacji, konieczny tryb wyświetlania pojedyńczego")
+
+	argh.add_argument("-in", "--instantly", action="store_true", help="Wyświetlaj oraz zapisuj natychmiast po pobraniu informacji, równoważne z -iw oraz -id")
+	argh.add_argument("-iw", "--instawrite", action="store_true",help="Zapisuj natycmiast po pobraniu informacji., konieczny tryb wyświetlania pojedyńczego")
+	argh.add_argument("-id", "--instadisp", action="store_true",help="Wyświetlaj natychmiast po pobraniu informacji, konieczny tryb wyświetlania pojedyńczego")
+
 	parmetry = argh.parse_args()
 	return parmetry
