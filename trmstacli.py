@@ -83,8 +83,7 @@ if not foundpraca or probprac=='def':probprac=defprac
 pracprob=pracedicto[probprac]
 pracy=pracprob['pracy']
 kolczyraz=pracprob['kolczyraz']
-if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
-
+if 'adrlangczy' in pracprob: adrlangczy='l' if parmetry['adrlanglocal'] else 'c' if parmetry['adrlangchosen'] else defadrlangczy
 
 #———————————————JĘZYK ADRESÓW —————————————————————
 try: jezadr = adrlangczy
