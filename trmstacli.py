@@ -3,7 +3,7 @@
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
 defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
-parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
+parmetry=argparsowanie(defwvt,defwvc)
 #TODO: Wywalić pozostałość zwaną adrchar/defadrchar stąd, z argparsowania i zewsząd
 
 #—————————————INSTAWRITE,,INSTADISP———————————————————————————

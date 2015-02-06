@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-def argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc):
+def argparsowanie(defwvt,defwvc):
 	import argparse
 	argh = argparse.ArgumentParser();arglang = argh.add_mutually_exclusive_group();argchar = argh.add_mutually_exclusive_group()
 	argwaitbetweenloops = argh.add_mutually_exclusive_group();argstac = argh.add_mutually_exclusive_group()
