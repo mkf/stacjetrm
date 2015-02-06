@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta
-defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
+defprac="full";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
 defget = "k";defadrlangczy = "l";defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(defwvt,defwvc)
@@ -18,11 +18,12 @@ from ownlib.writekolczyraz import writekolczyraz as writerkolczyraza; writekolcz
 #else: multivol = 'n'
 tybyzapisu = []
 for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile,
-				  parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile,
-				  parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile, parmetry.writetocsvrazmulticountvolumefile,
-				  parmetry.writetocsvkolmulticountvolumefile):
+				  parmetry.writetocsvrazvolumesbytime,
+				  parmetry.writetocsvkolvolumesbytime, parmetry.writetocsvrazvolumesbycount,
+				  parmetry.writetocsvkolvolumesbycount):
 	try:
-		if len(tybzapisu) > 0: tybyzapisu.append(tybzapisu)
+		if len(tybzapisu) > 0:
+			for jtybzapisu in tybzapisu: tybyzapisu.append(jtybzapisu)
 	except: pass
 
 #——————————————————————CHARACTER SAFETY——————————————————
@@ -64,7 +65,7 @@ else:
 pracedicto = {
 	'full':      {'pracy':'f', 'kolczyraz':'k','needadrlangczy':True},
 	'long':      {'pracy':'l', 'kolczyraz':'k'},
-	'razem':     {'pracy':'l', 'kolczyraz':'r'},
+	'razem':     {'pracy':'r', 'kolczyraz':'r'},
 	'razkomp':   {'pracy':'rk','kolczyraz':'r'},
 	'user':      {'pracy':'u', 'kolczyraz':'k'},
 	'adres':     {'pracy':'a', 'kolczyraz':'k','needadrlangczy':True},
@@ -76,29 +77,13 @@ pracedicto = {
 	'def':       {'pracy':None}
 }
 foundpraca=False
-for probprac in pracedicto.keys():
-	if eval('parmetry.pracy'+probprac):
-		pracprob=pracedicto[probprac] if not probprac=='def' else None
-		pracy=pracprob['pracy'] if not probprac=='def' else defpracy
-		setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy]) if probprac=='def' else None
-		assert setkolczyrazowdefpracy is None or len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
-		kolczyraz=pracprob['kolczyraz'] if not probprac=='def' else (list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None)
-		if not probprac=='def':
-			if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
-		else:
-			setadrlangczow = set([(alce['needadrlangczy'] if 'needadrlangczy' in alce else False) for alce in pracedicto.values() if alce['pracy']==pracy])
-			assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
-			if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
-		foundpraca=True
-		break
-if not foundpraca:
-	pracy=defpracy
-	setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy])
-	assert len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
-	kolczyraz=list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None
-	setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
-	assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
-	if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
+for probprace in pracedicto.keys():
+	if eval('parmetry.pracy'+probprace):probprac=probprace;foundpraca=True;break
+if not foundpraca or probprac=='def':probprac=defprac
+pracprob=pracedicto[probprac]
+pracy=pracprob['pracy']
+kolczyraz=pracprob['kolczyraz']
+if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
 
 
 #———————————————JĘZYK ADRESÓW —————————————————————
@@ -128,11 +113,8 @@ elif kolczyraz == 'n':
 # sęk w tym, że będzie to miało sens dopiero, gdy powstanie zapis
 else:
 	print 'kolczyraz nie jest ani k, ani r, ani n, więc czym jest?! Przecież ten program nie może, ot tak, niczego nie robić!'
-	try: print 'Otóż jest on stringiem "%s"' % str(kolczyraz) ; raise ValueError
-	except TypeError:
-		print 'Otóź nie jest on nawet stringiem. Jego wartość to:'
-		print kolczyraz
-		raise TypeError
+	try: raise ValueError('Otóż jest on stringiem "%s"' % str(kolczyraz))
+	except TypeError:raise TypeError('Otóź nie jest on nawet stringiem. Jego wartość to: %s'%str(kolczyraz))
 
 
 #———————————————– TRYB POBIERANIA : KOLEJNO CZY JEDNOCZEŚNIE — DZIAŁ OSTATECZNEGO PARAMETRU —————————————————————_

@@ -59,12 +59,19 @@ def argparsowanie(defwvt,defwvc):
 	argdebugu.add_argument("-bn", "--debugno", action="store_true", help="Debug wyłączony")
 	argdebugu.add_argument("-bd", "--debugdef", action="store_true", help="Domyślne opcje debugu")
 
-	argvolumeny.add_argument("-vs","--singlefile",action="store_true",help="Zapis do pojedyńczego pliku, bez podziału na wolumeny")
-	argvolumeny.add_argument("-vt","--volumesbytime",type=float,help="Zapis z podziałem na wolumeny wg czasu: podaj liczbę godzin pomiędzy podziałami (może być ułamek)")
-	argvolumeny.add_argument("-vc","--volumesbycount",type=int,help="Zapis z podziałem na wolumeny wg ilości wpisów: podaj próg podziału")
+	#argvolumeny.add_argument("-vs","--singlefile",action="store_true",help="Zapis do pojedyńczego pliku, bez podziału na wolumeny")
+	#argvolumeny.add_argument("-vt","--volumesbytime",type=float,help="Zapis z podziałem na wolumeny wg czasu: podaj liczbę godzin pomiędzy podziałami (może być ułamek)")
+	#argvolumeny.add_argument("-vc","--volumesbycount",type=int,help="Zapis z podziałem na wolumeny wg ilości wpisów: podaj próg podziału")
 
-	argzapisu.add_argument("-wck","--writetocsvkol",type=str,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), wpisz nazwę pliku")
-	argzapisu.add_argument("-wcr", "--writetocsvraz", type=str, action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), wpisz nazwę pliku")
+	argzapisu.add_argument("-wcksf","--writetocsvkolsinglefile",type=str,nargs=2,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), do pojedyńczego pliku, bez podziału na wolumeny,wpisz nazwę pliku")
+	argzapisu.add_argument("-wcrsf", "--writetocsvrazsinglefile", type=str, nargs=2,action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), do pojedyńczego pliku, bez podziału na wolumeny,wpisz nazwę pliku")
+
+	argzapisu.add_argument("-wckvt","--writetocsvkolvolumesbytime",type=str,nargs=2,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), zapis z podziałem na wolumeny wg czasu: podaj liczbę godzin pomiędzy podziałami (może być ułamek),wpisz nazwę pliku")
+	argzapisu.add_argument("-wcrvt", "--writetocsvrazvolumesbytime", type=str, nargs=2,action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), zapis z podziałem na wolumeny wg czasu: podaj liczbę godzin pomiędzy podziałami (może być ułamek),wpisz nazwę pliku")
+
+	argzapisu.add_argument("-wckvc","--writetocsvkolvolumesbycount",type=str,nargs=2,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), zapis z podziałem na wolumeny wg ilości wpisów: podaj próg podziału,wpisz nazwę pliku")
+	argzapisu.add_argument("-wcrvc", "--writetocsvrazvolumesbycount", type=str, nargs=2,action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), zapis z podziałem na wolumeny wg ilości wpisów: podaj próg podziału,wpisz nazwę pliku")
+
 	argzapisu.add_argument("-wn", "--writeno", action="store_true", help="Nie zapisuj")
 
 	arggetu.add_argument("-gj", "--getjednoczesnie", action="store_true", help="Pobieraj jednocześnie")
