@@ -1,43 +1,49 @@
 # -*- coding: utf-8 -*-
 def argparsowanie(defwvt,defwvc):
 	import argparse
-	argh = argparse.ArgumentParser();arglang = argh.add_mutually_exclusive_group();argchar = argh.add_mutually_exclusive_group()
-	argwaitbetweenloops = argh.add_mutually_exclusive_group();argstac = argh.add_mutually_exclusive_group()
-	argpracy = argh.add_mutually_exclusive_group();argdebugu = argh.add_mutually_exclusive_group()
+	argh = argparse.ArgumentParser()
+
+	arglang = argh.add_mutually_exclusive_group()
+	argchar = argh.add_mutually_exclusive_group()
+	argwaitbetweenloops = argh.add_mutually_exclusive_group()
+	argstac = argh.add_mutually_exclusive_group()
+	argpracy = argh.add_mutually_exclusive_group()
+	argdebugu = argh.add_mutually_exclusive_group()
 	argzapisu = argh  # .add_mutually_exclusive_group()
+	argadrlang = argh.add_mutually_exclusive_group()
 	arggetu = argh.add_mutually_exclusive_group()
-	# argh.add_argument("-l", "--lang", type=str, help="Jednoznakowy kod języka: \nOne-character language code: \nUnulitera lingvkodo: \n - a - English \n - e - Esperanto \n - p - Polski \n - d - Deutsch \n ")
+
 	argchar.add_argument("-cs", "--charsafe", action="store_true",
 						 help='No "unsafe" national characters in language and adresses')
 	argchar.add_argument("-cn", "--charwithnational", action="store_true",
 						 help='Enable "unsafe" national characters in language and adresses')
+
 	arglang.add_argument("-la", "--langenglish", action="store_true", help="LANG: English")
 	arglang.add_argument("-le", "--langesperanto", action="store_true", help="LANG: Esperanto")
 	arglang.add_argument("-lp", "--langpolski", action="store_true", help="LANG: Polski")
 	arglang.add_argument("-ld", "--langdeutsch", action="store_true", help="LANG: Deutsch")
+
 	argwaitbetweenloops.add_argument(
 		"-t", "--waitbetweenloops", type=int,
 		help="Opóźnienie między zbieraniem danych w sekundach/Atendtempo/Delay between instances")
 	argwaitbetweenloops.add_argument("-td", "--defwaitbetweenloops", action="store_true",
 		help="-t z domyślną wartością/-t with default value")
 	argwaitbetweenloops.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
+
 	argstac.add_argument("-sa", "--allstations", action="store_true",
 		help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 	argstac.add_argument("-sd", "--defstations", action="store_true",
 		help="Domyślne stacje/[def] biciklstacjoj/Default stations")
 	argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 14),
 		help="Wybierz stację, można użyć wielokrotnie")
-	# argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
-	argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true",
-		help="Interfejs pełny z przedzieleniem na pętli i w wybranym języku adresami")
-	argpracy.add_argument("-pfl", "--pracyfulladrlanglocal", action="store_true",
-		help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami w alfabecie polskim")
-	# argpracy.add_argument("-pfle", "--pracyfulladrlanglocalenglishalphabet", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i w lokalnym(polskim) języku adresami w alfabecie angielskim")
-	argpracy.add_argument("-pr", "--pracyrazem", action="store_true",
-		help="Interfejs pełny tabelowy, wszystkie stacje w jednej linii")
+
+	argadrlang.add_argument("-al", "--adrlanglocal", action="store_true",help="Adresy w języku lokalnym (polskim), dotyczy trybów wyświetlania(pracy) z adresami")
+	argadrlang.add_argument("-ac", "--adrlangchosen",action="store_true",help="Adresy w wybranym języku, dotyczy trybów wyświetlania(pracy) z adresami")
+
+	argpracy.add_argument("-pf", "--pracyfull", action="store_true",help="Interfejs pełny z przedzieleniem na pętli i adresami")
+	argpracy.add_argument("-pr", "--pracyrazem", action="store_true",help="Interfejs pełny tabelowy, wszystkie stacje w jednej linii")
 	argpracy.add_argument("-pl", "--pracylong", action="store_true", help="Interfejs pełny z przedzieleniem na pętli")
 	argpracy.add_argument("-pu", "--pracyuser", action="store_true", help="Interfejs pełny ciągły")
-	# argpracy.add_argument("-pa", "--pracyadres", action="store_true", help="Interfejs pełny z adresami")
 	argpracy.add_argument("-pac", "--pracyadresadrlangchosen", action="store_true",
 		help="Interfejs pełny z w wybranym języku adresami")
 	argpracy.add_argument("-pal", "--pracyadresadrlanglocal", action="store_true",
