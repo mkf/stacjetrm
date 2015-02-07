@@ -10,7 +10,7 @@ Składnia/Syntax:
 ---------
 	python trmstacli.py [OPTIONS-OPCJE]
 	
-Recomended:
+Recommended:
 ---------
 	python trmstacli.py --help
 
