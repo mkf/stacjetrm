@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta
-defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
+defprac="full";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
 defget = "k";defadrlangczy = "l";defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(defwvt,defwvc)
@@ -11,19 +11,31 @@ instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
 
 #—————————————————————WRITE MODES——————————————————————————————————
-from ownlib.writekolczyraz import writekolczyraz as writerkolczyraza; writekolczyraz = writerkolczyraza(parmetry).writekolczyraz
-#if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile: multivol = 'j'
-#elif parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile or parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile: multivol = 't'
-#elif parmetry.writetocsvrazmulticountvolumefile or parmetry.writetocsvkolmulticountvolumefile: multivol = 'c'
-#else: multivol = 'n'
-tybyzapisu = []
-for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile,
-				  parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile,
-				  parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile, parmetry.writetocsvrazmulticountvolumefile,
-				  parmetry.writetocsvkolmulticountvolumefile):
-	try:
-		if len(tybzapisu) > 0: tybyzapisu.append(tybzapisu)
-	except: pass
+writetryby = {
+	"tocsvkolsinglefile": {'kolraz':'k','vol':'s','wtype':'csv','args':['filename']},
+	"tocsvrazsinglefile": {'kolraz':'r','vol':'s','wtype':'csv','args':['filename']},
+	'tocsvkolvolumesbytime':{'kolraz':'k','vol':'t','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvrazvolumesbytime':{'kolraz':'r','vol':'t','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvkolvolumesbycount':{'kolraz':'k','vol':'c','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvrazvolumesbycount':{'kolraz':'r','vol':'c','wtype':'csv','args':['filename','timebetwvol']},
+	'no':{'kolraz':'n','wtype':None,'args':None},
+}
+foundwrite=False
+listevejled=[]
+writekolczyraz=None
+for pr_probwrite_str in writetryby.keys():
+	evaledprobwrite=eval('parmetry.write{0}'.format(pr_probwrite_str))
+	if pr_probwrite_str=='no' and evaledprobwrite: break
+	if evaledprobwrite is not None and evaledprobwrite is not False:
+		foundwrite=True
+		trybofwrite=writetryby[pr_probwrite_str]
+		if writekolczyraz!='k':
+			if trybofwrite['kolraz']=='k': writekolczyraz='k'
+			elif writekolczyraz!='r' and trybofwrite['kolraz']=='r': writekolczyraz='r'
+		for evejled in evaledprobwrite: listevejled.append((trybofwrite,evejled))
+if not foundwrite: listevejled.append((writetryby['no'],None));writekolczyraz='n'
+
+print listevejled #debug
 
 #——————————————————————CHARACTER SAFETY——————————————————
 if parmetry.charsafe: lanchar = 'n'
@@ -62,47 +74,27 @@ else:
 
 #————————————————————PRACY————————————————————————
 pracedicto = {
-	'fulladrlangchosen':  {'pracy':'f', 'kolczyraz':'k','adrlangczy':'c'},
-	'fulladrlanglocal':   {'pracy':'f', 'kolczyraz':'k','adrlangczy':'l'},
-	'long':               {'pracy':'l', 'kolczyraz':'k'},
-	'razem':              {'pracy':'l', 'kolczyraz':'r'},
-	'razkomp':            {'pracy':'rk','kolczyraz':'r'},
-	'user':               {'pracy':'u', 'kolczyraz':'k'},
-	'adresadrlangchosen': {'pracy':'a', 'kolczyraz':'k','adrlangczy':'c'},
-	'adresadrlanglocal' : {'pracy':'a', 'kolczyraz':'k','adrlangczy':'l'},
-	'tabelaadrlangchosen':{'pracy':'t', 'kolczyraz':'k','adrlangczy':'c'},
-	'tabelaadrlanglocal' :{'pracy':'t', 'kolczyraz':'k','adrlangczy':'l'},
-	'komp':               {'pracy':'k', 'kolczyraz':'k'},
-	'compressed':         {'pracy':'c', 'kolczyraz':'k'},
-	'minim':              {'pracy':'m', 'kolczyraz':'k'},
-	'none':               {'pracy':'n', 'kolczyraz':'n'},
-	'def':                {'pracy':None}
+	'full':      {'pracy':'f', 'kolczyraz':'k','needadrlangczy':True},
+	'long':      {'pracy':'l', 'kolczyraz':'k'},
+	'razem':     {'pracy':'r', 'kolczyraz':'r'},
+	'razkomp':   {'pracy':'rk','kolczyraz':'r'},
+	'user':      {'pracy':'u', 'kolczyraz':'k'},
+	'adres':     {'pracy':'a', 'kolczyraz':'k','needadrlangczy':True},
+	'tabela':    {'pracy':'t', 'kolczyraz':'k','needadrlangczy':True},
+	'komp':      {'pracy':'k', 'kolczyraz':'k'},
+	'compressed':{'pracy':'c', 'kolczyraz':'k'},
+	'minim':     {'pracy':'m', 'kolczyraz':'k'},
+	'none':      {'pracy':'n', 'kolczyraz':'n'},
+	'def':       {'pracy':None}
 }
 foundpraca=False
-for probprac in pracedicto.keys():
-	if eval('parmetry.pracy'+probprac):
-		pracprob=pracedicto[probprac] if not probprac=='def' else None
-		pracy=pracprob['pracy'] if not probprac=='def' else defpracy
-		setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy]) if probprac=='def' else None
-		assert setkolczyrazowdefpracy is None or len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
-		kolczyraz=pracprob['kolczyraz'] if not probprac=='def' else (list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None)
-		if not probprac=='def':
-			if 'adrlangczy' in pracprob: adrlangczy=pracprob['adrlangczy']
-		else:
-			setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
-			assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
-			if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
-		foundpraca=True
-		break
-if not foundpraca:
-	pracy=defpracy
-	setkolczyrazowdefpracy = set([kcre['kolczyraz'] for kcre in pracedicto.values() if kcre['pracy']==pracy])
-	assert len(setkolczyrazowdefpracy)==1, 'setkolczyrazowdefpracy: %s'%str(setkolczyrazowdefpracy)
-	kolczyraz=list(setkolczyrazowdefpracy)[0] if setkolczyrazowdefpracy is not None else None
-	setadrlangczow = set(['adrlangczy' in alce for alce in pracedicto.values() if alce['pracy']==pracy])
-	assert len(setadrlangczow)==1,'setadrlangczow: %s'%str(setadrlangczow)
-	if list(setadrlangczow)[0]: adrlangczy=defadrlangczy
-
+for probprace in pracedicto.keys():
+	if eval('parmetry.pracy'+probprace):probprac=probprace;foundpraca=True;break
+if not foundpraca or probprac=='def':probprac=defprac
+pracprob=pracedicto[probprac]
+pracy=pracprob['pracy']
+kolczyraz=pracprob['kolczyraz']
+if 'adrlangczy' in pracprob: adrlangczy='l' if parmetry['adrlanglocal'] else 'c' if parmetry['adrlangchosen'] else defadrlangczy
 
 #———————————————JĘZYK ADRESÓW —————————————————————
 try: jezadr = adrlangczy
@@ -131,11 +123,8 @@ elif kolczyraz == 'n':
 # sęk w tym, że będzie to miało sens dopiero, gdy powstanie zapis
 else:
 	print 'kolczyraz nie jest ani k, ani r, ani n, więc czym jest?! Przecież ten program nie może, ot tak, niczego nie robić!'
-	try: print 'Otóż jest on stringiem "%s"' % str(kolczyraz) ; raise ValueError
-	except TypeError:
-		print 'Otóź nie jest on nawet stringiem. Jego wartość to:'
-		print kolczyraz
-		raise TypeError
+	try: raise ValueError('Otóż jest on stringiem "%s"' % str(kolczyraz))
+	except TypeError:raise TypeError('Otóź nie jest on nawet stringiem. Jego wartość to: %s'%str(kolczyraz))
 
 
 #———————————————– TRYB POBIERANIA : KOLEJNO CZY JEDNOCZEŚNIE — DZIAŁ OSTATECZNEGO PARAMETRU —————————————————————_
