@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta
 defprac="full";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="esperanto"
-defget = "k";defadrlangczy = "l";defwvt = 24;defwvc = 1000
+defget = "k";defadrlangczy = "l"
 from ownlib.argparsingtrmstacli import argparsowanie
-parmetry=argparsowanie(defwvt,defwvc)
+parmetry=argparsowanie()
 
 #—————————————INSTAWRITE,,INSTADISP———————————————————————————
 instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0

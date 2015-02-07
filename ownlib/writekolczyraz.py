@@ -1,3 +1,4 @@
+# coding=utf-8
 class writekolczyraz:
 	def __init__(self,parmetry):
 		try:

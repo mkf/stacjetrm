@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-def argparsowanie(defwvt,defwvc):
+def argparsowanie():
 	import argparse
 	argh = argparse.ArgumentParser()
 
