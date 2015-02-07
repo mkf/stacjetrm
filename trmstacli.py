@@ -11,20 +11,31 @@ instawrite = 1 if parmetry.instantly or parmetry.instawrite else 0
 instadisp = 1 if parmetry.instantly or parmetry.instadisp else 0
 
 #—————————————————————WRITE MODES——————————————————————————————————
-from ownlib.writekolczyraz import writekolczyraz as writerkolczyraza; writekolczyraz = writerkolczyraza(parmetry).writekolczyraz
-#if parmetry.writetocsvkolsinglefile or parmetry.writetocsvrazsinglefile: multivol = 'j'
-#elif parmetry.writetocsvrazmultiwaitbetweenloopsvolumefile or parmetry.writetocsvkolmultiwaitbetweenloopsvolumefile: multivol = 't'
-#elif parmetry.writetocsvrazmulticountvolumefile or parmetry.writetocsvkolmulticountvolumefile: multivol = 'c'
-#else: multivol = 'n'
-tybyzapisu = []
-for tybzapisu in (parmetry.writetocsvkolsinglefile, parmetry.writetocsvrazsinglefile,
-				  parmetry.writetocsvrazvolumesbytime,
-				  parmetry.writetocsvkolvolumesbytime, parmetry.writetocsvrazvolumesbycount,
-				  parmetry.writetocsvkolvolumesbycount):
-	try:
-		if len(tybzapisu) > 0:
-			for jtybzapisu in tybzapisu: tybyzapisu.append(jtybzapisu)
-	except: pass
+writetryby = {
+	"tocsvkolsinglefile": {'kolraz':'k','vol':'s','wtype':'csv','args':['filename']},
+	"tocsvrazsinglefile": {'kolraz':'r','vol':'s','wtype':'csv','args':['filename']},
+	'tocsvkolvolumesbytime':{'kolraz':'k','vol':'t','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvrazvolumesbytime':{'kolraz':'r','vol':'t','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvkolvolumesbycount':{'kolraz':'k','vol':'c','wtype':'csv','args':['filename','timebetwvol']},
+	'tocsvrazvolumesbycount':{'kolraz':'r','vol':'c','wtype':'csv','args':['filename','timebetwvol']},
+	'no':{'kolraz':'n','wtype':None,'args':None},
+}
+foundwrite=False
+listevejled=[]
+writekolczyraz=None
+for pr_probwrite_str in writetryby.keys():
+	evaledprobwrite=eval('parmetry.write{0}'.format(pr_probwrite_str))
+	if pr_probwrite_str=='no' and evaledprobwrite: break
+	if evaledprobwrite is not None and evaledprobwrite is not False:
+		foundwrite=True
+		trybofwrite=writetryby[pr_probwrite_str]
+		if writekolczyraz!='k':
+			if trybofwrite['kolraz']=='k': writekolczyraz='k'
+			elif writekolczyraz!='r' and trybofwrite['kolraz']=='r': writekolczyraz='r'
+		for evejled in evaledprobwrite: listevejled.append((trybofwrite,evejled))
+if not foundwrite: listevejled.append((writetryby['no'],None));writekolczyraz='n'
+
+print listevejled #debug
 
 #——————————————————————CHARACTER SAFETY——————————————————
 if parmetry.charsafe: lanchar = 'n'
