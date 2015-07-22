@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# TODO: Add new stations
 class orzeczim:
 	u"""To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"""
 
@@ -32,7 +31,20 @@ class orzeczim:
 			'010TOR': 'PKP Torun Glowny',
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
-			'013TOR': 'ul. Dabrowskiego - Dworzec autobusowy'
+			'013TOR': 'ul. Dabrowskiego - Dworzec autobusowy',
+                        '014TOR': 'ul. Waly gen. Sikorskiego - Urzad Miasta',
+                        '015TOR': 'ul. Gen. Jozefa Bema - Tor-Tor',
+                        '016TOR': 'ul. Przysiecka - Barbarka',
+                        '017TOR': 'ul. Bazynskich - basen',
+                        '018TOR': 'PKP Torun Wschodni',
+                        '019TOR': 'ul. Kosciuszki / ul. Swietopelka',
+                        '020TOR': 'ul. Mickiewicza / ul. Tujakowskiego',
+                        '021TOR': 'ul. Gagarina - Od Nowa',
+                        '022TOR': 'ul. Rydygiera / ul. Donimirskiego',
+                        '023TOR': 'ul. Kolankowskiego / ul. Kosynierow',
+                        '024TOR': 'ul. Sw. Klemensa / ul. Sw. Jozefa',
+                        '025TOR': 'ul. Legionow - Rondo Czadcy',
+                        '026TOR': 'ul. Zolkiewskiego - Atrium Copernicus'
 		}
 		adrlocnatio = {
 			'001TOR': u'Rynek Staromiejski',
@@ -47,7 +59,20 @@ class orzeczim:
 			'010TOR': u'PKP Toruń Główny',
 			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
-			'013TOR': u'ul. Dąbrowskiego - Dworzec autobusowy'
+			'013TOR': u'ul. Dąbrowskiego - Dworzec autobusowy',
+                        '014TOR': u'ul. Wały gen. Sikorskiego - Urząd Miasta',
+                        '015TOR': u'ul. Gen. Józefa Bema - Tor-Tor',
+                        '016TOR': u'ul. Przysiecka - Barbarka',
+                        '017TOR': u'ul. Bażyńskich - basen',
+                        '018TOR': u'PKP Toruń Wschodni',
+                        '019TOR': u'ul. Kościuszki / ul. Świętopełka',
+                        '020TOR': u'ul. Mickiewicza / ul. Tujakowskiego',
+                        '021TOR': u'ul. Gagarina - Od Nowa',
+                        '022TOR': u'ul. Rydygiera / ul. Donimirskiego',
+                        '023TOR': u'ul. Kolankowskiego / ul. Kosynierów',
+                        '024TOR': u'ul. Św. Klemensa / ul. Św. Józefa',
+                        '025TOR': u'ul. Legionów - Rondo Czadcy',
+                        '026TOR': u'ul. Zółkiewskiego - Atrium Copernicus'
 		}
 		if jezadr == "c":
 			ad = jezyu.lanstac
