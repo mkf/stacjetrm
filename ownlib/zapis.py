@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: Add new stations
 class zapis:
 	"""To jest klasa sluzaca do zapisu m.in. do csv, ale chyba do baz danych tez"""
 

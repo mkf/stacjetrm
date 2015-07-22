@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: Add new stations
 class orzeczim:
 	u"""To jest klasa orzeczenia imiennego i w ogole outputu standardowego dotycząca wyświetlania kolejnego"""
 
