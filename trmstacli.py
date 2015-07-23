@@ -130,6 +130,7 @@ elif parmetry.withoutdb: czydb = False
 
 plikdb = 'trmdata.db'
 try: plikdb = parmetry.dbfile
+except: pass
 
 # import datewaitbetweenloops
 # import waitbetweenloops
