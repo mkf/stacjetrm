@@ -124,6 +124,13 @@ elif parmetry.debugno: debugu = "n"
 elif parmetry.debugdef: debugu = defdebugu
 else: debugu = defdebugu
 
+#——————————————DB———————————————————
+if parmetry.withdb: czydb = True
+elif parmetry.withoutdb: czydb = False
+
+plikdb = 'trmdata.db'
+try: plikdb = parmetry.dbfile
+
 # import datewaitbetweenloops
 # import waitbetweenloops
 
@@ -159,15 +166,15 @@ else:
 #——————————————————— RUN! —————————————————————————————————————
 if pob == 'k':  # kolejno
 	from ownlib.getkol import *
-	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
+	if waitbetweenloops == "singlecheck": getkol(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite, czydb = czydb, plikdb = plikdb)
 	elif type(waitbetweenloops) == int:
 		from time import sleep
-		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; sleep(waitbetweenloops)
+		while True: getkol(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite, czydb=czydb, plikdb=plikdb) ; sleep(waitbetweenloops)
 elif pob == 'j':  # jednocześnie
 	from ownlib.getjednoczesnie import *
-	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite)
+	if waitbetweenloops == "singlecheck": getjednoczesnie(sta, pracy, debugu, lan, jezadr, lanchar, instadisp, instawrite,czydb=czydb,plikdb=plikdb)
 	elif type(waitbetweenloops) == int:
 		from time import sleep
-		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite) ; sleep(waitbetweenloops)
+		while True: getjednoczesnie(sta,pracy,debugu,lan,jezadr,lanchar,instadisp,instawrite,czydb=czydb, plikdb=plikdb) ; sleep(waitbetweenloops)
 elif pob == 'w':  # kolejno-wait (getkolwait)
 	pass

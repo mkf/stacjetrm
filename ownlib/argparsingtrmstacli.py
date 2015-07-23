@@ -3,6 +3,7 @@ def argparsowanie():
 	import argparse
 	argh = argparse.ArgumentParser()
 
+        argczydb = argh.add_mutually_exclusive_group()
 	arglang = argh.add_mutually_exclusive_group()
 	argchar = argh.add_mutually_exclusive_group()
 	argwaitbetweenloops = argh.add_mutually_exclusive_group()
@@ -52,6 +53,10 @@ def argparsowanie():
 	argdebugu.add_argument("-bn", "--debugno", action="store_true", help="Debug wyłączony")
 	argdebugu.add_argument("-bd", "--debugdef", action="store_true", help="Domyślne opcje debugu")
 
+        argczydb.add_argument("-db", "--withdb", action="store_true", help="Użyj bazy danych")
+        argczydb.add_argument("-ndb", "--withoutdb", action="store_true", help="Nie używaj bazy danych")
+
+        argh.add_argument("-dbf", "--dbfile", type=str, help="Nazwa pliku bazy danych")
 
 	argzapisu.add_argument("-wcksf","--writetocsvkolsinglefile",type=str,nargs=1,action="append",help="Zapis do csv (stacje kolejno, po jednej na linię - czas zapisywany dla każdego odczytu z osobna), do pojedyńczego pliku, bez podziału na wolumeny,wpisz nazwę pliku")
 	argzapisu.add_argument("-wcrsf", "--writetocsvrazsinglefile", type=str, nargs=1,action="append",help="Zapis do csv (wszystkie stacje naraz, w jednej linii - czas zapisywany jednorazowo dla całej serii odczytów), do pojedyńczego pliku, bez podziału na wolumeny,wpisz nazwę pliku")
