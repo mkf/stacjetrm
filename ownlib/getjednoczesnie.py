@@ -14,11 +14,11 @@ class getjednoczesnie:
 			else: t = threading.Thread(target=kolejka, args=(q, s, iwri, idis)) ; t.daemon = True ; t.start()
 	def si(self, s, iwri, idis):
 		lan = self.lan ; sa = 0 ; sw = 0
-		assert int(s) ==0 or int(s)==100 or int(s)<0 or int(s)<=13, "%s: %s" % (lan.dictu['badstacparam'],str(s))
+		assert int(s) ==0 or int(s)==100 or int(s)<0 or int(s)<=26, "%s: %s" % (lan.dictu['badstacparam'],str(s))
 		if int(s) == 0: sa = 1 ; a = 'a' ; return a
 		elif int(s) == 100: sw = 1 ; a = 'w' ; return a
 		elif int(s) < 0: o = int(s) * (-1) ; a = self.si(o, iwri, idis) ; return a
-		elif int(s) <= 13:
+		elif int(s) <= 26:
 			from ownlib.download import download
 			a = download(int(s), lan.dictu).raz()
 			if iwri == 1: print "instawrite"
