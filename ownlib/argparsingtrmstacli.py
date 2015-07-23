@@ -27,10 +27,9 @@ def argparsowanie():
 	argwaitbetweenloops.add_argument("-t", "--waitbetweenloops", type=int,help="Opóźnienie między zbieraniem danych w sekundach/Atendtempo/Delay between instances")
 	argwaitbetweenloops.add_argument("-td", "--defwaitbetweenloops", action="store_true",help="-t z domyślną wartością/-t with default value")
 	argwaitbetweenloops.add_argument("-ts", "--singlecheck", action="store_true", help="Jednorazowe sprawdzenie/Check once")
-
 	argstac.add_argument("-sa", "--allstations", action="store_true",help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 	argstac.add_argument("-sd", "--defstations", action="store_true",help="Domyślne stacje/[def] biciklstacjoj/Default stations")
-	argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 14),help="Wybierz stację, można użyć wielokrotnie")
+	argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 27),help="Wybierz stację, można użyć wielokrotnie")
 
 	argadrlang.add_argument("-al", "--adrlanglocal", action="store_true",help="Adresy w języku lokalnym (polskim), dotyczy trybów wyświetlania(pracy) z adresami")
 	argadrlang.add_argument("-ac", "--adrlangchosen",action="store_true",help="Adresy w wybranym języku, dotyczy trybów wyświetlania(pracy) z adresami")

@@ -65,7 +65,21 @@ class de_natio:
 			'010TOR': u'PKP Torun Glowny',
 			'011TOR': u'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': u'ul. Konstytucji 3 Maja - Pawilon Maciej',
-			'013TOR': u'ul. Dabrowskiego — Dworzec autobusowy'
+			'013TOR': u'ul. Dabrowskiego — Dworzec autobusowy',
+                        '014TOR': u'ul. Waly gen. Sikorskiego - Urzad Miasta',
+                        '015TOR': u'ul. Gen. Jozefa Bema - Tor-Tor',
+                        '016TOR': u'ul. Przysiecka - Barbarka',
+                        '017TOR': u'ul. Bazynskich - basen',
+                        '018TOR': u'PKP Torun Wschodni',
+                        '019TOR': u'ul. Kosciuszki / ul. Swietopelka',
+                        '020TOR': u'ul. Mickiewicza / ul. Tujakowskiego',
+                        '021TOR': u'ul. Gagarina - Od Nowa',
+                        '022TOR': u'ul. Rydygiera / ul. Donimirskiego',
+                        '023TOR': u'ul. Kolankowskiego / ul. Kosynierow',
+                        '024TOR': u'ul. Sw. Klemensa / ul. Sw. Jozefa',
+                        '025TOR': u'ul. Legionow - Rondo Czadcy',
+                        '026TOR': u'ul. Zolkiewskiego - Atrium Copernicus'
+
 		}
 		return lanstadict
 
@@ -138,7 +152,21 @@ class de_safe:
 			'010TOR': 'PKP Torun Glowny',
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
-			'013TOR': 'ul. Dabrowskiego — Dworzec autobusowy'
+			'013TOR': 'ul. Dabrowskiego — Dworzec autobusowy',
+                        '014TOR': 'ul. Waly gen. Sikorskiego - Urzad Miasta',
+                        '015TOR': 'ul. Gen. Jozefa Bema - Tor-Tor',
+                        '016TOR': 'ul. Przysiecka - Barbarka',
+                        '017TOR': 'ul. Bazynskich - basen',
+                        '018TOR': 'PKP Torun Wschodni',
+                        '019TOR': 'ul. Kosciuszki / ul. Swietopelka',
+                        '020TOR': 'ul. Mickiewicza / ul. Tujakowskiego',
+                        '021TOR': 'ul. Gagarina - Od Nowa',
+                        '022TOR': 'ul. Rydygiera / ul. Donimirskiego',
+                        '023TOR': 'ul. Kolankowskiego / ul. Kosynierow',
+                        '024TOR': 'ul. Sw. Klemensa / ul. Sw. Jozefa',
+                        '025TOR': 'ul. Legionow - Rondo Czadcy',
+                        '026TOR': 'ul. Zolkiewskiego - Atrium Copernicus'
+
 		}
 		return lanstadict
 		# powyzsze trzeba bedzie przetlumaczyc na niemiecki w angielskim alfabecie
