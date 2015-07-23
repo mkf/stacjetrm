@@ -25,7 +25,7 @@ def argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenlo
 		help="Wszystkie stacje/Ĉiuj biciklstacjoj/All stations")
 	argstac.add_argument("-sd", "--defstations", action="store_true",
 		help="Domyślne stacje/[def] biciklstacjoj/Default stations")
-	argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 14),
+	argstac.add_argument("-s", "--station", type=int, action="append", choices=range(1, 27),
 		help="Wybierz stację, można użyć wielokrotnie")
 	# argpracy.add_argument("-pf", "--pracyfull", action="store_true", help="Interfejs pełny z przedzieleniem na pętli i adresami")
 	argpracy.add_argument("-pfc", "--pracyfulladrlangchosen", action="store_true",

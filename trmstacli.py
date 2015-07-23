@@ -17,7 +17,7 @@
 # argu = sys.argv
 # prmdw = paramdemonwszystkich(argu)
 # lng = paramdemonwszystkich.lng()
-allsta=[1,2,3,4,5,6,7,8,9,10,11,12,13];defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
+allsta=list(range(1,27));defsta=allsta;defpracy="f";defdebugu="n";defwritemode="n";defwaitbetweenloops="singlecheck";deflang="e"
 defget = "k";defadrlangczy = "l";defadrchar = 'l';defwvt = 24;defwvc = 1000
 from ownlib.argparsingtrmstacli import argparsowanie
 parmetry=argparsowanie(allsta,defsta,defpracy,defdebugu,defwritemode,defwaitbetweenloops,deflang,defget,defadrlangczy,defadrchar,defwvt,defwvc)
