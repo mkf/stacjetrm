@@ -10,18 +10,22 @@ class getkol:
 		stacdict={};slownikczasow={}
                 self.czydb = czydb
                 self.plikdb = plikdb
-                #TODO
-		for s in stacje:
-			sa=0;sw=0
-			a = self.si(s)
-			if a[0] == 'a': sa=1;ssa=1
-			elif a[0] == 'w': sw=1;ssw=1
-			else:
-				try: stacdict[int(s)] = int(a[0])
-				except ValueError: stacdict[int(s)] = a[0] if a[0]=="Download failed" else int(a[0])
-				slownikczasow[int(s)] = int(a[1])
-				try: self.praca(int(s),int(a[0]),int(a[1]),pracy)
-				except ValueError: self.praca(int(s),a[0] if a[0]=="Download failed" else int(a[0]),int(a[1]),pracy)
+                class withdummy:
+                    def __init__(self): pass
+                    def __enter__(self): return self
+                    def __exit__(self, a,b,c): pass
+                with db(plikdb) if czydb else withdummy() as self.naszdb:
+                    for s in stacje:
+                        sa=0;sw=0
+                        a = self.si(s)
+                        if a[0] == 'a': sa=1;ssa=1
+                        elif a[0] == 'w': sw=1;ssw=1
+                        else:
+                            try: stacdict[int(s)] = int(a[0])
+                            except ValueError: stacdict[int(s)] = a[0] if a[0]=="Download failed" else int(a[0])
+                            slownikczasow[int(s)] = int(a[1])
+                            try: self.praca(int(s),int(a[0]),int(a[1]),pracy)
+                            except ValueError: self.praca(int(s),a[0] if a[0]=="Download failed" else int(a[0]),int(a[1]),pracy)
 		if ssa == 1:
 			stacdictal = {} ; allesstac = 0
 			for j in range(1,27):
@@ -51,7 +55,7 @@ class getkol:
 		lan = self.lan;jezadr = self.jezadr;lanchar = self.lanchar
 		from ownlib.pokaz import pokaz
 		if pr == 'n': pracowanie='nie'
-                if self.czydb: pass #TODO
+                if self.czydb: self.naszdb.write(row,st,utim)
 		else: pokaz(row,st,utim,pr,lan,jezadr,lanchar)
 	def slowstac(self):
 		return self.stacdict
