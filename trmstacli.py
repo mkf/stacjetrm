@@ -125,6 +125,7 @@ elif parmetry.debugdef: debugu = defdebugu
 else: debugu = defdebugu
 
 #——————————————DB———————————————————
+czydb = True
 if parmetry.withdb: czydb = True
 elif parmetry.withoutdb: czydb = False
 
