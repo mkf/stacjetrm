@@ -3,11 +3,14 @@ class getkol:
 	"""To jest klasa pobierania kolejno bez odstępu czasowego"""
 	#	import datetime
 	#	from ownlib.download import *
-		
-	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,czyzapis=False,zapisu='n'):
+        from ownlib.db import *
+	def __init__(self,stacje,pracy,debugu,lan,jezadr,lanchar,iwri,idis,czyzapis=False,zapisu='n',czydb=True,plikdb='trmdata.db'):
 		self.lan = lan ; self.jezadr = jezadr ; self.lanchar = lanchar
 		ssa=0;ssw=0  #te bardziej stałe odpowiedniki sa i sw. To co w sa i sw idzie też tu, ale sa i sw są zerowane po jednej pętli.
 		stacdict={};slownikczasow={}
+                self.czydb = czydb
+                self.plikdb = plikdb
+                #TODO
 		for s in stacje:
 			sa=0;sw=0
 			a = self.si(s)
@@ -48,6 +51,7 @@ class getkol:
 		lan = self.lan;jezadr = self.jezadr;lanchar = self.lanchar
 		from ownlib.pokaz import pokaz
 		if pr == 'n': pracowanie='nie'
+                if self.czydb: pass #TODO
 		else: pokaz(row,st,utim,pr,lan,jezadr,lanchar)
 	def slowstac(self):
 		return self.stacdict
