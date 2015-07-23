@@ -39,7 +39,7 @@ class getkol:
 		if int(s) == 0: sa = 1 ; a = 'a' ; return a
 		elif int(s) == 100: sw = 1;a = 'w';return a
 		elif int(s) < 0: o = int(s) * (-1) ; a = self.si(o) ; return a
-		elif int(s) <= 13:
+		elif int(s) <= 26:
 			from ownlib.download import download
 			thisisthedownloadinstance = download(int(s),lan.dictu)
 			a = thisisthedownloadinstance.raz()
