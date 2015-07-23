@@ -65,7 +65,21 @@ class english:
 			'010TOR': 'PKP Torun Glowny',
 			'011TOR': 'ul. Dziewulskiego - Komisariat Policji',
 			'012TOR': 'ul. Konstytucji 3 Maja - Pawilon Maciej',
-			'013TOR': 'ul. Dabrowskiego — Dworzec autobusowy'
+			'013TOR': 'ul. Dabrowskiego — Dworzec autobusowy',
+                        '014TOR': 'ul. Waly gen. Sikorskiego - Urzad Miasta',
+                        '015TOR': 'ul. Gen. Jozefa Bema - Tor-Tor',
+                        '016TOR': 'ul. Przysiecka - Barbarka',
+                        '017TOR': 'ul. Bazynskich - basen',
+                        '018TOR': 'PKP Torun Wschodni',
+                        '019TOR': 'ul. Kosciuszki / ul. Swietopelka',
+                        '020TOR': 'ul. Mickiewicza / ul. Tujakowskiego',
+                        '021TOR': 'ul. Gagarina - Od Nowa',
+                        '022TOR': 'ul. Rydygiera / ul. Donimirskiego',
+                        '023TOR': 'ul. Kolankowskiego / ul. Kosynierow',
+                        '024TOR': 'ul. Sw. Klemensa / ul. Sw. Jozefa',
+                        '025TOR': 'ul. Legionow - Rondo Czadcy',
+                        '026TOR': 'ul. Zolkiewskiego - Atrium Copernicus'
+
 		}
 		return lanstadict
 		# powyzsze trzeba bedzie przetlumaczyc na angielski
